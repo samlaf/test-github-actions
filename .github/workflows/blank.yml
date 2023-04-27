@@ -39,4 +39,4 @@ jobs:
     runs-on: ubuntu-latest
     environment: gated
     steps:
-      - run: echo "Deploying....!"
+      - run: echo "Deploying...!"

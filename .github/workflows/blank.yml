@@ -35,6 +35,7 @@ jobs:
           echo test, and deploy your project.
           
   deploy:
+    needs: build
     runs-on: ubuntu-latest
     environment: gated
     steps:

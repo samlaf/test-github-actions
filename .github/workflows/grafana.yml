@@ -34,15 +34,16 @@ jobs:
           chmod a+x "/usr/local/bin/grr"
 
       - name: Show diff between current PR and grafana state
+        id: diff
         env:
           GRAFANA_URL: https://eigenlayer.grafana.net
           GRAFANA_TOKEN: ${{ secrets.GRAFANA_TOKEN }}
-        run: grr diff -d grafana-dashboards/resources
+        run: |
+          grr diff -d grafana-dashboards/resources | tea diff.txt
       
       - uses: mshick/add-pr-comment@v2
         with:
-          message: |
-            grr diff -d grafana-dashboards/resources
+          message-path: diff.txt
 
           
   pull-changes:

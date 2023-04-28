@@ -69,9 +69,11 @@ jobs:
         run: |
           git config --global user.email "github@action.com"
           git config --global user.name "grafana github workflow"
-          git add grafana-dashboards/resources/*
-          git commit -m "GITHUB ACTION: committing grafana state"
-          git push
+          if git status --porcelaine | grep .; then
+            git add grafana-dashboards/resources/*
+            git commit -m "GITHUB ACTION: committing grafana state"
+            git push
+          fi
       
       - uses: mshick/add-pr-comment@v2
         with:

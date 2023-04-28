@@ -1,0 +1,469 @@
+apiVersion: grizzly.grafana.com/v1alpha1
+kind: Dashboard
+metadata:
+    folder: ae5394ac-176b-4491-a845-9480ac48a3b5
+    name: Main-EigenDA-Dashboard
+spec:
+    annotations:
+        list:
+            - builtIn: 1
+              datasource:
+                type: grafana
+                uid: -- Grafana --
+              enable: true
+              hide: true
+              iconColor: rgba(0, 211, 255, 1)
+              name: Annotations & Alerts
+              target:
+                limit: 100
+                matchAny: false
+                tags: []
+                type: dashboard
+              type: dashboard
+            - datasource:
+                type: datasource
+                uid: grafana
+              enable: true
+              iconColor: red
+              name: Alerts
+              target:
+                limit: 100
+                matchAny: false
+                tags: []
+                type: dashboard
+            - datasource:
+                type: prometheus
+                uid: grafanacloud-prom
+              enable: true
+              iconColor: red
+              name: New annotation
+    description: ""
+    editable: true
+    fiscalYearStartMonth: 0
+    graphTooltip: 0
+    links: []
+    liveNow: false
+    panels:
+        - datasource:
+            type: datasource
+            uid: grafana
+          gridPos:
+            h: 8
+            w: 9
+            x: 0
+            "y": 0
+          id: 24
+          options:
+            alertInstanceLabelFilter: ""
+            alertName: ""
+            dashboardAlerts: false
+            folder:
+                title: EigenDA Monitor
+                uid: SUDeuPhVz
+            groupBy: []
+            groupMode: default
+            maxItems: 20
+            sortOrder: 1
+            stateFilter:
+                error: true
+                firing: true
+                noData: false
+                normal: false
+                pending: true
+            viewMode: list
+          title: Alert list
+          type: alertlist
+        - datasource:
+            type: datasource
+            uid: grafana
+          description: ""
+          gridPos:
+            h: 8
+            w: 7
+            x: 9
+            "y": 0
+          id: 26
+          options:
+            code:
+                language: plaintext
+                showLineNumbers: false
+                showMiniMap: false
+            content: |-
+                Latest Event changes on devnet
+
+                https://app.gitbook.com/o/bJhVFeKDe5jNBwSZCd4B/s/ohvKF4REMMk6Jl2iD2wL/ops/grafana-widgets/latest-event
+            mode: markdown
+          pluginVersion: 9.5.0-cloud.5.a016665c
+          title: Event
+          type: text
+        - datasource:
+            type: datasource
+            uid: grafana
+          description: ""
+          gridPos:
+            h: 8
+            w: 8
+            x: 16
+            "y": 0
+          id: 28
+          options:
+            code:
+                language: plaintext
+                showLineNumbers: false
+                showMiniMap: false
+            content: |-
+                How to redeploy eigenDA with new contract
+
+                https://app.gitbook.com/o/bJhVFeKDe5jNBwSZCd4B/s/ohvKF4REMMk6Jl2iD2wL/ops/grafana-widgets/redeployment
+            mode: markdown
+          pluginVersion: 9.5.0-cloud.5.a016665c
+          title: Redeploy
+          type: text
+        - gridPos:
+            h: 8
+            w: 12
+            x: 0
+            "y": 8
+          id: 12
+          libraryPanel:
+            name: Dispersal Failure %
+            uid: CJ_y3WoVz
+          title: $cluster Dispersal Failure %
+        - datasource:
+            type: dashboard
+            uid: -- Dashboard --
+          gridPos:
+            h: 8
+            w: 6
+            x: 12
+            "y": 8
+          id: 32
+          options:
+            code:
+                language: plaintext
+                showLineNumbers: false
+                showMiniMap: false
+            content: https://app.gitbook.com/o/bJhVFeKDe5jNBwSZCd4B/s/ohvKF4REMMk6Jl2iD2wL/ops/grafana-widgets/common-problem-and-analysis
+            mode: markdown
+          pluginVersion: 9.5.0-cloud.5.a016665c
+          targets:
+            - datasource:
+                type: datasource
+                uid: -- Dashboard --
+              refId: A
+          title: common problem & analysis
+          type: text
+        - datasource:
+            type: dashboard
+            uid: -- Dashboard --
+          gridPos:
+            h: 8
+            w: 6
+            x: 18
+            "y": 8
+          id: 33
+          options:
+            code:
+                language: plaintext
+                showLineNumbers: false
+                showMiniMap: false
+            content: |-
+                How to restart traffic generator
+
+                https://app.gitbook.com/o/bJhVFeKDe5jNBwSZCd4B/s/ohvKF4REMMk6Jl2iD2wL/ops/grafana-widgets/restart-traffic-generator
+            mode: markdown
+          pluginVersion: 9.5.0-cloud.5.a016665c
+          targets:
+            - datasource:
+                type: datasource
+                uid: -- Dashboard --
+              refId: A
+          title: 'Restarting traffic Generator '
+          type: text
+        - datasource:
+            type: prometheus
+            uid: grafanacloud-prom
+          description: Measures p95 latency of dispersals in seconds.
+          fieldConfig:
+            defaults:
+                color:
+                    mode: palette-classic
+                custom:
+                    axisCenteredZero: false
+                    axisColorMode: text
+                    axisLabel: ""
+                    axisPlacement: auto
+                    barAlignment: 0
+                    drawStyle: line
+                    fillOpacity: 0
+                    gradientMode: none
+                    hideFrom:
+                        legend: false
+                        tooltip: false
+                        viz: false
+                    lineInterpolation: linear
+                    lineWidth: 1
+                    pointSize: 5
+                    scaleDistribution:
+                        type: linear
+                    showPoints: auto
+                    spanNulls: false
+                    stacking:
+                        group: A
+                        mode: none
+                    thresholdsStyle:
+                        mode: line+area
+                mappings: []
+                thresholds:
+                    mode: absolute
+                    steps:
+                        - color: green
+                          value: null
+                        - color: red
+                          value: 15000
+                unit: ms
+            overrides: []
+          gridPos:
+            h: 8
+            w: 12
+            x: 0
+            "y": 16
+          id: 30
+          options:
+            legend:
+                calcs: []
+                displayMode: list
+                placement: bottom
+                showLegend: true
+            tooltip:
+                mode: single
+                sort: none
+          targets:
+            - datasource:
+                type: prometheus
+                uid: grafanacloud-prom
+              editorMode: code
+              expr: dl_disperser_dispersal_latency_ms{quantile="0.95"}
+              legendFormat: '{{pod}},p={{quantile}}'
+              range: true
+              refId: A
+          title: Dispersal latency
+          type: timeseries
+        - datasource:
+            type: prometheus
+            uid: grafanacloud-prom
+          description: ""
+          fieldConfig:
+            defaults:
+                color:
+                    mode: palette-classic
+                custom:
+                    axisCenteredZero: false
+                    axisColorMode: text
+                    axisLabel: ""
+                    axisPlacement: auto
+                    barAlignment: 0
+                    drawStyle: line
+                    fillOpacity: 0
+                    gradientMode: none
+                    hideFrom:
+                        legend: false
+                        tooltip: false
+                        viz: false
+                    lineInterpolation: linear
+                    lineWidth: 1
+                    pointSize: 5
+                    scaleDistribution:
+                        type: linear
+                    showPoints: auto
+                    spanNulls: false
+                    stacking:
+                        group: A
+                        mode: none
+                    thresholdsStyle:
+                        mode: line+area
+                mappings: []
+                thresholds:
+                    mode: absolute
+                    steps:
+                        - color: dark-red
+                          value: null
+                        - color: green
+                          value: 6
+                unit: none
+            overrides: []
+          gridPos:
+            h: 8
+            w: 12
+            x: 12
+            "y": 16
+          id: 35
+          options:
+            legend:
+                calcs: []
+                displayMode: list
+                placement: bottom
+                showLegend: true
+            tooltip:
+                mode: single
+                sort: none
+          targets:
+            - datasource:
+                type: prometheus
+                uid: grafanacloud-prom
+              editorMode: code
+              expr: increase(dl_disperser_request{type="number", outcome="success", cluster=~"$cluster"}[2m])
+              legendFormat: __auto
+              range: true
+              refId: A
+          title: Request per second
+          type: timeseries
+        - gridPos:
+            h: 8
+            w: 12
+            x: 0
+            "y": 24
+          id: 16
+          libraryPanel:
+            name: System CPU percentage
+            uid: GKaH6WoVz
+          title: $cluster System CPU percentage
+        - gridPos:
+            h: 8
+            w: 12
+            x: 12
+            "y": 24
+          id: 14
+          libraryPanel:
+            name: Aggregated data throughput
+            uid: XCxZeZT4k
+          title: $cluster Aggregated data throughput
+        - gridPos:
+            h: 8
+            w: 12
+            x: 0
+            "y": 32
+          id: 2
+          libraryPanel:
+            name: Pod vCPU
+            uid: JThRdLh4z
+          title: $cluster/$namespace Pod vCPU
+        - gridPos:
+            h: 8
+            w: 12
+            x: 12
+            "y": 32
+          id: 18
+          libraryPanel:
+            name: System Memory Usage
+            uid: 2nyH6WoVz
+          title: $cluster System Memory Usage
+        - gridPos:
+            h: 8
+            w: 12
+            x: 0
+            "y": 40
+          id: 10
+          libraryPanel:
+            name: Pod TX bandwidth
+            uid: uGsVOL24k
+          title: $cluster/$namespace Pod TX bandwidth
+        - gridPos:
+            h: 8
+            w: 12
+            x: 12
+            "y": 40
+          id: 4
+          libraryPanel:
+            name: Pod Memory WSS (16G per node)
+            uid: 1MsRdL2Vz
+          title: $cluster/$namespace Pod Memory WSS (16G per node)
+        - gridPos:
+            h: 8
+            w: 12
+            x: 0
+            "y": 48
+          id: 22
+          libraryPanel:
+            name: Container restarts
+            uid: B8xB6YoVk
+          title: $cluster Container restarts
+        - gridPos:
+            h: 8
+            w: 12
+            x: 12
+            "y": 48
+          id: 8
+          libraryPanel:
+            name: Pod RX bandwidth
+            uid: O9T4dLhVz
+          title: $cluster/$namespace Pod RX bandwidth
+        - gridPos:
+            h: 8
+            w: 12
+            x: 12
+            "y": 56
+          id: 6
+          libraryPanel:
+            name: Persistent Volume %
+            uid: 6xgkOYhVk
+          title: $cluster/$namespace Persistent Volume %
+    refresh: 5m
+    revision: 1
+    schemaVersion: 38
+    style: dark
+    tags: []
+    templating:
+        list:
+            - current:
+                selected: true
+                text:
+                    - devnet-a
+                value:
+                    - devnet-a
+              datasource:
+                type: prometheus
+                uid: grafanacloud-prom
+              definition: label_values(up{job="integrations/kubernetes/cadvisor"}, cluster)
+              hide: 0
+              includeAll: false
+              multi: true
+              name: cluster
+              options: []
+              query:
+                query: label_values(up{job="integrations/kubernetes/cadvisor"}, cluster)
+                refId: StandardVariableQuery
+              refresh: 2
+              regex: ""
+              skipUrlSync: false
+              sort: 0
+              type: query
+            - current:
+                selected: false
+                text: default
+                value: default
+              datasource:
+                type: prometheus
+                uid: grafanacloud-prom
+              definition: label_values(kube_namespace_status_phase{job="integrations/kubernetes/kube-state-metrics", cluster="$cluster"}, namespace)
+              hide: 0
+              includeAll: false
+              multi: true
+              name: namespace
+              options: []
+              query:
+                query: label_values(kube_namespace_status_phase{job="integrations/kubernetes/kube-state-metrics", cluster="$cluster"}, namespace)
+                refId: StandardVariableQuery
+              refresh: 2
+              regex: ""
+              skipUrlSync: false
+              sort: 1
+              type: query
+    time:
+        from: now-7d
+        to: now
+    timepicker: {}
+    timezone: ""
+    title: Main EigenDA Dashboard
+    uid: Main-EigenDA-Dashboard
+    weekStart: ""

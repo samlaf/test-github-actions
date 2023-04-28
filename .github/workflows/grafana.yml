@@ -54,6 +54,9 @@ jobs:
     steps:
 
       - uses: actions/checkout@v3
+        with:
+          # crucial otherwise Git push is performed with github.token and not the token you configure using the env: GITHUB_TOKEN.
+          persist-credentials: false
 
       - name: Checkout PR
         env:
@@ -75,6 +78,8 @@ jobs:
       - name: Push changes
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        # this doesn't seem to work
+        # TODO: switch to https://github.com/marketplace/actions/create-or-update-pull-request
         run: |
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git config --global user.name "github-actions[bot]"

@@ -69,7 +69,7 @@ jobs:
         run: |
           git config --global user.email "github@action.com"
           git config --global user.name "grafana github workflow"
-          if git status --porcelaine | grep .; then
+          if git status --porcelain | grep .; then
             git add grafana-dashboards/resources/*
             git commit -m "GITHUB ACTION: committing grafana state"
             git push

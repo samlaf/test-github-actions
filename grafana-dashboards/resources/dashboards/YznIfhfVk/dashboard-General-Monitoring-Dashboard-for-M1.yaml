@@ -1903,6 +1903,7 @@ spec:
                     mode: absolute
                     steps:
                         - color: green
+                          value: null
                         - color: red
                           value: 80
             overrides: []
@@ -2005,6 +2006,7 @@ spec:
                     mode: absolute
                     steps:
                         - color: green
+                          value: null
                         - color: red
                           value: 80
             overrides: []
@@ -2104,6 +2106,7 @@ spec:
                     mode: absolute
                     steps:
                         - color: green
+                          value: null
                         - color: red
                           value: 80
             overrides: []
@@ -2408,7 +2411,7 @@ spec:
                 language: plaintext
                 showLineNumbers: false
                 showMiniMap: false
-            content: 'Note: it''s normal for nethermind client to use >20G of RAM'
+            content: 'Note: it''s normal for nethermind client to use >20G of RAM '
             mode: markdown
           pluginVersion: 9.5.0-cloud.5.a016665c
           type: text
@@ -2454,6 +2457,7 @@ spec:
                     mode: absolute
                     steps:
                         - color: green
+                          value: null
                         - color: red
                           value: 0.8
                 unit: percentunit
@@ -2526,6 +2530,7 @@ spec:
                     mode: absolute
                     steps:
                         - color: green
+                          value: null
                         - color: red
                           value: 2
             overrides: []
@@ -2597,6 +2602,7 @@ spec:
                     mode: absolute
                     steps:
                         - color: green
+                          value: null
                         - color: red
                           value: 0.8
                 unit: percentunit
@@ -2669,6 +2675,7 @@ spec:
                     mode: absolute
                     steps:
                         - color: green
+                          value: null
                         - color: red
                           value: 16
                 unit: decgbytes
@@ -2715,6 +2722,7 @@ spec:
                     mode: absolute
                     steps:
                         - color: green
+                          value: null
                         - color: red
                           value: 70
             overrides: []
@@ -2739,7 +2747,7 @@ spec:
                 fields: ""
                 values: false
             textMode: auto
-          pluginVersion: 9.5.0-cloud.4.a016665c
+          pluginVersion: 9.5.0-cloud.5.a016665c
           targets:
             - datasource:
                 type: prometheus
@@ -2777,6 +2785,7 @@ spec:
                     mode: absolute
                     steps:
                         - color: green
+                          value: null
             overrides: []
           gridPos:
             h: 4
@@ -2795,7 +2804,7 @@ spec:
                 fields: ""
                 values: false
             textMode: auto
-          pluginVersion: 9.5.0-cloud.4.a016665c
+          pluginVersion: 9.5.0-cloud.5.a016665c
           targets:
             - columns: []
               datasource:
@@ -2831,6 +2840,7 @@ spec:
                     mode: absolute
                     steps:
                         - color: green
+                          value: null
             overrides: []
           gridPos:
             h: 4
@@ -2850,7 +2860,7 @@ spec:
                 values: false
             text: {}
             textMode: auto
-          pluginVersion: 9.5.0-cloud.4.a016665c
+          pluginVersion: 9.5.0-cloud.5.a016665c
           targets:
             - columns: []
               datasource:
@@ -2886,6 +2896,7 @@ spec:
                     mode: absolute
                     steps:
                         - color: green
+                          value: null
                 unit: none
             overrides: []
           gridPos:
@@ -2904,7 +2915,7 @@ spec:
                 fields: /.*/
                 values: true
             textMode: auto
-          pluginVersion: 9.5.0-cloud.4.a016665c
+          pluginVersion: 9.5.0-cloud.5.a016665c
           targets:
             - columns:
                 - selector: ""
@@ -2950,6 +2961,7 @@ spec:
                     mode: absolute
                     steps:
                         - color: green
+                          value: null
             overrides: []
           gridPos:
             h: 8
@@ -2968,7 +2980,7 @@ spec:
                 fields: ""
                 values: false
             textMode: auto
-          pluginVersion: 9.5.0-cloud.4.a016665c
+          pluginVersion: 9.5.0-cloud.5.a016665c
           targets:
             - datasource:
                 type: prometheus
@@ -2995,6 +3007,7 @@ spec:
                     mode: absolute
                     steps:
                         - color: green
+                          value: null
             overrides: []
           gridPos:
             h: 8
@@ -3013,7 +3026,7 @@ spec:
                 fields: ""
                 values: false
             textMode: auto
-          pluginVersion: 9.5.0-cloud.4.a016665c
+          pluginVersion: 9.5.0-cloud.5.a016665c
           targets:
             - datasource:
                 type: prometheus
@@ -3038,6 +3051,7 @@ spec:
                     mode: absolute
                     steps:
                         - color: green
+                          value: null
                 unit: none
             overrides: []
           gridPos:
@@ -3057,7 +3071,7 @@ spec:
                 fields: ""
                 values: false
             textMode: auto
-          pluginVersion: 9.5.0-cloud.4.a016665c
+          pluginVersion: 9.5.0-cloud.5.a016665c
           targets:
             - datasource:
                 type: prometheus
@@ -3082,6 +3096,7 @@ spec:
                     mode: absolute
                     steps:
                         - color: green
+                          value: null
             overrides: []
           gridPos:
             h: 8
@@ -3100,7 +3115,7 @@ spec:
                 fields: ""
                 values: false
             textMode: auto
-          pluginVersion: 9.5.0-cloud.4.a016665c
+          pluginVersion: 9.5.0-cloud.5.a016665c
           targets:
             - datasource:
                 type: prometheus
@@ -3134,7 +3149,7 @@ spec:
                 <--- TODO --->:
                 General issue with restarting leaves a duplicate
             mode: markdown
-          pluginVersion: 9.5.0-cloud.4.a016665c
+          pluginVersion: 9.5.0-cloud.5.a016665c
           type: text
         - datasource:
             type: prometheus
@@ -3149,6 +3164,7 @@ spec:
                     mode: absolute
                     steps:
                         - color: green
+                          value: null
             overrides: []
           gridPos:
             h: 8
@@ -3167,7 +3183,7 @@ spec:
                 fields: ""
                 values: false
             textMode: auto
-          pluginVersion: 9.5.0-cloud.4.a016665c
+          pluginVersion: 9.5.0-cloud.5.a016665c
           targets:
             - datasource:
                 type: prometheus

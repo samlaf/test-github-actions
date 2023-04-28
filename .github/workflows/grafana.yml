@@ -36,6 +36,13 @@ jobs:
           GRAFANA_URL: https://eigenlayer.grafana.net
           GRAFANA_TOKEN: ${{ secrets.GRAFANA_TOKEN }}
         run: grr diff -d grafana-dashboards/resources
+      
+      - uses: mshick/add-pr-comment@v2
+        with:
+          message: |
+            **Hello**
+            🌏
+            !
 
           
   pull-changes:

@@ -1,25 +1,14 @@
-name: test
-on:
-  workflow_dispatch:
-
+name: Example Push Action
+on: push
 jobs:
   build:
     runs-on: ubuntu-latest
-    env: 
-      CI_COMMIT_MESSAGE: Continuous Integration Build Artifacts
-      CI_COMMIT_AUTHOR: Continuous Integration
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
-    - uses: actions/checkout@v3
-
-    # Build steps
-    - run: "date > datetime.txt" # create or update a test.txt file
-
-    # Commit and push all changed files.
-    - name: GIT Commit Build Artifacts (coverage, dist, devdist, docs)
-      run: |
-        git config --global user.name "${{ env.CI_COMMIT_AUTHOR }}"
-        git config --global user.email "username@users.noreply.github.com"
-        git add *
-        git commit -a -m "${{ env.CI_COMMIT_MESSAGE }}"
-        git push
+      - uses: actions/checkout@v3
+      - run: |
+          date > generated.txt
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git add .
+          git commit -m "generated"
+          git push

@@ -1,0 +1,19 @@
+apiVersion: grizzly.grafana.com/v1alpha1
+kind: DashboardFolder
+metadata:
+    name: ae5394ac-176b-4491-a845-9480ac48a3b5
+spec:
+    canAdmin: true
+    canDelete: true
+    canEdit: true
+    canSave: true
+    created: "2023-04-27T18:54:58Z"
+    createdBy: samlaf
+    hasAcl: false
+    id: 167
+    title: _EigenDA
+    uid: ae5394ac-176b-4491-a845-9480ac48a3b5
+    updated: "2023-04-27T22:15:00Z"
+    updatedBy: Anonymous
+    url: /dashboards/f/ae5394ac-176b-4491-a845-9480ac48a3b5/eigenda
+    version: 2

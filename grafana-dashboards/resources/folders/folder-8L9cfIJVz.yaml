@@ -1,0 +1,19 @@
+apiVersion: grizzly.grafana.com/v1alpha1
+kind: DashboardFolder
+metadata:
+    name: 8L9cfIJVz
+spec:
+    canAdmin: true
+    canDelete: true
+    canEdit: true
+    canSave: true
+    created: "2023-02-13T07:51:56Z"
+    createdBy: dmanc
+    hasAcl: false
+    id: 92
+    title: Incidents
+    uid: 8L9cfIJVz
+    updated: "2023-04-27T22:14:58Z"
+    updatedBy: Anonymous
+    url: /dashboards/f/8L9cfIJVz/incidents
+    version: 2

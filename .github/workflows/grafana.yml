@@ -25,11 +25,13 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: gh pr checkout ${{ github.event.pull_request.number }}
       
-      - name: Install Grafana Grizzly
+      - name: Install Grafana Grizzly CLI
         run: |
           curl -fSL -o "/usr/local/bin/grr" "https://github.com/grafana/grizzly/releases/download/v0.2.0/grr-linux-amd64"
           chmod a+x "/usr/local/bin/grr"
-          grr --help
+
+      - name: Show diff between current PR and grafana state
+        run: grr diff -d grafana-dashboards/resources
 
           
   deploy:

@@ -1,0 +1,389 @@
+apiVersion: grizzly.grafana.com/v1alpha1
+kind: Dashboard
+metadata:
+    folder: general
+    name: JmUwvQ-4z
+spec:
+    annotations:
+        list:
+            - builtIn: 1
+              datasource:
+                type: grafana
+                uid: -- Grafana --
+              enable: true
+              hide: true
+              iconColor: rgba(0, 211, 255, 1)
+              name: Annotations & Alerts
+              target:
+                limit: 100
+                matchAny: false
+                tags: []
+                type: dashboard
+              type: dashboard
+    description: Use this to explore new metrics, as a stepping stone to building new dashboards
+    editable: true
+    fiscalYearStartMonth: 0
+    graphTooltip: 0
+    links: []
+    liveNow: false
+    panels:
+        - datasource:
+            type: prometheus
+            uid: grafanacloud-prom
+          gridPos:
+            h: 8
+            w: 12
+            x: 0
+            "y": 0
+          id: 57
+          options:
+            code:
+                language: plaintext
+                showLineNumbers: false
+                showMiniMap: false
+            content: |-
+                # Dashboard for exploring and understanding new metrics
+
+                When we add new metrics from a new service, it's useful to explore them and try to get a sense for them.
+                The grafana explore panel is useful for looking at metrics one at a time, but this dashboard can be used to quickly glance at a bunch of metrics and compare them.
+                See this [guide](https://grafana.com/blog/2022/06/06/grafana-dashboards-a-complete-guide-to-all-the-different-types-you-can-build/#metrics-exploration-dashboards) for more info
+            mode: markdown
+          pluginVersion: 9.5.0-cloud.5.a016665c
+          type: text
+        - collapsed: false
+          gridPos:
+            h: 1
+            w: 24
+            x: 0
+            "y": 8
+          id: 2
+          panels: []
+          repeat: metric
+          repeatDirection: h
+          title: $metric
+          type: row
+        - datasource:
+            type: prometheus
+            uid: grafanacloud-prom
+          description: ""
+          fieldConfig:
+            defaults:
+                color:
+                    mode: palette-classic
+                custom:
+                    axisCenteredZero: false
+                    axisColorMode: text
+                    axisLabel: ""
+                    axisPlacement: auto
+                    barAlignment: 0
+                    drawStyle: line
+                    fillOpacity: 0
+                    gradientMode: none
+                    hideFrom:
+                        legend: false
+                        tooltip: false
+                        viz: false
+                    lineInterpolation: linear
+                    lineWidth: 1
+                    pointSize: 5
+                    scaleDistribution:
+                        type: linear
+                    showPoints: auto
+                    spanNulls: false
+                    stacking:
+                        group: A
+                        mode: none
+                    thresholdsStyle:
+                        mode: "off"
+                mappings: []
+                thresholds:
+                    mode: absolute
+                    steps:
+                        - color: green
+                          value: null
+                        - color: red
+                          value: 80
+            overrides: []
+          gridPos:
+            h: 8
+            w: 6
+            x: 0
+            "y": 9
+          id: 4
+          options:
+            legend:
+                calcs: []
+                displayMode: list
+                placement: bottom
+                showLegend: true
+            tooltip:
+                mode: single
+                sort: none
+          targets:
+            - datasource:
+                type: prometheus
+                uid: grafanacloud-prom
+              editorMode: code
+              expr: avg without (pod) ($metric)
+              legendFormat: __auto
+              range: true
+              refId: A
+          title: Average
+          type: timeseries
+        - datasource:
+            type: prometheus
+            uid: grafanacloud-prom
+          fieldConfig:
+            defaults:
+                color:
+                    mode: palette-classic
+                custom:
+                    axisCenteredZero: false
+                    axisColorMode: text
+                    axisLabel: ""
+                    axisPlacement: auto
+                    barAlignment: 0
+                    drawStyle: line
+                    fillOpacity: 0
+                    gradientMode: none
+                    hideFrom:
+                        legend: false
+                        tooltip: false
+                        viz: false
+                    lineInterpolation: linear
+                    lineWidth: 1
+                    pointSize: 5
+                    scaleDistribution:
+                        type: linear
+                    showPoints: auto
+                    spanNulls: false
+                    stacking:
+                        group: A
+                        mode: none
+                    thresholdsStyle:
+                        mode: "off"
+                mappings: []
+                thresholds:
+                    mode: absolute
+                    steps:
+                        - color: green
+                          value: null
+                        - color: red
+                          value: 80
+            overrides: []
+          gridPos:
+            h: 8
+            w: 6
+            x: 6
+            "y": 9
+          id: 6
+          options:
+            legend:
+                calcs: []
+                displayMode: list
+                placement: bottom
+                showLegend: true
+            tooltip:
+                mode: single
+                sort: none
+          targets:
+            - datasource:
+                type: prometheus
+                uid: grafanacloud-prom
+              editorMode: code
+              expr: sum without (pod) ($metric)
+              legendFormat: __auto
+              range: true
+              refId: A
+          title: Sum
+          type: timeseries
+        - datasource:
+            type: prometheus
+            uid: grafanacloud-prom
+          fieldConfig:
+            defaults:
+                color:
+                    mode: palette-classic
+                custom:
+                    axisCenteredZero: false
+                    axisColorMode: text
+                    axisLabel: ""
+                    axisPlacement: auto
+                    barAlignment: 0
+                    drawStyle: line
+                    fillOpacity: 0
+                    gradientMode: none
+                    hideFrom:
+                        legend: false
+                        tooltip: false
+                        viz: false
+                    lineInterpolation: linear
+                    lineWidth: 1
+                    pointSize: 5
+                    scaleDistribution:
+                        type: linear
+                    showPoints: auto
+                    spanNulls: false
+                    stacking:
+                        group: A
+                        mode: none
+                    thresholdsStyle:
+                        mode: "off"
+                mappings: []
+                thresholds:
+                    mode: absolute
+                    steps:
+                        - color: green
+                          value: null
+                        - color: red
+                          value: 80
+            overrides: []
+          gridPos:
+            h: 8
+            w: 6
+            x: 12
+            "y": 9
+          id: 8
+          options:
+            legend:
+                calcs: []
+                displayMode: list
+                placement: bottom
+                showLegend: true
+            tooltip:
+                mode: single
+                sort: none
+          targets:
+            - datasource:
+                type: prometheus
+                uid: grafanacloud-prom
+              editorMode: code
+              expr: avg without (pod) (rate($metric[$__rate_interval]))
+              legendFormat: __auto
+              range: true
+              refId: A
+          title: Average rates
+          type: timeseries
+        - datasource:
+            type: prometheus
+            uid: grafanacloud-prom
+          fieldConfig:
+            defaults:
+                color:
+                    mode: palette-classic
+                custom:
+                    axisCenteredZero: false
+                    axisColorMode: text
+                    axisLabel: ""
+                    axisPlacement: auto
+                    barAlignment: 0
+                    drawStyle: line
+                    fillOpacity: 0
+                    gradientMode: none
+                    hideFrom:
+                        legend: false
+                        tooltip: false
+                        viz: false
+                    lineInterpolation: linear
+                    lineWidth: 1
+                    pointSize: 5
+                    scaleDistribution:
+                        type: linear
+                    showPoints: auto
+                    spanNulls: false
+                    stacking:
+                        group: A
+                        mode: none
+                    thresholdsStyle:
+                        mode: "off"
+                mappings: []
+                thresholds:
+                    mode: absolute
+                    steps:
+                        - color: green
+                          value: null
+                        - color: red
+                          value: 80
+            overrides: []
+          gridPos:
+            h: 8
+            w: 6
+            x: 18
+            "y": 9
+          id: 10
+          options:
+            legend:
+                calcs: []
+                displayMode: list
+                placement: bottom
+                showLegend: true
+            tooltip:
+                mode: single
+                sort: none
+          targets:
+            - datasource:
+                type: prometheus
+                uid: grafanacloud-prom
+              editorMode: code
+              expr: sum without (pod) (rate($metric[$__rate_interval]))
+              legendFormat: __auto
+              range: true
+              refId: A
+          title: Rate totals
+          type: timeseries
+    refresh: ""
+    revision: 1
+    schemaVersion: 38
+    style: dark
+    tags: []
+    templating:
+        list:
+            - current:
+                selected: true
+                text:
+                    - beacon_aggregated_attestation_gossip_verification_seconds_count
+                    - ethereum_peer_count
+                    - libp2p_peers
+                    - nethermind_sync_peers
+                    - network_inbound_peers
+                    - network_outbound_peers
+                    - nethermind_outgoing_connections
+                    - nethermind_incoming_connections
+                    - sync_eth1_connected
+                    - sync_eth2_synced
+                value:
+                    - beacon_aggregated_attestation_gossip_verification_seconds_count
+                    - ethereum_peer_count
+                    - libp2p_peers
+                    - nethermind_sync_peers
+                    - network_inbound_peers
+                    - network_outbound_peers
+                    - nethermind_outgoing_connections
+                    - nethermind_incoming_connections
+                    - sync_eth1_connected
+                    - sync_eth2_synced
+              datasource:
+                type: prometheus
+                uid: grafanacloud-prom
+              definition: label_values(__name__)
+              hide: 0
+              includeAll: true
+              multi: true
+              name: metric
+              options: []
+              query:
+                query: label_values(__name__)
+                refId: StandardVariableQuery
+              refresh: 1
+              regex: ""
+              skipUrlSync: false
+              sort: 1
+              type: query
+    time:
+        from: now-6h
+        to: now
+    timepicker: {}
+    timezone: ""
+    title: Metrics exploration dashboard
+    uid: JmUwvQ-4z
+    weekStart: ""

@@ -1,0 +1,145 @@
+apiVersion: grizzly.grafana.com/v1alpha1
+kind: Dashboard
+metadata:
+    folder: YznIfhfVk
+    name: OAAOGqBVz
+spec:
+    annotations:
+        list:
+            - builtIn: 1
+              datasource:
+                type: grafana
+                uid: -- Grafana --
+              enable: true
+              hide: true
+              iconColor: rgba(0, 211, 255, 1)
+              name: Annotations & Alerts
+              target:
+                limit: 100
+                matchAny: false
+                tags: []
+                type: dashboard
+              type: dashboard
+    editable: true
+    fiscalYearStartMonth: 0
+    graphTooltip: 0
+    links: []
+    liveNow: false
+    panels:
+        - gridPos:
+            h: 8
+            w: 12
+            x: 0
+            "y": 0
+          id: 6
+          libraryPanel:
+            name: Pod vCPU
+            uid: JThRdLh4z
+          title: $cluster ($namespace namespaces) Pod vCPU
+        - gridPos:
+            h: 8
+            w: 12
+            x: 12
+            "y": 0
+          id: 4
+          libraryPanel:
+            name: Pod Memory WSS (16G per node)
+            uid: 1MsRdL2Vz
+          title: $cluster/$namespace Pod Memory WSS (16G per node)
+        - gridPos:
+            h: 8
+            w: 12
+            x: 0
+            "y": 8
+          id: 10
+          libraryPanel:
+            name: Pod RX bandwidth
+            uid: O9T4dLhVz
+          title: $cluster/$namespace Pod RX bandwidth
+        - gridPos:
+            h: 8
+            w: 12
+            x: 12
+            "y": 8
+          id: 12
+          libraryPanel:
+            name: Pod TX bandwidth
+            uid: uGsVOL24k
+          title: $cluster/$namespace Pod TX bandwidth
+        - gridPos:
+            h: 8
+            w: 12
+            x: 0
+            "y": 16
+          id: 8
+          libraryPanel:
+            name: Container restarts
+            uid: B8xB6YoVk
+          title: $cluster Container restarts
+    refresh: ""
+    revision: 1
+    schemaVersion: 38
+    style: dark
+    tags: []
+    templating:
+        list:
+            - current:
+                selected: true
+                text: mainnet
+                value: mainnet
+              hide: 0
+              includeAll: false
+              label: chain
+              multi: false
+              name: Chain
+              options:
+                - selected: false
+                  text: devnet
+                  value: devnet
+                - selected: false
+                  text: goerli
+                  value: goerli
+                - selected: true
+                  text: mainnet
+                  value: mainnet
+              query: devnet, goerli, mainnet
+              queryValue: ""
+              skipUrlSync: false
+              type: custom
+            - current:
+                selected: false
+                text: eigenlayer-p-usea1-mainnet
+                value: eigenlayer-p-usea1-mainnet
+              datasource:
+                type: prometheus
+                uid: grafanacloud-prom
+              definition: label_values(kube_namespace_status_phase{job="integrations/kubernetes/kube-state-metrics"},cluster)
+              hide: 2
+              includeAll: false
+              label: cluster
+              multi: false
+              name: cluster
+              options: []
+              query:
+                query: label_values(kube_namespace_status_phase{job="integrations/kubernetes/kube-state-metrics"},cluster)
+                refId: PrometheusVariableQueryEditor-VariableQuery
+              refresh: 1
+              regex: eigenlayer-.*-$Chain
+              skipUrlSync: false
+              sort: 0
+              type: query
+            - description: ""
+              hide: 2
+              label: namespace
+              name: namespace
+              query: chaind
+              skipUrlSync: false
+              type: constant
+    time:
+        from: now-6h
+        to: now
+    timepicker: {}
+    timezone: ""
+    title: Chaind
+    uid: OAAOGqBVz
+    weekStart: ""

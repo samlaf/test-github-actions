@@ -1,0 +1,3440 @@
+apiVersion: grizzly.grafana.com/v1alpha1
+kind: Dashboard
+metadata:
+    folder: YznIfhfVk
+    name: ZbOKkYBVk
+spec:
+    annotations:
+        list:
+            - builtIn: 1
+              datasource:
+                type: grafana
+                uid: -- Grafana --
+              enable: true
+              hide: true
+              iconColor: rgba(0, 211, 255, 1)
+              name: Annotations & Alerts
+              target:
+                limit: 100
+                matchAny: false
+                tags: []
+                type: dashboard
+              type: dashboard
+            - datasource:
+                type: datasource
+                uid: grafana
+              enable: true
+              expr: ""
+              iconColor: dark-purple
+              name: Graph
+              target:
+                limit: 100
+                refId: Anno
+                tags:
+                    - graph
+                type: tags
+            - datasource:
+                type: datasource
+                uid: grafana
+              enable: true
+              iconColor: super-light-green
+              name: Chaind
+              target:
+                limit: 100
+                refId: Anno
+                tags:
+                    - chaind
+                type: tags
+    editable: true
+    fiscalYearStartMonth: 0
+    graphTooltip: 0
+    links: []
+    liveNow: false
+    panels:
+        - datasource:
+            type: prometheus
+            uid: grafanacloud-prom
+          fieldConfig:
+            defaults:
+                color:
+                    mode: palette-classic
+                custom:
+                    axisCenteredZero: false
+                    axisColorMode: text
+                    axisLabel: ""
+                    axisPlacement: auto
+                    barAlignment: 0
+                    drawStyle: line
+                    fillOpacity: 0
+                    gradientMode: none
+                    hideFrom:
+                        legend: false
+                        tooltip: false
+                        viz: false
+                    lineInterpolation: linear
+                    lineWidth: 1
+                    pointSize: 5
+                    scaleDistribution:
+                        type: linear
+                    showPoints: auto
+                    spanNulls: false
+                    stacking:
+                        group: A
+                        mode: none
+                    thresholdsStyle:
+                        mode: "off"
+                mappings: []
+                thresholds:
+                    mode: absolute
+                    steps:
+                        - color: green
+                          value: null
+                        - color: red
+                          value: 80
+            overrides: []
+          gridPos:
+            h: 8
+            w: 6
+            x: 0
+            "y": 0
+          id: 107
+          options:
+            legend:
+                calcs: []
+                displayMode: list
+                placement: bottom
+                showLegend: true
+            tooltip:
+                mode: single
+                sort: none
+          targets:
+            - datasource:
+                type: prometheus
+                uid: grafanacloud-prom
+              editorMode: code
+              expr: preprodGraphScraper_eigenPod_Count{cluster="$cluster"}
+              legendFormat: pod count
+              range: true
+              refId: A
+          title: eigenPod Count
+          type: timeseries
+        - datasource:
+            type: prometheus
+            uid: grafanacloud-prom
+          fieldConfig:
+            defaults:
+                color:
+                    mode: palette-classic
+                custom:
+                    axisCenteredZero: false
+                    axisColorMode: text
+                    axisLabel: ""
+                    axisPlacement: auto
+                    barAlignment: 0
+                    drawStyle: line
+                    fillOpacity: 0
+                    gradientMode: none
+                    hideFrom:
+                        legend: false
+                        tooltip: false
+                        viz: false
+                    lineInterpolation: linear
+                    lineWidth: 1
+                    pointSize: 5
+                    scaleDistribution:
+                        type: linear
+                    showPoints: auto
+                    spanNulls: false
+                    stacking:
+                        group: A
+                        mode: none
+                    thresholdsStyle:
+                        mode: "off"
+                mappings: []
+                thresholds:
+                    mode: absolute
+                    steps:
+                        - color: green
+                          value: null
+                        - color: red
+                          value: 80
+            overrides: []
+          gridPos:
+            h: 8
+            w: 6
+            x: 6
+            "y": 0
+          id: 108
+          options:
+            legend:
+                calcs: []
+                displayMode: list
+                placement: bottom
+                showLegend: true
+            tooltip:
+                mode: single
+                sort: none
+          targets:
+            - datasource:
+                type: prometheus
+                uid: grafanacloud-prom
+              editorMode: code
+              expr: |-
+                preprodGraphScraper_currentStrategyTVL_rEthDeposits
+                {namespace="graph-scraper", cluster="$cluster"} / 1e18
+              legendFormat: deposits
+              range: true
+              refId: A
+            - datasource:
+                type: prometheus
+                uid: grafanacloud-prom
+              editorMode: code
+              expr: preprodGraphScraper_currentStrategyTVL_rEthPendingWithdrawals{namespace="graph-scraper", cluster="$cluster"} / 1e18
+              hide: false
+              legendFormat: pendingWithdrawals
+              range: true
+              refId: B
+            - datasource:
+                type: prometheus
+                uid: grafanacloud-prom
+              editorMode: code
+              expr: preprodGraphScraper_currentStrategyTVL_rEthWithdrawals{namespace="graph-scraper", cluster="$cluster"} / 1e18
+              hide: false
+              legendFormat: withdrawals
+              range: true
+              refId: C
+          title: rETH currentStrategyTVL (unit 1e18)
+          type: timeseries
+        - datasource:
+            type: prometheus
+            uid: grafanacloud-prom
+          fieldConfig:
+            defaults:
+                color:
+                    mode: palette-classic
+                custom:
+                    axisCenteredZero: false
+                    axisColorMode: text
+                    axisLabel: ""
+                    axisPlacement: auto
+                    barAlignment: 0
+                    drawStyle: line
+                    fillOpacity: 0
+                    gradientMode: none
+                    hideFrom:
+                        legend: false
+                        tooltip: false
+                        viz: false
+                    lineInterpolation: linear
+                    lineWidth: 1
+                    pointSize: 5
+                    scaleDistribution:
+                        type: linear
+                    showPoints: auto
+                    spanNulls: false
+                    stacking:
+                        group: A
+                        mode: none
+                    thresholdsStyle:
+                        mode: "off"
+                mappings: []
+                thresholds:
+                    mode: absolute
+                    steps:
+                        - color: green
+                          value: null
+                        - color: red
+                          value: 80
+            overrides: []
+          gridPos:
+            h: 8
+            w: 6
+            x: 12
+            "y": 0
+          id: 111
+          options:
+            legend:
+                calcs: []
+                displayMode: list
+                placement: bottom
+                showLegend: true
+            tooltip:
+                mode: single
+                sort: none
+          targets:
+            - datasource:
+                type: prometheus
+                uid: grafanacloud-prom
+              editorMode: code
+              expr: |-
+                preprodGraphScraper_currentStrategyTVL_stEthDeposits
+                {namespace="graph-scraper", cluster="$cluster"} / 1e18
+              legendFormat: deposits
+              range: true
+              refId: A
+            - datasource:
+                type: prometheus
+                uid: grafanacloud-prom
+              editorMode: code
+              expr: preprodGraphScraper_currentStrategyTVL_stEthPendingWithdrawals{namespace="graph-scraper", cluster="$cluster"} / 1e18
+              hide: false
+              legendFormat: pendingWithdrawals
+              range: true
+              refId: B
+            - datasource:
+                type: prometheus
+                uid: grafanacloud-prom
+              editorMode: code
+              expr: preprodGraphScraper_currentStrategyTVL_stEthWithdrawals{namespace="graph-scraper", cluster="$cluster"} / 1e18
+              hide: false
+              legendFormat: withdrawals
+              range: true
+              refId: C
+          title: stEth currentStrategyTVL (unit 1e18)
+          type: timeseries
+        - datasource:
+            type: prometheus
+            uid: grafanacloud-prom
+          fieldConfig:
+            defaults:
+                color:
+                    mode: palette-classic
+                custom:
+                    axisCenteredZero: false
+                    axisColorMode: text
+                    axisLabel: ""
+                    axisPlacement: auto
+                    barAlignment: 0
+                    drawStyle: line
+                    fillOpacity: 0
+                    gradientMode: none
+                    hideFrom:
+                        legend: false
+                        tooltip: false
+                        viz: false
+                    lineInterpolation: linear
+                    lineWidth: 1
+                    pointSize: 5
+                    scaleDistribution:
+                        type: linear
+                    showPoints: auto
+                    spanNulls: false
+                    stacking:
+                        group: A
+                        mode: none
+                    thresholdsStyle:
+                        mode: "off"
+                mappings: []
+                thresholds:
+                    mode: absolute
+                    steps:
+                        - color: green
+                          value: null
+                        - color: red
+                          value: 80
+            overrides: []
+          gridPos:
+            h: 8
+            w: 6
+            x: 18
+            "y": 0
+          id: 109
+          options:
+            legend:
+                calcs: []
+                displayMode: list
+                placement: bottom
+                showLegend: true
+            tooltip:
+                mode: single
+                sort: none
+          targets:
+            - datasource:
+                type: prometheus
+                uid: grafanacloud-prom
+              editorMode: code
+              expr: preprodGraphScraper_eigenPodWithdrawalBuckets_pendingWithdrawals{namespace="graph-scraper", cluster="$cluster"} / 1e18
+              legendFormat: pendingWithdrawals
+              range: true
+              refId: A
+            - datasource:
+                type: prometheus
+                uid: grafanacloud-prom
+              editorMode: code
+              expr: preprodGraphScraper_eigenPodWithdrawalBuckets_withdrawals{namespace="graph-scraper", cluster="$cluster"}  / 1e18
+              hide: false
+              legendFormat: withdrawals
+              range: true
+              refId: B
+          title: eigenPodWithdrawalBuckets unit 1e18
+          type: timeseries
+        - collapsed: false
+          gridPos:
+            h: 1
+            w: 24
+            x: 0
+            "y": 8
+          id: 59
+          panels: []
+          title: Are we having trouble? (no data here = good)
+          type: row
+        - datasource:
+            type: datasource
+            uid: grafana
+          gridPos:
+            h: 7
+            w: 5
+            x: 0
+            "y": 9
+          id: 76
+          options:
+            alertInstanceLabelFilter: ""
+            alertName: ""
+            dashboardAlerts: true
+            folder:
+                title: Goerli
+                uid: YznIfhfVk
+            groupBy: []
+            groupMode: default
+            maxItems: 20
+            sortOrder: 1
+            stateFilter:
+                error: true
+                firing: true
+                noData: false
+                normal: false
+                pending: true
+            viewMode: list
+          title: Alert list
+          type: alertlist
+        - datasource:
+            type: prometheus
+            uid: grafanacloud-prom
+          fieldConfig:
+            defaults:
+                color:
+                    mode: palette-classic
+                custom:
+                    axisCenteredZero: false
+                    axisColorMode: text
+                    axisLabel: ""
+                    axisPlacement: auto
+                    barAlignment: 0
+                    drawStyle: line
+                    fillOpacity: 0
+                    gradientMode: none
+                    hideFrom:
+                        legend: false
+                        tooltip: false
+                        viz: false
+                    lineInterpolation: linear
+                    lineWidth: 1
+                    pointSize: 5
+                    scaleDistribution:
+                        type: linear
+                    showPoints: auto
+                    spanNulls: false
+                    stacking:
+                        group: A
+                        mode: none
+                    thresholdsStyle:
+                        mode: "off"
+                mappings: []
+                thresholds:
+                    mode: absolute
+                    steps:
+                        - color: green
+                          value: null
+                        - color: red
+                          value: 80
+            overrides: []
+          gridPos:
+            h: 7
+            w: 4
+            x: 5
+            "y": 9
+          id: 38
+          options:
+            legend:
+                calcs: []
+                displayMode: list
+                placement: bottom
+                showLegend: true
+            tooltip:
+                mode: single
+                sort: none
+          targets:
+            - datasource:
+                type: prometheus
+                uid: grafanacloud-prom
+              editorMode: code
+              expr: rate(kube_pod_container_status_restarts_total{cluster=~"$cluster", namespace=~"$namespace"}[$__rate_interval])
+              legendFormat: '{{pod}}'
+              range: true
+              refId: A
+          title: K8s Pods Restarts
+          type: timeseries
+        - datasource:
+            type: grafana-sentry-datasource
+            uid: YVx1x_fVk
+          fieldConfig:
+            defaults:
+                color:
+                    mode: thresholds
+                custom:
+                    align: left
+                    cellOptions:
+                        type: auto
+                    inspect: false
+                    minWidth: 55
+                mappings: []
+                thresholds:
+                    mode: absolute
+                    steps:
+                        - color: green
+                          value: null
+                        - color: red
+                          value: 80
+            overrides: []
+          gridPos:
+            h: 7
+            w: 8
+            x: 9
+            "y": 9
+          id: 61
+          interval: 24h
+          options:
+            cellHeight: sm
+            footer:
+                countRows: false
+                fields: ""
+                reducer:
+                    - sum
+                show: false
+            showHeader: false
+          pluginVersion: 9.5.0-cloud.4.a016665c
+          targets:
+            - datasource:
+                type: grafana-sentry-datasource
+                uid: YVx1x_fVk
+              environments: []
+              hide: false
+              issuesQuery: GrafanaFeed:"NetworkError"
+              issuesSort: date
+              projectIds:
+                - "4504923624833025"
+              queryType: issues
+              refId: B
+              statsCategory:
+                - transaction
+              statsFields:
+                - sum(times_seen)
+              statsGroupBy:
+                - category
+              statsOutcome: []
+            - datasource:
+                type: grafana-sentry-datasource
+                uid: YVx1x_fVk
+              environments: []
+              hide: true
+              projectIds:
+                - "4504923624833025"
+              queryType: statsV2
+              refId: A
+              statsCategory:
+                - transaction
+              statsFields:
+                - sum(times_seen)
+              statsReason:
+                - ""
+          title: (Sentry) Frontend Errors
+          transformations:
+            - id: filterFieldsByName
+              options:
+                include:
+                    names:
+                        - Title
+                        - Count
+          type: table
+        - datasource:
+            type: yesoreyeram-infinity-datasource
+            uid: NTre8LB4z
+          fieldConfig:
+            defaults:
+                mappings: []
+                thresholds:
+                    mode: absolute
+                    steps:
+                        - color: green
+                          value: null
+                        - color: red
+                          value: 80
+                unit: short
+            overrides: []
+          gridPos:
+            h: 7
+            w: 3
+            x: 17
+            "y": 9
+          id: 80
+          options:
+            colorMode: none
+            graphMode: area
+            justifyMode: auto
+            orientation: auto
+            reduceOptions:
+                calcs: []
+                fields: /.*/
+                values: true
+            textMode: auto
+          pluginVersion: 9.5.0-cloud.4.a016665c
+          targets:
+            - columns: []
+              datasource:
+                type: yesoreyeram-infinity-datasource
+                uid: NTre8LB4z
+              filters: []
+              format: dataframe
+              global_query_id: ""
+              key: Q-eeb1c508-980a-4355-9627-08640bd011c4-0
+              parser: uql
+              refId: A
+              root_selector: ""
+              source: url
+              type: json
+              uql: |-
+                parse-json
+                | jsonata "data.variable.integerValue"
+              url: https://bfyivmn2gj.execute-api.us-east-2.amazonaws.com/goerli/graph-internal
+              url_options:
+                body_content_type: text/plain
+                body_graphql_query: |-
+                    {
+                      variable(id: "podCount") {
+                        id
+                        integerValue
+                      }
+                    }
+                body_type: graphql
+                data: |-
+                    {
+                      variable(id: "podCount") {
+                        id
+                        integerValue
+                      }
+                    }
+                headers: []
+                method: POST
+          title: '# of Eigenpods'
+          type: stat
+        - datasource:
+            type: prometheus
+            uid: grafanacloud-prom
+          gridPos:
+            h: 7
+            w: 4
+            x: 20
+            "y": 9
+          id: 104
+          options:
+            code:
+                language: plaintext
+                showLineNumbers: false
+                showMiniMap: false
+            content: |
+                ###How to see the alert rule and plot that generates the oncall slack alert
+                https://app.gitbook.com/o/bJhVFeKDe5jNBwSZCd4B/s/ohvKF4REMMk6Jl2iD2wL/what-to-do-after-seeing-oncall-slack-alert
+
+                ###Alert Conditions:
+                https://docs.google.com/spreadsheets/d/1be3gcOs1ym5fk5lO2mWQEDbI8zSxu9zy3gXCsjAjHQw/edit#gid=0
+            mode: markdown
+          pluginVersion: 9.5.0-cloud.4.a016665c
+          title: Oncall alert debug
+          type: text
+        - datasource:
+            type: prometheus
+            uid: grafanacloud-prom
+          description: number of epochs chaind is behind lighthouse clients
+          fieldConfig:
+            defaults:
+                color:
+                    mode: thresholds
+                links:
+                    - title: Lighthouse Summary
+                      url: https://eigenlayer.grafana.net/d/yY7PIGdZd/lighthouse-summary
+                mappings: []
+                thresholds:
+                    mode: absolute
+                    steps:
+                        - color: red
+                          value: null
+                        - color: '#EAB839'
+                          value: -4
+                        - color: green
+                          value: 0
+                unit: none
+            overrides: []
+          gridPos:
+            h: 3
+            w: 3
+            x: 0
+            "y": 16
+          id: 16
+          options:
+            orientation: horizontal
+            reduceOptions:
+                calcs:
+                    - lastNotNull
+                fields: ""
+                values: false
+            showThresholdLabels: false
+            showThresholdMarkers: true
+          pluginVersion: 9.5.0-cloud.4.a016665c
+          targets:
+            - datasource:
+                type: prometheus
+                uid: grafanacloud-prom
+              editorMode: code
+              exemplar: false
+              expr: max(slotclock_present_epoch{cluster="eigenlayer-pp-usea2-goerli"})
+              hide: true
+              instant: false
+              legendFormat: '{{pod}}'
+              range: true
+              refId: lighthouse_head_epoch
+            - datasource:
+                type: prometheus
+                uid: grafanacloud-prom
+              editorMode: code
+              expr: chaind_validators_latest_epoch{cluster=~"$cluster"}
+              hide: true
+              legendFormat: __auto
+              range: true
+              refId: chaind_head_epoch
+            - datasource:
+                name: Expression
+                type: __expr__
+                uid: __expr__
+              expression: $chaind_head_epoch - $lighthouse_head_epoch
+              hide: false
+              refId: A
+              type: math
+          title: chaind sync distance (epochs)
+          type: gauge
+        - datasource:
+            type: datasource
+            uid: -- Mixed --
+          fieldConfig:
+            defaults:
+                color:
+                    mode: thresholds
+                mappings: []
+                thresholds:
+                    mode: absolute
+                    steps:
+                        - color: red
+                          value: null
+                        - color: green
+                          value: -1
+                unit: none
+            overrides: []
+          gridPos:
+            h: 3
+            w: 3
+            x: 3
+            "y": 16
+          id: 89
+          options:
+            orientation: auto
+            reduceOptions:
+                calcs:
+                    - lastNotNull
+                fields: ""
+                values: false
+            showThresholdLabels: false
+            showThresholdMarkers: true
+          pluginVersion: 9.5.0-cloud.4.a016665c
+          targets:
+            - columns: []
+              datasource:
+                type: yesoreyeram-infinity-datasource
+                uid: NTre8LB4z
+              filters: []
+              format: table
+              global_query_id: ""
+              hide: true
+              parser: backend
+              refId: beaconchain
+              root_selector: data.slot
+              source: url
+              type: json
+              uql: |-
+                parse-json
+                | jsonata "data.epoch"
+              url: https://goerli.beaconcha.in/api/v1/slot/latest?apikey=$beaconchain_apikey
+              url_options:
+                data: ""
+                method: GET
+            - datasource:
+                type: prometheus
+                uid: grafanacloud-prom
+              editorMode: code
+              expr: slotclock_present_slot{cluster="eigenlayer-pp-usea2-goerli", pod="lighthouse-0"}
+              hide: true
+              legendFormat: '{{pod}}'
+              range: true
+              refId: lighthouse_0
+            - datasource:
+                name: Expression
+                type: __expr__
+                uid: __expr__
+              expression: $lighthouse_0 - $beaconchain
+              hide: false
+              refId: E
+              type: math
+          title: lighthouse-0 sync distance (slot)
+          type: gauge
+        - datasource:
+            type: datasource
+            uid: -- Mixed --
+          fieldConfig:
+            defaults:
+                color:
+                    mode: thresholds
+                mappings: []
+                thresholds:
+                    mode: absolute
+                    steps:
+                        - color: red
+                          value: null
+                        - color: green
+                          value: -1
+                unit: none
+            overrides: []
+          gridPos:
+            h: 3
+            w: 3
+            x: 6
+            "y": 16
+          id: 90
+          options:
+            orientation: auto
+            reduceOptions:
+                calcs:
+                    - lastNotNull
+                fields: ""
+                values: false
+            showThresholdLabels: false
+            showThresholdMarkers: true
+          pluginVersion: 9.5.0-cloud.4.a016665c
+          targets:
+            - columns: []
+              datasource:
+                type: yesoreyeram-infinity-datasource
+                uid: NTre8LB4z
+              filters: []
+              format: table
+              global_query_id: ""
+              hide: true
+              parser: backend
+              refId: beaconchain
+              root_selector: data.slot
+              source: url
+              type: json
+              uql: |-
+                parse-json
+                | jsonata "data.epoch"
+              url: https://goerli.beaconcha.in/api/v1/slot/latest?apikey=$beaconchain_apikey
+              url_options:
+                data: ""
+                method: GET
+            - datasource:
+                type: prometheus
+                uid: grafanacloud-prom
+              editorMode: code
+              expr: slotclock_present_slot{cluster="eigenlayer-pp-usea2-goerli", pod="lighthouse-1"}
+              hide: true
+              legendFormat: '{{pod}}'
+              range: true
+              refId: lighthouse
+            - datasource:
+                name: Expression
+                type: __expr__
+                uid: __expr__
+              expression: $lighthouse - $beaconchain
+              hide: false
+              refId: E
+              type: math
+          title: lighthouse-1 sync distance (slot)
+          type: gauge
+        - datasource:
+            type: datasource
+            uid: -- Mixed --
+          fieldConfig:
+            defaults:
+                color:
+                    mode: thresholds
+                mappings: []
+                thresholds:
+                    mode: absolute
+                    steps:
+                        - color: red
+                          value: null
+                        - color: green
+                          value: -1
+                unit: none
+            overrides: []
+          gridPos:
+            h: 3
+            w: 3
+            x: 9
+            "y": 16
+          id: 91
+          options:
+            orientation: auto
+            reduceOptions:
+                calcs:
+                    - lastNotNull
+                fields: ""
+                values: false
+            showThresholdLabels: false
+            showThresholdMarkers: true
+          pluginVersion: 9.5.0-cloud.4.a016665c
+          targets:
+            - columns: []
+              datasource:
+                type: yesoreyeram-infinity-datasource
+                uid: NTre8LB4z
+              filters: []
+              format: table
+              global_query_id: ""
+              hide: true
+              parser: backend
+              refId: beaconchain
+              root_selector: data.slot
+              source: url
+              type: json
+              uql: |-
+                parse-json
+                | jsonata "data.epoch"
+              url: https://goerli.beaconcha.in/api/v1/slot/latest?apikey=$beaconchain_apikey
+              url_options:
+                data: ""
+                method: GET
+            - datasource:
+                type: prometheus
+                uid: grafanacloud-prom
+              editorMode: code
+              expr: slotclock_present_slot{cluster="eigenlayer-pp-usea2-goerli", pod="lighthouse-2"}
+              hide: true
+              legendFormat: '{{pod}}'
+              range: true
+              refId: lighthouse
+            - datasource:
+                name: Expression
+                type: __expr__
+                uid: __expr__
+              expression: $lighthouse - $beaconchain
+              hide: false
+              refId: E
+              type: math
+          title: lighthouse-2 sync distance (slot)
+          type: gauge
+        - datasource:
+            type: prometheus
+            uid: grafanacloud-prom
+          description: number of slots thegraph is behind nethermind clients
+          fieldConfig:
+            defaults:
+                color:
+                    mode: thresholds
+                links:
+                    - targetBlank: true
+                      title: thegraph dashboard
+                      url: https://eigenlayer.grafana.net/d/Ts1E1XB4k/graph-goerli?orgId=1&refresh=10s
+                mappings: []
+                thresholds:
+                    mode: absolute
+                    steps:
+                        - color: red
+                          value: null
+                        - color: '#EAB839'
+                          value: -4
+                        - color: green
+                          value: 0
+            overrides: []
+          gridPos:
+            h: 3
+            w: 3
+            x: 12
+            "y": 16
+          id: 87
+          options:
+            orientation: auto
+            reduceOptions:
+                calcs:
+                    - lastNotNull
+                fields: ""
+                values: false
+            showThresholdLabels: false
+            showThresholdMarkers: true
+          pluginVersion: 9.5.0-cloud.4.a016665c
+          targets:
+            - datasource:
+                type: prometheus
+                uid: grafanacloud-prom
+              editorMode: code
+              expr: max(deployment_head{cluster="$cluster"})
+              hide: true
+              legendFormat: '{{pod}}, {{ deployment }}'
+              range: true
+              refId: thegraph_head
+            - datasource:
+                type: prometheus
+                uid: grafanacloud-prom
+              editorMode: code
+              expr: max(nethermind_blocks{cluster="eigenlayer-pp-usea2-goerli"})
+              hide: true
+              legendFormat: __auto
+              range: true
+              refId: nethermind_head
+            - datasource:
+                name: Expression
+                type: __expr__
+                uid: __expr__
+              expression: $thegraph_head - $nethermind_head
+              hide: false
+              refId: C
+              type: math
+          title: thegraph sync distance (blocks)
+          type: gauge
+        - datasource:
+            type: datasource
+            uid: -- Mixed --
+          fieldConfig:
+            defaults:
+                color:
+                    mode: thresholds
+                mappings: []
+                thresholds:
+                    mode: absolute
+                    steps:
+                        - color: red
+                          value: null
+                        - color: green
+                          value: -1
+                unit: none
+            overrides: []
+          gridPos:
+            h: 3
+            w: 3
+            x: 15
+            "y": 16
+          id: 94
+          options:
+            orientation: auto
+            reduceOptions:
+                calcs:
+                    - lastNotNull
+                fields: ""
+                values: false
+            showThresholdLabels: false
+            showThresholdMarkers: true
+          pluginVersion: 9.5.0-cloud.4.a016665c
+          targets:
+            - columns: []
+              datasource:
+                type: yesoreyeram-infinity-datasource
+                uid: NTre8LB4z
+              filters: []
+              format: table
+              global_query_id: ""
+              hide: true
+              parser: backend
+              refId: beaconchain
+              root_selector: result
+              source: url
+              type: json
+              uql: |-
+                parse-json
+                | jsonata "data.epoch"
+              url: https://goerli.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161
+              url_options:
+                body_content_type: text/plain
+                body_type: raw
+                data: '{"jsonrpc":"2.0","method":"eth_blockNumber","params":[],"id":1}'
+                method: POST
+            - datasource:
+                type: prometheus
+                uid: grafanacloud-prom
+              editorMode: code
+              expr: nethermind_blocks{cluster="eigenlayer-pp-usea2-goerli", pod="nethermind-0"}
+              hide: true
+              legendFormat: '{{pod}}'
+              range: true
+              refId: lighthouse
+            - datasource:
+                name: Expression
+                type: __expr__
+                uid: __expr__
+              expression: $lighthouse - $beaconchain
+              hide: false
+              refId: E
+              type: math
+          title: nethermin-0 sync distance (block)
+          type: gauge
+        - datasource:
+            type: prometheus
+            uid: grafanacloud-prom
+          gridPos:
+            h: 3
+            w: 6
+            x: 18
+            "y": 16
+          id: 96
+          options:
+            code:
+                language: plaintext
+                showLineNumbers: false
+                showMiniMap: false
+            content: Can't get the EL sync distance to show. Check https://eigenlayer.grafana.net/d/ZbOKkYBVk/general-monitoring-dashboard-for-m1?orgId=1&refresh=10s&from=1680568307926&to=1680571907926&viewPanel=18
+            mode: markdown
+          pluginVersion: 9.5.0-cloud.4.a016665c
+          title: TODO
+          type: text
+        - collapsed: false
+          gridPos:
+            h: 1
+            w: 24
+            x: 0
+            "y": 19
+          id: 6
+          panels: []
+          title: API Gateway traffic (main backend entrypoint)
+          type: row
+        - datasource:
+            type: cloudwatch
+            uid: ${cloudwatchDatasource}
+          fieldConfig:
+            defaults:
+                color:
+                    mode: palette-classic
+                custom:
+                    axisCenteredZero: false
+                    axisColorMode: text
+                    axisLabel: ""
+                    axisPlacement: auto
+                    barAlignment: 0
+                    drawStyle: line
+                    fillOpacity: 0
+                    gradientMode: none
+                    hideFrom:
+                        legend: false
+                        tooltip: false
+                        viz: false
+                    lineInterpolation: linear
+                    lineWidth: 1
+                    pointSize: 5
+                    scaleDistribution:
+                        type: linear
+                    showPoints: auto
+                    spanNulls: false
+                    stacking:
+                        group: A
+                        mode: none
+                    thresholdsStyle:
+                        mode: "off"
+                mappings: []
+                thresholds:
+                    mode: absolute
+                    steps:
+                        - color: green
+                          value: null
+                        - color: red
+                          value: 80
+            overrides: []
+          gridPos:
+            h: 9
+            w: 6
+            x: 0
+            "y": 20
+          id: 106
+          options:
+            legend:
+                calcs: []
+                displayMode: list
+                placement: bottom
+                showLegend: true
+            tooltip:
+                mode: single
+                sort: none
+          targets:
+            - datasource:
+                type: cloudwatch
+                uid: ${cloudwatchDatasource}
+              dimensions: {}
+              expression: ""
+              id: ""
+              label: ""
+              logGroups: []
+              matchExact: true
+              metricEditorMode: 0
+              metricName: Count
+              metricQueryType: 0
+              namespace: AWS/ApiGateway
+              period: ""
+              queryMode: Metrics
+              refId: A
+              region: default
+              sqlExpression: ""
+              statistic: Sum
+          title: Total Requests ($__interval)
+          type: timeseries
+        - datasource:
+            type: cloudwatch
+            uid: ${cloudwatchDatasource}
+          fieldConfig:
+            defaults:
+                color:
+                    mode: palette-classic
+                custom:
+                    axisCenteredZero: false
+                    axisColorMode: text
+                    axisLabel: ""
+                    axisPlacement: auto
+                    barAlignment: 0
+                    drawStyle: line
+                    fillOpacity: 10
+                    gradientMode: none
+                    hideFrom:
+                        legend: false
+                        tooltip: false
+                        viz: false
+                    lineInterpolation: linear
+                    lineWidth: 2
+                    pointSize: 5
+                    scaleDistribution:
+                        type: linear
+                    showPoints: never
+                    spanNulls: false
+                    stacking:
+                        group: A
+                        mode: none
+                    thresholdsStyle:
+                        mode: "off"
+                links:
+                    - targetBlank: true
+                      title: cloudwatch logs
+                      url: https://us-east-2.console.aws.amazon.com/cloudwatch/home?region=us-east-2#logsV2:log-groups/log-group/API-Gateway-Execution-Logs_bfyivmn2gj$252Fgoerli
+                mappings: []
+                min: 0
+                thresholds:
+                    mode: absolute
+                    steps:
+                        - color: green
+                          value: null
+                        - color: red
+                          value: 80
+                unit: none
+            overrides: []
+          gridPos:
+            h: 9
+            w: 6
+            x: 6
+            "y": 20
+          id: 15
+          links:
+            - targetBlank: true
+              title: cloudwatch logs
+              url: https://us-east-2.console.aws.amazon.com/cloudwatch/home?region=us-east-2#logsV2:log-groups/log-group/API-Gateway-Execution-Logs_bfyivmn2gj$252Fgoerli
+          options:
+            legend:
+                calcs:
+                    - sum
+                displayMode: table
+                placement: bottom
+                showLegend: true
+            tooltip:
+                mode: multi
+                sort: none
+          pluginVersion: 9.4.7
+          targets:
+            - datasource:
+                type: cloudwatch
+                uid: ${cloudwatchDatasource}
+              dimensions:
+                ApiName: $api_name
+                Method: GET
+                Stage: $apigateway_stage
+              expression: ""
+              hide: false
+              id: e500
+              label: ""
+              logGroups: []
+              matchExact: false
+              metricEditorMode: 0
+              metricName: 5XXError
+              metricQueryType: 0
+              namespace: AWS/ApiGateway
+              period: ""
+              queryMode: Metrics
+              refId: B
+              region: default
+              sqlExpression: ""
+              statistic: Sum
+            - datasource:
+                type: cloudwatch
+                uid: ${cloudwatchDatasource}
+              dimensions:
+                ApiName: $api_name
+                Method: POST
+                Stage: $apigateway_stage
+              expression: ""
+              hide: false
+              id: ""
+              label: ""
+              logGroups: []
+              matchExact: false
+              metricEditorMode: 0
+              metricName: 5XXError
+              metricQueryType: 0
+              namespace: AWS/ApiGateway
+              period: ""
+              queryMode: Metrics
+              refId: A
+              region: default
+              sqlExpression: ""
+              statistic: Sum
+          title: 5XXError
+          type: timeseries
+        - datasource:
+            type: cloudwatch
+            uid: ${cloudwatchDatasource}
+          fieldConfig:
+            defaults:
+                color:
+                    mode: palette-classic
+                custom:
+                    axisCenteredZero: false
+                    axisColorMode: text
+                    axisLabel: ""
+                    axisPlacement: auto
+                    barAlignment: 0
+                    drawStyle: bars
+                    fillOpacity: 10
+                    gradientMode: none
+                    hideFrom:
+                        legend: false
+                        tooltip: false
+                        viz: false
+                    lineInterpolation: linear
+                    lineStyle:
+                        fill: solid
+                    lineWidth: 2
+                    pointSize: 5
+                    scaleDistribution:
+                        type: linear
+                    showPoints: always
+                    spanNulls: false
+                    stacking:
+                        group: A
+                        mode: normal
+                    thresholdsStyle:
+                        mode: "off"
+                links: []
+                mappings: []
+                min: 0
+                thresholds:
+                    mode: absolute
+                    steps:
+                        - color: green
+                          value: null
+                        - color: red
+                          value: 80
+                unit: ms
+            overrides: []
+          gridPos:
+            h: 9
+            w: 6
+            x: 12
+            "y": 20
+          id: 14
+          links: []
+          options:
+            legend:
+                calcs:
+                    - mean
+                displayMode: table
+                placement: bottom
+                showLegend: true
+            tooltip:
+                mode: multi
+                sort: none
+          pluginVersion: 9.4.7
+          targets:
+            - datasource:
+                type: cloudwatch
+                uid: ${cloudwatchDatasource}
+              dimensions:
+                ApiName: $api_name
+                Method: GET
+                Resource: /restaking/v1/pod/{address}/summary
+                Stage: $apigateway_stage
+              expression: ""
+              hide: false
+              id: ""
+              label: ""
+              logGroups: []
+              matchExact: false
+              metricEditorMode: 0
+              metricName: Latency
+              metricQueryType: 0
+              namespace: AWS/ApiGateway
+              period: ""
+              queryMode: Metrics
+              refId: A
+              region: default
+              sqlExpression: ""
+              statistic: p50
+            - datasource:
+                type: cloudwatch
+                uid: ${cloudwatchDatasource}
+              dimensions:
+                ApiName: $api_name
+                Method: POST
+                Stage: $apigateway_stage
+              expression: ""
+              hide: false
+              id: ""
+              label: ""
+              logGroups: []
+              matchExact: false
+              metricEditorMode: 0
+              metricName: Latency
+              metricQueryType: 0
+              namespace: AWS/ApiGateway
+              period: ""
+              queryMode: Metrics
+              refId: B
+              region: default
+              sqlExpression: ""
+              statistic: p50
+            - datasource:
+                type: cloudwatch
+                uid: ${cloudwatchDatasource}
+              dimensions:
+                ApiName: $api_name
+                Method: GET
+                Resource: /price
+                Stage: $apigateway_stage
+              expression: ""
+              hide: false
+              id: ""
+              label: ""
+              logGroups: []
+              matchExact: false
+              metricEditorMode: 0
+              metricName: Latency
+              metricQueryType: 0
+              namespace: AWS/ApiGateway
+              period: ""
+              queryMode: Metrics
+              refId: C
+              region: default
+              sqlExpression: ""
+              statistic: p50
+          title: V1 p50 Duration (Latency)
+          type: timeseries
+        - datasource:
+            type: prometheus
+            uid: grafanacloud-prom
+          gridPos:
+            h: 9
+            w: 6
+            x: 18
+            "y": 20
+          id: 99
+          options:
+            code:
+                language: plaintext
+                showLineNumbers: false
+                showMiniMap: false
+            content: |-
+                - Routes
+                  - /price: cached proxy to coingecko
+                  - /graph-internal: retrieves information from the graph node for the frontend
+                  - /restaking/pods/{address}/summary: calls the lambda to get solo staker information
+            mode: markdown
+          pluginVersion: 9.5.0-cloud.4.a016665c
+          type: text
+        - datasource:
+            type: cloudwatch
+            uid: ${cloudwatchDatasource}
+          fieldConfig:
+            defaults:
+                color:
+                    mode: palette-classic
+                custom:
+                    axisCenteredZero: false
+                    axisColorMode: text
+                    axisLabel: ""
+                    axisPlacement: auto
+                    barAlignment: 0
+                    drawStyle: bars
+                    fillOpacity: 20
+                    gradientMode: none
+                    hideFrom:
+                        legend: false
+                        tooltip: false
+                        viz: false
+                    lineInterpolation: linear
+                    lineWidth: 1
+                    pointSize: 5
+                    scaleDistribution:
+                        type: linear
+                    showPoints: always
+                    spanNulls: false
+                    stacking:
+                        group: A
+                        mode: normal
+                    thresholdsStyle:
+                        mode: "off"
+                links: []
+                mappings: []
+                min: 0
+                thresholds:
+                    mode: absolute
+                    steps:
+                        - color: green
+                          value: null
+                        - color: red
+                          value: 80
+                unit: none
+            overrides: []
+          gridPos:
+            h: 9
+            w: 6
+            x: 0
+            "y": 29
+          id: 7
+          links: []
+          options:
+            legend:
+                calcs:
+                    - sum
+                displayMode: table
+                placement: bottom
+                showLegend: true
+            tooltip:
+                mode: multi
+                sort: none
+          pluginVersion: 9.4.7
+          targets:
+            - datasource:
+                type: cloudwatch
+                uid: ${cloudwatchDatasource}
+              dimensions:
+                ApiName: $api_name
+                Method: GET
+                Stage: $apigateway_stage
+              expression: ""
+              id: ""
+              label: ""
+              logGroups: []
+              matchExact: false
+              metricEditorMode: 0
+              metricName: Count
+              metricQueryType: 0
+              namespace: AWS/ApiGateway
+              period: ""
+              queryMode: Metrics
+              refId: A
+              region: default
+              sqlExpression: ""
+              statistic: Sum
+            - datasource:
+                type: cloudwatch
+                uid: ${cloudwatchDatasource}
+              dimensions:
+                ApiName: $api_name
+                Method: POST
+                Stage: $apigateway_stage
+              expression: ""
+              hide: false
+              id: ""
+              label: ""
+              logGroups: []
+              matchExact: false
+              metricEditorMode: 0
+              metricName: Count
+              metricQueryType: 0
+              namespace: AWS/ApiGateway
+              period: ""
+              queryMode: Metrics
+              refId: B
+              region: default
+              sqlExpression: ""
+              statistic: Sum
+          title: Total Requests per route ($__interval)
+          type: timeseries
+        - datasource:
+            type: cloudwatch
+            uid: ${cloudwatchDatasource}
+          fieldConfig:
+            defaults:
+                color:
+                    mode: palette-classic
+                custom:
+                    axisCenteredZero: false
+                    axisColorMode: text
+                    axisLabel: ""
+                    axisPlacement: auto
+                    barAlignment: 0
+                    drawStyle: line
+                    fillOpacity: 10
+                    gradientMode: none
+                    hideFrom:
+                        legend: false
+                        tooltip: false
+                        viz: false
+                    lineInterpolation: linear
+                    lineWidth: 2
+                    pointSize: 5
+                    scaleDistribution:
+                        type: linear
+                    showPoints: never
+                    spanNulls: false
+                    stacking:
+                        group: A
+                        mode: none
+                    thresholdsStyle:
+                        mode: "off"
+                links:
+                    - targetBlank: true
+                      title: cloudwatch logs
+                      url: https://us-east-2.console.aws.amazon.com/cloudwatch/home?region=us-east-2#logsV2:log-groups/log-group/API-Gateway-Execution-Logs_bfyivmn2gj$252Fgoerli
+                mappings: []
+                min: 0
+                thresholds:
+                    mode: absolute
+                    steps:
+                        - color: green
+                          value: null
+                        - color: red
+                          value: 80
+                unit: none
+            overrides: []
+          gridPos:
+            h: 9
+            w: 6
+            x: 6
+            "y": 29
+          id: 81
+          links:
+            - targetBlank: true
+              title: cloudwatch logs
+              url: https://us-east-2.console.aws.amazon.com/cloudwatch/home?region=us-east-2#logsV2:log-groups/log-group/API-Gateway-Execution-Logs_bfyivmn2gj$252Fgoerli
+          options:
+            legend:
+                calcs:
+                    - sum
+                displayMode: table
+                placement: bottom
+                showLegend: true
+            tooltip:
+                mode: multi
+                sort: none
+          pluginVersion: 9.4.7
+          targets:
+            - datasource:
+                type: cloudwatch
+                uid: ${cloudwatchDatasource}
+              dimensions:
+                ApiName: $api_name
+                Method: GET
+                Stage: $apigateway_stage
+              expression: ""
+              id: ""
+              label: ""
+              logGroups: []
+              matchExact: false
+              metricEditorMode: 0
+              metricName: 4XXError
+              metricQueryType: 0
+              namespace: AWS/ApiGateway
+              period: ""
+              queryMode: Metrics
+              refId: A
+              region: default
+              sqlExpression: ""
+              statistic: Sum
+            - datasource:
+                type: cloudwatch
+                uid: ${cloudwatchDatasource}
+              dimensions:
+                ApiName: $api_name
+                Method: POST
+                Stage: $apigateway_stage
+              expression: ""
+              hide: false
+              id: ""
+              label: ""
+              logGroups: []
+              matchExact: false
+              metricEditorMode: 0
+              metricName: 4XXError
+              metricQueryType: 0
+              namespace: AWS/ApiGateway
+              period: ""
+              queryMode: Metrics
+              refId: B
+              region: default
+              sqlExpression: ""
+              statistic: Sum
+          title: 4XXError
+          type: timeseries
+        - datasource:
+            type: cloudwatch
+            uid: ${cloudwatchDatasource}
+          fieldConfig:
+            defaults:
+                color:
+                    mode: palette-classic
+                custom:
+                    axisCenteredZero: false
+                    axisColorMode: text
+                    axisLabel: ""
+                    axisPlacement: auto
+                    barAlignment: 0
+                    drawStyle: bars
+                    fillOpacity: 10
+                    gradientMode: none
+                    hideFrom:
+                        legend: false
+                        tooltip: false
+                        viz: false
+                    lineInterpolation: linear
+                    lineStyle:
+                        fill: solid
+                    lineWidth: 2
+                    pointSize: 5
+                    scaleDistribution:
+                        type: linear
+                    showPoints: always
+                    spanNulls: false
+                    stacking:
+                        group: A
+                        mode: normal
+                    thresholdsStyle:
+                        mode: "off"
+                links: []
+                mappings: []
+                min: 0
+                thresholds:
+                    mode: absolute
+                    steps:
+                        - color: green
+                          value: null
+                        - color: red
+                          value: 80
+                unit: ms
+            overrides: []
+          gridPos:
+            h: 9
+            w: 6
+            x: 12
+            "y": 29
+          id: 97
+          links: []
+          options:
+            legend:
+                calcs:
+                    - max
+                displayMode: table
+                placement: bottom
+                showLegend: true
+            tooltip:
+                mode: multi
+                sort: none
+          pluginVersion: 9.4.7
+          targets:
+            - datasource:
+                type: cloudwatch
+                uid: ${cloudwatchDatasource}
+              dimensions:
+                ApiName: $api_name
+                Method: GET
+                Resource: /price
+                Stage: $apigateway_stage
+              expression: ""
+              hide: false
+              id: ""
+              label: ""
+              logGroups: []
+              matchExact: false
+              metricEditorMode: 0
+              metricName: Latency
+              metricQueryType: 0
+              namespace: AWS/ApiGateway
+              period: ""
+              queryMode: Metrics
+              refId: A
+              region: default
+              sqlExpression: ""
+              statistic: p90
+            - datasource:
+                type: cloudwatch
+                uid: ${cloudwatchDatasource}
+              dimensions:
+                ApiName: $api_name
+                Method: POST
+                Resource: /graph-internal
+                Stage: $apigateway_stage
+              expression: ""
+              hide: false
+              id: ""
+              label: ""
+              logGroups: []
+              matchExact: false
+              metricEditorMode: 0
+              metricName: Latency
+              metricQueryType: 0
+              namespace: AWS/ApiGateway
+              period: ""
+              queryMode: Metrics
+              refId: B
+              region: default
+              sqlExpression: ""
+              statistic: p90
+            - datasource:
+                type: cloudwatch
+                uid: ${cloudwatchDatasource}
+              dimensions:
+                ApiName: $api_name
+                Method: GET
+                Resource: /restaking/v1/pod/{address}/summary
+                Stage: $apigateway_stage
+              expression: ""
+              hide: false
+              id: ""
+              label: ""
+              logGroups: []
+              matchExact: false
+              metricEditorMode: 0
+              metricName: Latency
+              metricQueryType: 0
+              namespace: AWS/ApiGateway
+              period: ""
+              queryMode: Metrics
+              refId: C
+              region: default
+              sqlExpression: ""
+              statistic: p90
+            - datasource:
+                type: cloudwatch
+                uid: ${cloudwatchDatasource}
+              dimensions:
+                ApiName: $api_name
+                Method: POST
+                Resource: /graph
+                Stage: $apigateway_stage
+              expression: ""
+              hide: false
+              id: ""
+              label: ""
+              logGroups: []
+              matchExact: true
+              metricEditorMode: 0
+              metricName: Latency
+              metricQueryType: 0
+              namespace: AWS/ApiGateway
+              period: ""
+              queryMode: Metrics
+              refId: D
+              region: default
+              sqlExpression: ""
+              statistic: p90
+          title: V1 p90 (Latency)
+          type: timeseries
+        - collapsed: false
+          gridPos:
+            h: 1
+            w: 24
+            x: 0
+            "y": 38
+          id: 71
+          panels: []
+          title: Lambda RED (Requests, Errors, Duration) - load-test 1req/min traffic always present
+          type: row
+        - datasource:
+            type: cloudwatch
+            uid: ${cloudwatchDatasource}
+          fieldConfig:
+            defaults:
+                color:
+                    mode: palette-classic
+                custom:
+                    axisCenteredZero: false
+                    axisColorMode: text
+                    axisLabel: ""
+                    axisPlacement: auto
+                    barAlignment: 0
+                    drawStyle: bars
+                    fillOpacity: 100
+                    gradientMode: hue
+                    hideFrom:
+                        legend: false
+                        tooltip: false
+                        viz: false
+                    lineInterpolation: linear
+                    lineWidth: 1
+                    pointSize: 5
+                    scaleDistribution:
+                        type: linear
+                    showPoints: auto
+                    spanNulls: false
+                    stacking:
+                        group: A
+                        mode: normal
+                    thresholdsStyle:
+                        mode: "off"
+                mappings: []
+                thresholds:
+                    mode: absolute
+                    steps:
+                        - color: green
+                          value: null
+                        - color: red
+                          value: 80
+            overrides: []
+          gridPos:
+            h: 8
+            w: 8
+            x: 0
+            "y": 39
+          id: 65
+          options:
+            legend:
+                calcs: []
+                displayMode: list
+                placement: bottom
+                showLegend: true
+            tooltip:
+                mode: single
+                sort: none
+          targets:
+            - datasource:
+                type: cloudwatch
+                uid: ${cloudwatchDatasource}
+              dimensions:
+                Resource: eigenlayer-pp-usea2-goerli-rewards-v1:stable-alias
+              expression: ""
+              id: ""
+              label: ""
+              logGroups: []
+              matchExact: false
+              metricEditorMode: 0
+              metricName: Invocations
+              metricQueryType: 0
+              namespace: AWS/Lambda
+              period: ""
+              queryMode: Metrics
+              refId: A
+              region: default
+              sql:
+                select:
+                    name: AVG
+                    type: function
+              statistic: Sum
+            - datasource:
+                type: cloudwatch
+                uid: ${cloudwatchDatasource}
+              dimensions:
+                Resource: eigenlayer-pp-usea2-goerli-rewards-v2
+              expression: ""
+              hide: false
+              id: ""
+              label: ""
+              logGroups: []
+              matchExact: false
+              metricEditorMode: 0
+              metricName: Invocations
+              metricQueryType: 0
+              namespace: AWS/Lambda
+              period: ""
+              queryMode: Metrics
+              refId: B
+              region: default
+              sqlExpression: ""
+              statistic: Sum
+          title: 'Lambda # Invocations'
+          type: timeseries
+        - datasource:
+            type: cloudwatch
+            uid: ${cloudwatchDatasource}
+          fieldConfig:
+            defaults:
+                color:
+                    mode: palette-classic
+                custom:
+                    axisCenteredZero: false
+                    axisColorMode: text
+                    axisLabel: ""
+                    axisPlacement: auto
+                    barAlignment: 0
+                    drawStyle: bars
+                    fillOpacity: 100
+                    gradientMode: hue
+                    hideFrom:
+                        legend: false
+                        tooltip: false
+                        viz: false
+                    lineInterpolation: linear
+                    lineWidth: 1
+                    pointSize: 5
+                    scaleDistribution:
+                        type: linear
+                    showPoints: auto
+                    spanNulls: false
+                    stacking:
+                        group: A
+                        mode: normal
+                    thresholdsStyle:
+                        mode: "off"
+                mappings: []
+                thresholds:
+                    mode: absolute
+                    steps:
+                        - color: green
+                          value: null
+                        - color: red
+                          value: 80
+            overrides: []
+          gridPos:
+            h: 8
+            w: 8
+            x: 8
+            "y": 39
+          id: 69
+          options:
+            legend:
+                calcs: []
+                displayMode: list
+                placement: bottom
+                showLegend: true
+            tooltip:
+                mode: single
+                sort: none
+          targets:
+            - datasource:
+                type: cloudwatch
+                uid: ${cloudwatchDatasource}
+              dimensions:
+                Resource: eigenlayer-pp-usea2-goerli-rewards-v1:stable-alias
+              expression: ""
+              id: ""
+              label: ""
+              logGroups: []
+              matchExact: false
+              metricEditorMode: 0
+              metricName: Duration
+              metricQueryType: 0
+              namespace: AWS/Lambda
+              period: ""
+              queryMode: Metrics
+              refId: A
+              region: default
+              sqlExpression: ""
+              statistic: Average
+            - datasource:
+                type: cloudwatch
+                uid: ${cloudwatchDatasource}
+              dimensions:
+                Resource: eigenlayer-pp-usea2-goerli-rewards-v2
+              expression: ""
+              hide: false
+              id: ""
+              label: ""
+              logGroups: []
+              matchExact: false
+              metricEditorMode: 0
+              metricName: Duration
+              metricQueryType: 0
+              namespace: AWS/Lambda
+              period: ""
+              queryMode: Metrics
+              refId: B
+              region: default
+              sqlExpression: ""
+              statistic: Average
+          title: Lambda Invocation Duration (ms)
+          type: timeseries
+        - datasource:
+            type: cloudwatch
+            uid: ${cloudwatchDatasource}
+          fieldConfig:
+            defaults:
+                color:
+                    mode: palette-classic
+                custom:
+                    axisCenteredZero: false
+                    axisColorMode: text
+                    axisLabel: ""
+                    axisPlacement: auto
+                    barAlignment: 0
+                    drawStyle: line
+                    fillOpacity: 0
+                    gradientMode: none
+                    hideFrom:
+                        legend: false
+                        tooltip: false
+                        viz: false
+                    lineInterpolation: linear
+                    lineWidth: 1
+                    pointSize: 5
+                    scaleDistribution:
+                        type: linear
+                    showPoints: auto
+                    spanNulls: false
+                    stacking:
+                        group: A
+                        mode: none
+                    thresholdsStyle:
+                        mode: "off"
+                mappings: []
+                thresholds:
+                    mode: absolute
+                    steps:
+                        - color: green
+                          value: null
+                        - color: red
+                          value: 80
+            overrides: []
+          gridPos:
+            h: 8
+            w: 8
+            x: 16
+            "y": 39
+          id: 67
+          options:
+            legend:
+                calcs: []
+                displayMode: list
+                placement: bottom
+                showLegend: true
+            tooltip:
+                mode: single
+                sort: none
+          targets:
+            - datasource:
+                type: cloudwatch
+                uid: ${cloudwatchDatasource}
+              dimensions:
+                Resource: eigenlayer-pp-usea2-goerli-rewards-v1:stable-alias
+              expression: ""
+              id: ""
+              label: ""
+              logGroups: []
+              matchExact: false
+              metricEditorMode: 0
+              metricName: Errors
+              metricQueryType: 0
+              namespace: AWS/Lambda
+              period: ""
+              queryMode: Metrics
+              refId: A
+              region: default
+              sqlExpression: ""
+              statistic: Sum
+            - datasource:
+                type: cloudwatch
+                uid: ${cloudwatchDatasource}
+              dimensions:
+                Resource: eigenlayer-pp-usea2-goerli-rewards-v2
+              expression: ""
+              hide: false
+              id: ""
+              label: ""
+              logGroups: []
+              matchExact: false
+              metricEditorMode: 0
+              metricName: Errors
+              metricQueryType: 0
+              namespace: AWS/Lambda
+              period: ""
+              queryMode: Metrics
+              refId: B
+              region: default
+              sqlExpression: ""
+              statistic: Sum
+          title: Lambda Errors
+          type: timeseries
+        - collapsed: false
+          gridPos:
+            h: 1
+            w: 24
+            x: 0
+            "y": 47
+          id: 113
+          panels: []
+          title: Elasticache
+          type: row
+        - aliasColors: {}
+          bars: false
+          dashLength: 10
+          dashes: false
+          datasource:
+            type: cloudwatch
+            uid: ${cloudwatchDatasource}
+          decimals: 3
+          editable: true
+          error: false
+          fill: 1
+          fillGradient: 0
+          grid: {}
+          gridPos:
+            h: 7
+            w: 9
+            x: 0
+            "y": 48
+          hiddenSeries: false
+          id: 112
+          isNew: true
+          legend:
+            alignAsTable: true
+            avg: true
+            current: true
+            max: true
+            min: true
+            show: true
+            sortDesc: true
+            total: false
+            values: true
+          lines: true
+          linewidth: 2
+          links: []
+          nullPointMode: null as zero
+          options:
+            alertThreshold: true
+          percentage: false
+          pluginVersion: 9.5.0-cloud.4.a016665c
+          pointradius: 5
+          points: false
+          renderer: flot
+          seriesOverrides: []
+          spaceLength: 10
+          stack: false
+          steppedLine: false
+          targets:
+            - datasource:
+                type: cloudwatch
+                uid: ${cloudwatchDatasource}
+              dimensions: {}
+              expression: ""
+              id: ""
+              label: ""
+              logGroups: []
+              matchExact: false
+              metricEditorMode: 0
+              metricName: CacheHits
+              metricQueryType: 0
+              namespace: AWS/ElastiCache
+              period: ""
+              queryMode: Metrics
+              refId: A
+              region: default
+              sqlExpression: ""
+              statistic: Average
+            - datasource:
+                type: cloudwatch
+                uid: ${cloudwatchDatasource}
+              dimensions: {}
+              expression: ""
+              hide: false
+              id: ""
+              label: ""
+              logGroups: []
+              matchExact: false
+              metricEditorMode: 0
+              metricName: CacheMisses
+              metricQueryType: 0
+              namespace: AWS/ElastiCache
+              period: ""
+              queryMode: Metrics
+              refId: B
+              region: default
+              sqlExpression: ""
+              statistic: Average
+            - datasource:
+                type: cloudwatch
+                uid: ${cloudwatchDatasource}
+              dimensions: {}
+              expression: ""
+              hide: false
+              id: ""
+              label: ""
+              logGroups: []
+              matchExact: false
+              metricEditorMode: 0
+              metricName: Evictions
+              metricQueryType: 0
+              namespace: AWS/ElastiCache
+              period: ""
+              queryMode: Metrics
+              refId: C
+              region: default
+              sqlExpression: ""
+              statistic: Average
+            - datasource:
+                type: cloudwatch
+                uid: ${cloudwatchDatasource}
+              dimensions: {}
+              expression: ""
+              hide: false
+              id: ""
+              label: ""
+              logGroups: []
+              matchExact: false
+              metricEditorMode: 0
+              metricName: Reclaimed
+              metricQueryType: 0
+              namespace: AWS/ElastiCache
+              period: ""
+              queryMode: Metrics
+              refId: D
+              region: default
+              sqlExpression: ""
+              statistic: Average
+          thresholds: []
+          timeRegions: []
+          title: Cache Stats
+          tooltip:
+            msResolution: false
+            shared: true
+            sort: 0
+            value_type: cumulative
+          type: graph
+          xaxis:
+            mode: time
+            show: true
+            values: []
+          yaxes:
+            - format: none
+              logBase: 1
+              min: 0
+              show: true
+            - format: none
+              logBase: 1
+              min: 0
+              show: true
+          yaxis:
+            align: false
+        - collapsed: false
+          gridPos:
+            h: 1
+            w: 24
+            x: 0
+            "y": 55
+          id: 57
+          panels: []
+          title: Kubernetes Instances + Pods (CPU, memory, storage)
+          type: row
+        - datasource:
+            type: prometheus
+            uid: grafanacloud-prom
+          gridPos:
+            h: 7
+            w: 12
+            x: 0
+            "y": 56
+          id: 73
+          links:
+            - title: cluster console on aws
+              url: https://us-east-2.console.aws.amazon.com/eks/home?region=us-east-2#/clusters/eigenlayer-pp-usea2-goerli?selectedTab=cluster-compute-tab
+          options:
+            code:
+                language: plaintext
+                showLineNumbers: false
+                showMiniMap: false
+            content: "- (public subnet) clel nodegroup\n  - runs CL (lighthouse) + EL (nethermind) clients\n- (private subnet) default nodegroup\n  - runs CL (chaind) and EL (thegraph) indexers\n\nNote: Spike traffic is explained by chaind writing at epoch boundaries (~ every 6 mins)\n\nTODO: relabel the instances with subnet info so that we can compare indexing vs query work. We might even want to duplicate every dashboard, since we'll likely mostly be interested in the private subnet serving read requests.  "
+            mode: markdown
+          pluginVersion: 9.5.0-cloud.4.a016665c
+          title: Node/Instance Level Resource Usage
+          type: text
+        - datasource:
+            type: prometheus
+            uid: grafanacloud-prom
+          gridPos:
+            h: 7
+            w: 7
+            x: 12
+            "y": 56
+          id: 74
+          options:
+            code:
+                language: plaintext
+                showLineNumbers: false
+                showMiniMap: false
+            content: |-
+                - clients
+                  - (consensus) lighthouse x3
+                  - (execution) nethermind x3
+                - indexers
+                  - (execution) thegraph
+                    - query nodes          x3
+                    - indexer              x1
+                    - ipfs                 x1
+                  - (consensus) chaind     x1
+            mode: markdown
+          pluginVersion: 9.5.0-cloud.4.a016665c
+          title: Pod Level Resource Usage
+          type: text
+        - datasource:
+            type: prometheus
+            uid: grafanacloud-prom
+          gridPos:
+            h: 7
+            w: 5
+            x: 19
+            "y": 56
+          id: 101
+          options:
+            code:
+                language: plaintext
+                showLineNumbers: false
+                showMiniMap: false
+            content: 'Note: it''s normal for nethermind client to use >20G of RAM'
+            mode: markdown
+          pluginVersion: 9.5.0-cloud.4.a016665c
+          type: text
+        - datasource:
+            type: prometheus
+            uid: grafanacloud-prom
+          description: ""
+          fieldConfig:
+            defaults:
+                color:
+                    mode: palette-classic
+                custom:
+                    axisCenteredZero: false
+                    axisColorMode: text
+                    axisLabel: ""
+                    axisPlacement: auto
+                    barAlignment: 0
+                    drawStyle: line
+                    fillOpacity: 0
+                    gradientMode: none
+                    hideFrom:
+                        legend: false
+                        tooltip: false
+                        viz: false
+                    lineInterpolation: linear
+                    lineWidth: 1
+                    pointSize: 5
+                    scaleDistribution:
+                        type: linear
+                    showPoints: auto
+                    spanNulls: false
+                    stacking:
+                        group: A
+                        mode: none
+                    thresholdsStyle:
+                        mode: area
+                links:
+                    - targetBlank: true
+                      title: kubernetes specific dashboard
+                      url: https://eigenlayer.grafana.net/d/efa86fd1d0c121a26444b636a3f509a8/kubernetes-compute-resources-cluster?orgId=1&refresh=30s&var-datasource=default&var-cluster=eigenlayer-pp-usea2-goerli&var-lokids=All
+                mappings: []
+                thresholds:
+                    mode: absolute
+                    steps:
+                        - color: green
+                        - color: red
+                          value: 0.8
+                unit: percentunit
+            overrides: []
+          gridPos:
+            h: 8
+            w: 12
+            x: 0
+            "y": 63
+          id: 47
+          links:
+            - targetBlank: true
+              title: k8s specific cluster dashboard
+              url: https://eigenlayer.grafana.net/d/efa86fd1d0c121a26444b636a3f509a8/kubernetes-compute-resources-cluster?orgId=1&refresh=30s&var-datasource=default&var-cluster=eigenlayer-pp-usea2-goerli&var-lokids=All
+          options:
+            legend:
+                calcs: []
+                displayMode: list
+                placement: bottom
+                showLegend: true
+            tooltip:
+                mode: single
+                sort: none
+          targets:
+            - datasource:
+                type: prometheus
+                uid: grafanacloud-prom
+              editorMode: code
+              expr: 'sum by(cluster, node) (node_namespace_pod_container:container_cpu_usage_seconds_total:sum_irate{}) / sum by(cluster, node) (kube_node_status_capacity{resource="cpu", cluster=~"$cluster"}) '
+              legendFormat: '{{cluster}}/{{node}}'
+              range: true
+              refId: A
+          title: $cluster System CPU percentage
+          type: timeseries
+        - datasource:
+            type: prometheus
+            uid: grafanacloud-prom
+          description: ""
+          fieldConfig:
+            defaults:
+                color:
+                    mode: palette-classic
+                custom:
+                    axisCenteredZero: false
+                    axisColorMode: text
+                    axisLabel: ""
+                    axisPlacement: auto
+                    barAlignment: 0
+                    drawStyle: line
+                    fillOpacity: 0
+                    gradientMode: none
+                    hideFrom:
+                        legend: false
+                        tooltip: false
+                        viz: false
+                    lineInterpolation: linear
+                    lineWidth: 1
+                    pointSize: 5
+                    scaleDistribution:
+                        type: linear
+                    showPoints: auto
+                    spanNulls: false
+                    stacking:
+                        group: A
+                        mode: none
+                    thresholdsStyle:
+                        mode: line+area
+                mappings: []
+                thresholds:
+                    mode: absolute
+                    steps:
+                        - color: green
+                        - color: red
+                          value: 2
+            overrides: []
+          gridPos:
+            h: 8
+            w: 12
+            x: 12
+            "y": 63
+          id: 51
+          links:
+            - targetBlank: true
+              title: k8s specific dashboard
+              url: https://eigenlayer.grafana.net/d/85a562078cdf77779eaa1add43ccec1e/kubernetes-compute-resources-namespace-pods?orgId=1&refresh=30s&var-datasource=default&var-cluster=eigenlayer-pp-usea2-goerli&var-namespace=graph&var-lokids=All
+          options:
+            legend:
+                calcs: []
+                displayMode: list
+                placement: bottom
+                showLegend: true
+            tooltip:
+                mode: single
+                sort: none
+          targets:
+            - datasource:
+                type: prometheus
+                uid: grafanacloud-prom
+              editorMode: code
+              expr: sum  (node_namespace_pod_container:container_cpu_usage_seconds_total:sum_irate{namespace=~"$namespace", cluster=~"$cluster"}) by (pod)
+              legendFormat: __auto
+              range: true
+              refId: A
+          title: $cluster ($namespace namespaces) Pod vCPU
+          type: timeseries
+        - datasource:
+            type: prometheus
+            uid: grafanacloud-prom
+          description: ""
+          fieldConfig:
+            defaults:
+                color:
+                    mode: palette-classic
+                custom:
+                    axisCenteredZero: false
+                    axisColorMode: text
+                    axisLabel: ""
+                    axisPlacement: auto
+                    barAlignment: 0
+                    drawStyle: line
+                    fillOpacity: 0
+                    gradientMode: none
+                    hideFrom:
+                        legend: false
+                        tooltip: false
+                        viz: false
+                    lineInterpolation: linear
+                    lineWidth: 1
+                    pointSize: 5
+                    scaleDistribution:
+                        type: linear
+                    showPoints: auto
+                    spanNulls: false
+                    stacking:
+                        group: A
+                        mode: none
+                    thresholdsStyle:
+                        mode: line+area
+                mappings: []
+                thresholds:
+                    mode: absolute
+                    steps:
+                        - color: green
+                        - color: red
+                          value: 0.8
+                unit: percentunit
+            overrides: []
+          gridPos:
+            h: 8
+            w: 12
+            x: 0
+            "y": 71
+          id: 53
+          links:
+            - targetBlank: true
+              title: k8s specific cluster dashboard
+              url: https://eigenlayer.grafana.net/d/efa86fd1d0c121a26444b636a3f509a8/kubernetes-compute-resources-cluster?orgId=1&refresh=30s&var-datasource=default&var-cluster=eigenlayer-pp-usea2-goerli&var-lokids=All
+          options:
+            legend:
+                calcs: []
+                displayMode: list
+                placement: bottom
+                showLegend: true
+            tooltip:
+                mode: single
+                sort: none
+          targets:
+            - datasource:
+                type: prometheus
+                uid: grafanacloud-prom
+              editorMode: code
+              expr: sum by(cluster, node) (node_namespace_pod_container:container_memory_working_set_bytes{}) / sum by(cluster, node) (kube_node_status_capacity{resource="memory", cluster=~"$cluster"})
+              legendFormat: '{{cluster}}/{{node}}'
+              range: true
+              refId: A
+          title: $cluster System Memory Usage
+          type: timeseries
+        - datasource:
+            type: prometheus
+            uid: grafanacloud-prom
+          description: ""
+          fieldConfig:
+            defaults:
+                color:
+                    mode: palette-classic
+                custom:
+                    axisCenteredZero: false
+                    axisColorMode: text
+                    axisLabel: ""
+                    axisPlacement: auto
+                    barAlignment: 0
+                    drawStyle: line
+                    fillOpacity: 0
+                    gradientMode: none
+                    hideFrom:
+                        legend: false
+                        tooltip: false
+                        viz: false
+                    lineInterpolation: linear
+                    lineWidth: 1
+                    pointSize: 5
+                    scaleDistribution:
+                        type: linear
+                    showPoints: auto
+                    spanNulls: false
+                    stacking:
+                        group: A
+                        mode: none
+                    thresholdsStyle:
+                        mode: line+area
+                mappings: []
+                thresholds:
+                    mode: absolute
+                    steps:
+                        - color: green
+                        - color: red
+                          value: 16
+                unit: decgbytes
+            overrides: []
+          gridPos:
+            h: 8
+            w: 12
+            x: 12
+            "y": 71
+          id: 55
+          links:
+            - title: k8s specific dashboard
+              url: https://eigenlayer.grafana.net/d/85a562078cdf77779eaa1add43ccec1e/kubernetes-compute-resources-namespace-pods?orgId=1&refresh=30s&var-datasource=default&var-cluster=eigenlayer-pp-usea2-goerli&var-namespace=graph&var-lokids=All
+          options:
+            legend:
+                calcs: []
+                displayMode: list
+                placement: bottom
+                showLegend: true
+            tooltip:
+                mode: single
+                sort: none
+          targets:
+            - datasource:
+                type: prometheus
+                uid: grafanacloud-prom
+              editorMode: code
+              expr: sum(container_memory_working_set_bytes{job="integrations/kubernetes/cadvisor", namespace=~"$namespace", container!="", image!="", cluster=~"$cluster"}) by (pod) / 1000000000
+              legendFormat: __auto
+              range: true
+              refId: A
+          title: $cluster/$namespace Pod Memory WSS (32G/private-node, 8G/public-node)
+          type: timeseries
+        - datasource:
+            type: prometheus
+            uid: grafanacloud-prom
+          description: ""
+          fieldConfig:
+            defaults:
+                color:
+                    mode: thresholds
+                mappings: []
+                thresholds:
+                    mode: absolute
+                    steps:
+                        - color: green
+                        - color: red
+                          value: 70
+            overrides: []
+          gridPos:
+            h: 8
+            w: 12
+            x: 12
+            "y": 79
+          id: 49
+          links:
+            - targetBlank: true
+              title: k8s specific dashboard
+              url: https://eigenlayer.grafana.net/d/919b92a8e8041bd567af9edab12c840c/kubernetes-persistent-volumes?orgId=1&refresh=30s&var-datasource=default&var-cluster=eigenlayer-pp-usea2-goerli&var-namespace=chain&var-volume=data-lighthouse-0&var-lokids=All
+          options:
+            colorMode: value
+            graphMode: area
+            justifyMode: auto
+            orientation: auto
+            reduceOptions:
+                calcs:
+                    - lastNotNull
+                fields: ""
+                values: false
+            textMode: auto
+          pluginVersion: 9.5.0-cloud.4.a016665c
+          targets:
+            - datasource:
+                type: prometheus
+                uid: grafanacloud-prom
+              editorMode: code
+              exemplar: false
+              expr: "max by(persistentvolumeclaim) (\n(kubelet_volume_stats_capacity_bytes{job=\"integrations/kubernetes/kubelet\", namespace=~\"$namespace\", cluster=~\"$cluster\"} -\nkubelet_volume_stats_available_bytes{job=\"integrations/kubernetes/kubelet\", namespace=~\"$namespace\", cluster=~\"$cluster\"}) / \nkubelet_volume_stats_capacity_bytes{job=\"integrations/kubernetes/kubelet\", namespace=~\"$namespace\", cluster=~\"$cluster\"}) * 100"
+              format: time_series
+              instant: false
+              interval: ""
+              legendFormat: __auto
+              range: true
+              refId: A
+          title: $cluster/$namespace Persistent Volume %
+          type: stat
+        - collapsed: false
+          gridPos:
+            h: 1
+            w: 24
+            x: 0
+            "y": 87
+          id: 8
+          panels: []
+          title: Clients, graph, chaind head sync
+          type: row
+        - datasource:
+            type: yesoreyeram-infinity-datasource
+            uid: NTre8LB4z
+          fieldConfig:
+            defaults:
+                color:
+                    mode: thresholds
+                mappings: []
+                thresholds:
+                    mode: absolute
+                    steps:
+                        - color: green
+            overrides: []
+          gridPos:
+            h: 4
+            w: 6
+            x: 0
+            "y": 88
+          id: 28
+          options:
+            colorMode: value
+            graphMode: area
+            justifyMode: auto
+            orientation: auto
+            reduceOptions:
+                calcs:
+                    - lastNotNull
+                fields: ""
+                values: false
+            textMode: auto
+          pluginVersion: 9.5.0-cloud.4.a016665c
+          targets:
+            - columns: []
+              datasource:
+                type: yesoreyeram-infinity-datasource
+                uid: NTre8LB4z
+              filters: []
+              format: table
+              global_query_id: ""
+              parser: uql
+              refId: A
+              root_selector: ""
+              source: url
+              type: json
+              uql: |-
+                parse-json
+                | jsonata "data.epoch"
+              url: https://goerli.beaconcha.in/api/v1/slot/latest?apikey=$beaconchain_apikey
+              url_options:
+                data: ""
+                method: GET
+          title: beaconcha.in head epoch
+          type: stat
+        - datasource:
+            type: yesoreyeram-infinity-datasource
+            uid: NTre8LB4z
+          description: head block of execution client
+          fieldConfig:
+            defaults:
+                color:
+                    mode: thresholds
+                mappings: []
+                thresholds:
+                    mode: absolute
+                    steps:
+                        - color: green
+            overrides: []
+          gridPos:
+            h: 4
+            w: 6
+            x: 6
+            "y": 88
+          id: 22
+          options:
+            colorMode: value
+            graphMode: area
+            justifyMode: auto
+            orientation: horizontal
+            reduceOptions:
+                calcs:
+                    - lastNotNull
+                fields: ""
+                values: false
+            text: {}
+            textMode: auto
+          pluginVersion: 9.5.0-cloud.4.a016665c
+          targets:
+            - columns: []
+              datasource:
+                type: yesoreyeram-infinity-datasource
+                uid: NTre8LB4z
+              filters: []
+              format: table
+              global_query_id: ""
+              hide: false
+              parser: uql
+              refId: A
+              root_selector: ""
+              source: url
+              type: json
+              uql: "parse-json\n| jsonata \"data.slot\" "
+              url: https://goerli.beaconcha.in/api/v1/slot/latest?apikey=$beaconchain_apikey
+              url_options:
+                data: ""
+                method: GET
+                params: []
+          title: beaconcha.in head slot
+          type: stat
+        - datasource:
+            type: yesoreyeram-infinity-datasource
+            uid: NTre8LB4z
+          description: head slot of execution client
+          fieldConfig:
+            defaults:
+                color:
+                    mode: thresholds
+                mappings: []
+                thresholds:
+                    mode: absolute
+                    steps:
+                        - color: green
+                unit: none
+            overrides: []
+          gridPos:
+            h: 4
+            w: 12
+            x: 12
+            "y": 88
+          id: 20
+          options:
+            colorMode: none
+            graphMode: area
+            justifyMode: auto
+            orientation: auto
+            reduceOptions:
+                calcs: []
+                fields: /.*/
+                values: true
+            textMode: auto
+          pluginVersion: 9.5.0-cloud.4.a016665c
+          targets:
+            - columns:
+                - selector: ""
+                  text: ""
+                  type: string
+              datasource:
+                type: yesoreyeram-infinity-datasource
+                uid: NTre8LB4z
+              filters: []
+              format: table
+              global_query_id: ""
+              hide: false
+              json_options:
+                root_is_not_array: false
+              parser: uql
+              refId: A
+              root_selector: ""
+              source: url
+              type: json
+              uql: |-
+                parse-json
+                | jsonata "result"
+              url: https://goerli.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161
+              url_options:
+                body_content_type: application/json
+                body_type: raw
+                data: '{"jsonrpc":"2.0","method":"eth_blockNumber","params":[],"id":1}'
+                method: POST
+          title: infura head block
+          type: stat
+        - datasource:
+            type: prometheus
+            uid: grafanacloud-prom
+          fieldConfig:
+            defaults:
+                color:
+                    mode: thresholds
+                links:
+                    - title: Lighthouse Summary
+                      url: https://eigenlayer.grafana.net/d/yY7PIGdZd/lighthouse-summary
+                mappings: []
+                thresholds:
+                    mode: absolute
+                    steps:
+                        - color: green
+            overrides: []
+          gridPos:
+            h: 8
+            w: 6
+            x: 0
+            "y": 92
+          id: 30
+          options:
+            colorMode: value
+            graphMode: none
+            justifyMode: auto
+            orientation: horizontal
+            reduceOptions:
+                calcs:
+                    - lastNotNull
+                fields: ""
+                values: false
+            textMode: auto
+          pluginVersion: 9.5.0-cloud.4.a016665c
+          targets:
+            - datasource:
+                type: prometheus
+                uid: grafanacloud-prom
+              editorMode: code
+              expr: slotclock_present_epoch{cluster=~"$cluster"}
+              legendFormat: '{{pod}}'
+              range: true
+              refId: A
+          title: CL head epoch
+          type: stat
+        - datasource:
+            type: prometheus
+            uid: grafanacloud-prom
+          fieldConfig:
+            defaults:
+                color:
+                    mode: thresholds
+                links:
+                    - title: Lighthouse Summary
+                      url: https://eigenlayer.grafana.net/d/yY7PIGdZd/lighthouse-summary
+                mappings: []
+                thresholds:
+                    mode: absolute
+                    steps:
+                        - color: green
+            overrides: []
+          gridPos:
+            h: 8
+            w: 6
+            x: 6
+            "y": 92
+          id: 88
+          options:
+            colorMode: value
+            graphMode: none
+            justifyMode: auto
+            orientation: horizontal
+            reduceOptions:
+                calcs:
+                    - lastNotNull
+                fields: ""
+                values: false
+            textMode: auto
+          pluginVersion: 9.5.0-cloud.4.a016665c
+          targets:
+            - datasource:
+                type: prometheus
+                uid: grafanacloud-prom
+              editorMode: code
+              expr: slotclock_present_slot{cluster=~"$cluster"}
+              legendFormat: '{{pod}}'
+              range: true
+              refId: A
+          title: CL head epoch
+          type: stat
+        - datasource:
+            type: prometheus
+            uid: grafanacloud-prom
+          fieldConfig:
+            defaults:
+                links:
+                    - title: Nethermind
+                      url: https://eigenlayer.grafana.net/d/nQaasd123fghRO6Yiz/nethermind
+                mappings: []
+                thresholds:
+                    mode: absolute
+                    steps:
+                        - color: green
+                unit: none
+            overrides: []
+          gridPos:
+            h: 8
+            w: 12
+            x: 12
+            "y": 92
+          id: 18
+          options:
+            colorMode: value
+            graphMode: none
+            justifyMode: auto
+            orientation: horizontal
+            reduceOptions:
+                calcs:
+                    - lastNotNull
+                fields: ""
+                values: false
+            textMode: auto
+          pluginVersion: 9.5.0-cloud.4.a016665c
+          targets:
+            - datasource:
+                type: prometheus
+                uid: grafanacloud-prom
+              editorMode: code
+              expr: nethermind_blocks{cluster=~"$cluster"}
+              legendFormat: '{{pod}}'
+              range: true
+              refId: A
+          title: EL clients head block
+          type: stat
+        - datasource:
+            type: prometheus
+            uid: grafanacloud-prom
+          description: Last chaind processed slot
+          fieldConfig:
+            defaults:
+                color:
+                    mode: thresholds
+                mappings: []
+                thresholds:
+                    mode: absolute
+                    steps:
+                        - color: green
+            overrides: []
+          gridPos:
+            h: 8
+            w: 6
+            x: 0
+            "y": 100
+          id: 24
+          options:
+            colorMode: value
+            graphMode: area
+            justifyMode: auto
+            orientation: auto
+            reduceOptions:
+                calcs:
+                    - lastNotNull
+                fields: ""
+                values: false
+            textMode: auto
+          pluginVersion: 9.5.0-cloud.4.a016665c
+          targets:
+            - datasource:
+                type: prometheus
+                uid: grafanacloud-prom
+              editorMode: code
+              expr: chaind_validators_latest_epoch{cluster=~"$cluster"}
+              legendFormat: __auto
+              range: true
+              refId: A
+          title: Chaind head epoch
+          type: stat
+        - datasource:
+            type: prometheus
+            uid: grafanacloud-prom
+          gridPos:
+            h: 5
+            w: 5
+            x: 7
+            "y": 100
+          id: 102
+          links: []
+          options:
+            code:
+                language: plaintext
+                showLineNumbers: false
+                showMiniMap: false
+            content: |-
+                TODO: --->
+                fix the thegraph panel to only show the running instance
+
+                <--- TODO --->:
+                General issue with restarting leaves a duplicate
+            mode: markdown
+          pluginVersion: 9.5.0-cloud.4.a016665c
+          type: text
+        - datasource:
+            type: prometheus
+            uid: grafanacloud-prom
+          description: last thegraph processed block
+          fieldConfig:
+            defaults:
+                color:
+                    mode: thresholds
+                mappings: []
+                thresholds:
+                    mode: absolute
+                    steps:
+                        - color: green
+            overrides: []
+          gridPos:
+            h: 8
+            w: 12
+            x: 12
+            "y": 100
+          id: 26
+          options:
+            colorMode: value
+            graphMode: area
+            justifyMode: auto
+            orientation: auto
+            reduceOptions:
+                calcs:
+                    - lastNotNull
+                fields: ""
+                values: false
+            textMode: auto
+          pluginVersion: 9.5.0-cloud.4.a016665c
+          targets:
+            - datasource:
+                type: prometheus
+                uid: grafanacloud-prom
+              editorMode: code
+              expr: deployment_head{cluster="$cluster"}
+              legendFormat: '{{pod}}, {{ deployment }}'
+              range: true
+              refId: A
+          title: The Graph head
+          type: stat
+        - datasource:
+            type: prometheus
+            uid: grafanacloud-prom
+          fieldConfig:
+            defaults:
+                color:
+                    mode: palette-classic
+                custom:
+                    axisCenteredZero: false
+                    axisColorMode: text
+                    axisLabel: ""
+                    axisPlacement: auto
+                    barAlignment: 0
+                    drawStyle: line
+                    fillOpacity: 0
+                    gradientMode: none
+                    hideFrom:
+                        legend: false
+                        tooltip: false
+                        viz: false
+                    lineInterpolation: linear
+                    lineWidth: 1
+                    pointSize: 5
+                    scaleDistribution:
+                        type: linear
+                    showPoints: auto
+                    spanNulls: false
+                    stacking:
+                        group: A
+                        mode: none
+                    thresholdsStyle:
+                        mode: "off"
+                mappings: []
+                thresholds:
+                    mode: absolute
+                    steps:
+                        - color: green
+                        - color: red
+                          value: 80
+            overrides: []
+          gridPos:
+            h: 8
+            w: 6
+            x: 17
+            "y": 108
+          id: 110
+          options:
+            legend:
+                calcs: []
+                displayMode: list
+                placement: bottom
+                showLegend: true
+            tooltip:
+                mode: single
+                sort: none
+          targets:
+            - datasource:
+                type: prometheus
+                uid: grafanacloud-prom
+              editorMode: code
+              expr: preprodGraphScraper_strategyTVLBuckets_deposits{namespace="graph-scraper", cluster="$cluster"}  / 1e18
+              legendFormat: deposits
+              range: true
+              refId: A
+            - datasource:
+                type: prometheus
+                uid: grafanacloud-prom
+              editorMode: code
+              expr: preprodGraphScraper_strategyTVLBuckets_pendingWithdrawals{namespace="graph-scraper", cluster="$cluster"}  / 1e18
+              hide: false
+              legendFormat: pendingWithdrawals
+              range: true
+              refId: B
+            - datasource:
+                type: prometheus
+                uid: grafanacloud-prom
+              editorMode: code
+              expr: preprodGraphScraper_strategyTVLBuckets_withdrawals{namespace="graph-scraper", cluster="$cluster"} / 1e18
+              hide: false
+              legendFormat: withdrawals
+              range: true
+              refId: C
+          title: strategyTVLBuckets (unit 1e18)
+          type: timeseries
+    refresh: 10s
+    revision: 1
+    schemaVersion: 38
+    style: dark
+    tags: []
+    templating:
+        list:
+            - current:
+                selected: true
+                text: goerli
+                value: goerli
+              hide: 1
+              includeAll: false
+              label: chain
+              multi: false
+              name: Chain
+              options:
+                - selected: false
+                  text: devnet
+                  value: devnet
+                - selected: true
+                  text: goerli
+                  value: goerli
+                - selected: false
+                  text: mainnet
+                  value: mainnet
+              query: devnet, goerli, mainnet
+              queryValue: ""
+              skipUrlSync: false
+              type: custom
+            - current:
+                selected: false
+                text: eigenlayer-pp-usea2-goerli
+                value: eigenlayer-pp-usea2-goerli
+              datasource:
+                type: prometheus
+                uid: grafanacloud-prom
+              definition: label_values(kube_namespace_status_phase{job="integrations/kubernetes/kube-state-metrics"},cluster)
+              hide: 0
+              includeAll: false
+              label: ""
+              multi: false
+              name: cluster
+              options: []
+              query:
+                query: label_values(kube_namespace_status_phase{job="integrations/kubernetes/kube-state-metrics"},cluster)
+                refId: PrometheusVariableQueryEditor-VariableQuery
+              refresh: 1
+              regex: eigenlayer-.*-$Chain
+              skipUrlSync: false
+              sort: 0
+              type: query
+            - current:
+                selected: true
+                text:
+                    - chain
+                    - chaind
+                value:
+                    - chain
+                    - chaind
+              datasource:
+                type: prometheus
+                uid: grafanacloud-prom
+              definition: label_values(kube_namespace_status_phase{job="integrations/kubernetes/kube-state-metrics", cluster="$cluster"}, namespace)
+              hide: 0
+              includeAll: true
+              multi: true
+              name: namespace
+              options: []
+              query:
+                query: label_values(kube_namespace_status_phase{job="integrations/kubernetes/kube-state-metrics", cluster="$cluster"}, namespace)
+                refId: StandardVariableQuery
+              refresh: 1
+              regex: /(chaind|chain|graph)/
+              skipUrlSync: false
+              sort: 0
+              type: query
+            - current:
+                selected: false
+                text: eigenlayer-pp-usea2-goerli
+                value: eigenlayer-pp-usea2-goerli
+              datasource:
+                type: cloudwatch
+                uid: LMKgvUB4z
+              definition: ""
+              hide: 0
+              includeAll: false
+              multi: false
+              name: api_name
+              options: []
+              query:
+                dimensionKey: ApiName
+                metricName: Count
+                namespace: AWS/ApiGateway
+                queryType: dimensionValues
+                refId: CloudWatchVariableQueryEditor-VariableQuery
+                region: us-east-2
+              refresh: 1
+              regex: ""
+              skipUrlSync: false
+              sort: 0
+              type: query
+            - current:
+                selected: false
+                text: goerli
+                value: goerli
+              datasource:
+                type: cloudwatch
+                uid: ${cloudwatchDatasource}
+              definition: ""
+              description: Used to show real traffic (goerli) or load testing traffic (goerli-loadtest)
+              hide: 0
+              includeAll: false
+              multi: true
+              name: apigateway_stage
+              options: []
+              query:
+                dimensionKey: Stage
+                metricName: Count
+                namespace: AWS/ApiGateway
+                queryType: dimensionValues
+                refId: CloudWatchVariableQueryEditor-VariableQuery
+                region: default
+              refresh: 1
+              regex: ""
+              skipUrlSync: false
+              sort: 0
+              type: query
+            - hide: 2
+              name: beaconchain_apikey
+              query: cy82V2JSeU9WUjk4bjR3Qm40em4u
+              skipUrlSync: false
+              type: constant
+            - current:
+                selected: false
+                text: CloudWatch-preprod-us-east-2-goerli
+                value: CloudWatch-preprod-us-east-2-goerli
+              hide: 0
+              includeAll: false
+              label: cloudwatchDatasource
+              multi: false
+              name: cloudwatchDatasource
+              options: []
+              query: cloudwatch
+              queryValue: ""
+              refresh: 1
+              regex: .*-$environment.*
+              skipUrlSync: false
+              type: datasource
+            - current:
+                selected: true
+                text: preprod
+                value: preprod
+              hide: 1
+              includeAll: false
+              label: environment
+              multi: false
+              name: environment
+              options:
+                - selected: false
+                  text: dev
+                  value: dev
+                - selected: true
+                  text: preprod
+                  value: preprod
+                - selected: false
+                  text: prod
+                  value: prod
+              query: dev, preprod, prod
+              queryValue: ""
+              skipUrlSync: false
+              type: custom
+    time:
+        from: now-1h
+        to: now
+    timepicker: {}
+    timezone: ""
+    title: General Monitoring Dashboard for M1
+    uid: ZbOKkYBVk
+    weekStart: ""

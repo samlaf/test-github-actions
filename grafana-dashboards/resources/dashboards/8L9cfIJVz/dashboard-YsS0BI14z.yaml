@@ -1,0 +1,360 @@
+apiVersion: grizzly.grafana.com/v1alpha1
+kind: Dashboard
+metadata:
+    folder: 8L9cfIJVz
+    name: YsS0BI14z
+spec:
+    annotations:
+        list:
+            - builtIn: 1
+              datasource:
+                type: grafana
+                uid: -- Grafana --
+              enable: true
+              hide: true
+              iconColor: rgba(0, 211, 255, 1)
+              name: Annotations & Alerts
+              target:
+                limit: 100
+                matchAny: false
+                tags: []
+                type: dashboard
+              type: dashboard
+    description: Graph nodes went down
+    editable: true
+    fiscalYearStartMonth: 0
+    graphTooltip: 0
+    links: []
+    liveNow: false
+    panels:
+        - datasource:
+            type: datasource
+            uid: grafana
+          gridPos:
+            h: 8
+            w: 9
+            x: 0
+            "y": 0
+          id: 24
+          options:
+            alertInstanceLabelFilter: ""
+            alertName: ""
+            dashboardAlerts: false
+            groupBy: []
+            groupMode: default
+            maxItems: 20
+            sortOrder: 1
+            stateFilter:
+                error: true
+                firing: true
+                noData: false
+                normal: false
+                pending: true
+            viewMode: list
+          title: Alert list
+          type: alertlist
+        - datasource:
+            type: datasource
+            uid: grafana
+          description: ""
+          gridPos:
+            h: 8
+            w: 7
+            x: 9
+            "y": 0
+          id: 26
+          options:
+            code:
+                language: plaintext
+                showLineNumbers: false
+                showMiniMap: false
+            content: "Disperser down on 9:00pm PST Feb 5 2023, restart disperser to enable p99 latency measurement\n\nSystem update happens on Feb 2 2023, \n* restart the devnet-a cluster and redeploy the contracts\n\nSystem update happens on Jan 12 2023 which recreated the following clusters\n* devnet-chain: running chain \n* frontend: running eigenda\n* devnet-a: eigenda rollup testnet\n\nFor markdown syntax help: [commonmark.org/help](https://commonmark.org/help/)"
+            mode: markdown
+          pluginVersion: 9.3.6
+          title: Event
+          type: text
+        - datasource:
+            type: datasource
+            uid: grafana
+          description: ""
+          gridPos:
+            h: 8
+            w: 8
+            x: 16
+            "y": 0
+          id: 28
+          options:
+            code:
+                language: plaintext
+                showLineNumbers: false
+                showMiniMap: false
+            content: |-
+                If in the most severe case when no other solution is available, then redeploy
+
+                Redeploy new (smart contract, graph-node, dl-node, dl-disperser, dl-retriever) for devnet-a
+                1. use the master branch in datalayr, use the eigenlayer branch with commit "abcfa3d0". To run the commnads, you need to know the cluster_name and cluster_region for devnet-a, which is devnet-a us-east-2
+                2. cd cluster
+                3. ./go-eigenda-kd.sh $cluster_name $cluster_region deploy-eigenlayer
+                4. ./go-eigenda-kd.sh help (follow steps 2 - 4)
+            mode: markdown
+          pluginVersion: 9.3.6
+          title: Redeploy
+          type: text
+        - gridPos:
+            h: 8
+            w: 12
+            x: 0
+            "y": 8
+          id: 12
+          libraryPanel:
+            name: Dispersal Failure %
+            uid: CJ_y3WoVz
+          title: $cluster Dispersal Failure %
+        - datasource:
+            type: dashboard
+            uid: -- Dashboard --
+          gridPos:
+            h: 8
+            w: 12
+            x: 12
+            "y": 8
+          id: 32
+          options:
+            code:
+                language: plaintext
+                showLineNumbers: false
+                showMiniMap: false
+            content: |-
+                This widget lists all common problems and their treatment
+                * Blockscout pod memory alert: It is an expected issue, blockscouts has memory leakage aware to the team, and after a while a out-o-memory error is triggered and the pod is killed. The pod would restart. There would be a temporary outage on block explorer. Since we don't expect to use blockscout in the future. Ignore the alert.
+                  * analysis: when the pod restarts, the blockscouts pod query another pod "relay-3" for blocks during the restarting process, it would create a CPU surge to the relay node, and similarly a traffic surge. Ignore these followup issues.
+
+                * Disperser CPU surge when starting: At starting, disperser requires a CPU intensize computation that processes a large number of FFT. The FFT table is cached and will be reused later, so we expect to see one large CPU surge. We night see additional surge if we start to encode a data of a different length.
+
+
+                For markdown syntax help: [commonmark.org/help](https://commonmark.org/help/)
+            mode: markdown
+          pluginVersion: 9.3.6
+          targets:
+            - datasource:
+                type: datasource
+                uid: -- Dashboard --
+              refId: A
+          title: common problem & analysis
+          type: text
+        - datasource:
+            type: prometheus
+            uid: grafanacloud-prom
+          fieldConfig:
+            defaults:
+                color:
+                    mode: palette-classic
+                custom:
+                    axisCenteredZero: false
+                    axisColorMode: text
+                    axisLabel: ""
+                    axisPlacement: auto
+                    barAlignment: 0
+                    drawStyle: line
+                    fillOpacity: 0
+                    gradientMode: none
+                    hideFrom:
+                        legend: false
+                        tooltip: false
+                        viz: false
+                    lineInterpolation: linear
+                    lineWidth: 1
+                    pointSize: 5
+                    scaleDistribution:
+                        type: linear
+                    showPoints: auto
+                    spanNulls: false
+                    stacking:
+                        group: A
+                        mode: none
+                    thresholdsStyle:
+                        mode: line+area
+                mappings: []
+                thresholds:
+                    mode: absolute
+                    steps:
+                        - color: green
+                          value: null
+                        - color: red
+                          value: 15
+                unit: s
+            overrides: []
+          gridPos:
+            h: 8
+            w: 12
+            x: 0
+            "y": 16
+          id: 30
+          options:
+            legend:
+                calcs: []
+                displayMode: list
+                placement: bottom
+                showLegend: true
+            tooltip:
+                mode: single
+                sort: none
+          targets:
+            - datasource:
+                type: prometheus
+                uid: grafanacloud-prom
+              editorMode: code
+              expr: dl_disperser_dispersal_latency_ms{quantile="0.95"} / 1000
+              legendFormat: '{{pod}},p={{quantile}}'
+              range: true
+              refId: A
+          title: Dispersal latency
+          type: timeseries
+        - gridPos:
+            h: 8
+            w: 12
+            x: 12
+            "y": 16
+          id: 14
+          libraryPanel:
+            name: Aggregated Data Rate
+            uid: XCxZeZT4k
+          title: $cluster Aggregated Data Rate
+        - gridPos:
+            h: 8
+            w: 12
+            x: 0
+            "y": 24
+          id: 16
+          libraryPanel:
+            name: System CPU percenrage
+            uid: GKaH6WoVz
+          title: '$cluster System vCPU '
+        - gridPos:
+            h: 8
+            w: 12
+            x: 12
+            "y": 24
+          id: 18
+          libraryPanel:
+            name: System Memory percentage
+            uid: 2nyH6WoVz
+          title: $cluster System Memory %
+        - gridPos:
+            h: 8
+            w: 12
+            x: 0
+            "y": 32
+          id: 2
+          libraryPanel:
+            name: Pod vCPU
+            uid: JThRdLh4z
+          title: $cluster/$namespace Pod vCPU
+        - gridPos:
+            h: 8
+            w: 12
+            x: 12
+            "y": 32
+          id: 4
+          libraryPanel:
+            name: Pod Memory WSS (16G per node)
+            uid: 1MsRdL2Vz
+          title: $cluster/$namespace Pod Memory WSS (16G per node)
+        - gridPos:
+            h: 8
+            w: 12
+            x: 0
+            "y": 40
+          id: 10
+          libraryPanel:
+            name: Pod TX bandwidth
+            uid: uGsVOL24k
+          title: $cluster/$namespace Pod TX bandwidth
+        - gridPos:
+            h: 8
+            w: 12
+            x: 12
+            "y": 40
+          id: 8
+          libraryPanel:
+            name: Pod RX bandwidth
+            uid: O9T4dLhVz
+          title: $cluster/$namespace Pod RX bandwidth
+        - gridPos:
+            h: 8
+            w: 12
+            x: 0
+            "y": 48
+          id: 22
+          libraryPanel:
+            name: Container restarts
+            uid: B8xB6YoVk
+          title: $cluster Container restarts
+        - gridPos:
+            h: 8
+            w: 12
+            x: 12
+            "y": 48
+          id: 6
+          libraryPanel:
+            name: Persistent Volume %
+            uid: 6xgkOYhVk
+          title: $cluster/$namespace Persistent Volume %
+    refresh: false
+    schemaVersion: 37
+    style: dark
+    tags: []
+    templating:
+        list:
+            - current:
+                selected: true
+                text:
+                    - devnet-a
+                value:
+                    - devnet-a
+              datasource:
+                type: prometheus
+                uid: grafanacloud-prom
+              definition: label_values(up{job="integrations/kubernetes/cadvisor"}, cluster)
+              hide: 0
+              includeAll: false
+              multi: true
+              name: cluster
+              options: []
+              query:
+                query: label_values(up{job="integrations/kubernetes/cadvisor"}, cluster)
+                refId: StandardVariableQuery
+              refresh: 2
+              regex: ""
+              skipUrlSync: false
+              sort: 0
+              type: query
+            - current:
+                selected: false
+                text: default
+                value: default
+              datasource:
+                type: prometheus
+                uid: grafanacloud-prom
+              definition: label_values(kube_namespace_status_phase{job="integrations/kubernetes/kube-state-metrics", cluster="$cluster"}, namespace)
+              hide: 0
+              includeAll: false
+              multi: false
+              name: namespace
+              options: []
+              query:
+                query: label_values(kube_namespace_status_phase{job="integrations/kubernetes/kube-state-metrics", cluster="$cluster"}, namespace)
+                refId: StandardVariableQuery
+              refresh: 2
+              regex: ""
+              skipUrlSync: false
+              sort: 1
+              type: query
+    time:
+        from: "2023-02-01T02:00:00.000Z"
+        to: "2023-02-03T16:00:00.000Z"
+    timepicker: {}
+    timezone: ""
+    title: Incident - 02/07/23
+    uid: YsS0BI14z
+    weekStart: ""

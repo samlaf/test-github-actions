@@ -1,0 +1,883 @@
+apiVersion: grizzly.grafana.com/v1alpha1
+kind: Dashboard
+metadata:
+    folder: Tr2bvE-4z
+    name: NfhXMwa4k
+spec:
+    annotations:
+        list:
+            - builtIn: 1
+              datasource:
+                type: grafana
+                uid: -- Grafana --
+              enable: true
+              hide: true
+              iconColor: rgba(0, 211, 255, 1)
+              name: Annotations & Alerts
+              target:
+                limit: 100
+                matchAny: false
+                tags: []
+                type: dashboard
+              type: dashboard
+    description: USE (utilization, saturation, errors) dashboard for our stakewise EL+CL clients
+    editable: true
+    fiscalYearStartMonth: 0
+    graphTooltip: 0
+    links: []
+    liveNow: false
+    panels:
+        - collapsed: false
+          gridPos:
+            h: 1
+            w: 24
+            x: 0
+            "y": 0
+          id: 2
+          panels: []
+          title: CPU
+          type: row
+        - datasource:
+            type: prometheus
+            uid: grafanacloud-prom
+          fieldConfig:
+            defaults:
+                color:
+                    mode: palette-classic
+                custom:
+                    axisCenteredZero: false
+                    axisColorMode: text
+                    axisLabel: ""
+                    axisPlacement: auto
+                    barAlignment: 0
+                    drawStyle: line
+                    fillOpacity: 0
+                    gradientMode: none
+                    hideFrom:
+                        legend: false
+                        tooltip: false
+                        viz: false
+                    lineInterpolation: linear
+                    lineWidth: 1
+                    pointSize: 5
+                    scaleDistribution:
+                        type: linear
+                    showPoints: auto
+                    spanNulls: false
+                    stacking:
+                        group: A
+                        mode: none
+                    thresholdsStyle:
+                        mode: "off"
+                mappings: []
+                thresholds:
+                    mode: absolute
+                    steps:
+                        - color: green
+                          value: null
+                        - color: red
+                          value: 80
+            overrides: []
+          gridPos:
+            h: 7
+            w: 8
+            x: 0
+            "y": 1
+          id: 10
+          options:
+            legend:
+                calcs: []
+                displayMode: list
+                placement: bottom
+                showLegend: true
+            tooltip:
+                mode: single
+                sort: none
+          title: Utilization
+          type: timeseries
+        - datasource:
+            type: prometheus
+            uid: grafanacloud-prom
+          fieldConfig:
+            defaults:
+                color:
+                    mode: palette-classic
+                custom:
+                    axisCenteredZero: false
+                    axisColorMode: text
+                    axisLabel: ""
+                    axisPlacement: auto
+                    barAlignment: 0
+                    drawStyle: line
+                    fillOpacity: 0
+                    gradientMode: none
+                    hideFrom:
+                        legend: false
+                        tooltip: false
+                        viz: false
+                    lineInterpolation: linear
+                    lineWidth: 1
+                    pointSize: 5
+                    scaleDistribution:
+                        type: linear
+                    showPoints: auto
+                    spanNulls: false
+                    stacking:
+                        group: A
+                        mode: none
+                    thresholdsStyle:
+                        mode: "off"
+                mappings: []
+                thresholds:
+                    mode: absolute
+                    steps:
+                        - color: green
+                          value: null
+                        - color: red
+                          value: 80
+            overrides: []
+          gridPos:
+            h: 7
+            w: 8
+            x: 8
+            "y": 1
+          id: 12
+          options:
+            legend:
+                calcs: []
+                displayMode: list
+                placement: bottom
+                showLegend: true
+            tooltip:
+                mode: single
+                sort: none
+          title: Saturation
+          type: timeseries
+        - datasource:
+            type: prometheus
+            uid: grafanacloud-prom
+          fieldConfig:
+            defaults:
+                color:
+                    mode: palette-classic
+                custom:
+                    axisCenteredZero: false
+                    axisColorMode: text
+                    axisLabel: ""
+                    axisPlacement: auto
+                    barAlignment: 0
+                    drawStyle: line
+                    fillOpacity: 0
+                    gradientMode: none
+                    hideFrom:
+                        legend: false
+                        tooltip: false
+                        viz: false
+                    lineInterpolation: linear
+                    lineWidth: 1
+                    pointSize: 5
+                    scaleDistribution:
+                        type: linear
+                    showPoints: auto
+                    spanNulls: false
+                    stacking:
+                        group: A
+                        mode: none
+                    thresholdsStyle:
+                        mode: "off"
+                mappings: []
+                thresholds:
+                    mode: absolute
+                    steps:
+                        - color: green
+                          value: null
+                        - color: red
+                          value: 80
+            overrides: []
+          gridPos:
+            h: 7
+            w: 8
+            x: 16
+            "y": 1
+          id: 14
+          options:
+            legend:
+                calcs: []
+                displayMode: list
+                placement: bottom
+                showLegend: true
+            tooltip:
+                mode: single
+                sort: none
+          title: Errors
+          type: timeseries
+        - collapsed: false
+          gridPos:
+            h: 1
+            w: 24
+            x: 0
+            "y": 8
+          id: 18
+          panels: []
+          title: Memory
+          type: row
+        - datasource:
+            type: prometheus
+            uid: grafanacloud-prom
+          fieldConfig:
+            defaults:
+                color:
+                    mode: palette-classic
+                custom:
+                    axisCenteredZero: false
+                    axisColorMode: text
+                    axisLabel: ""
+                    axisPlacement: auto
+                    barAlignment: 0
+                    drawStyle: line
+                    fillOpacity: 0
+                    gradientMode: none
+                    hideFrom:
+                        legend: false
+                        tooltip: false
+                        viz: false
+                    lineInterpolation: linear
+                    lineWidth: 1
+                    pointSize: 5
+                    scaleDistribution:
+                        type: linear
+                    showPoints: auto
+                    spanNulls: false
+                    stacking:
+                        group: A
+                        mode: none
+                    thresholdsStyle:
+                        mode: "off"
+                mappings: []
+                thresholds:
+                    mode: absolute
+                    steps:
+                        - color: green
+                          value: null
+                        - color: red
+                          value: 80
+            overrides: []
+          gridPos:
+            h: 13
+            w: 8
+            x: 0
+            "y": 9
+          id: 25
+          options:
+            legend:
+                calcs: []
+                displayMode: list
+                placement: bottom
+                showLegend: true
+            tooltip:
+                mode: single
+                sort: none
+          targets:
+            - datasource:
+                type: prometheus
+                uid: grafanacloud-prom
+              editorMode: code
+              expr: dotnet_total_memory_bytes{cluster=~"$cluster",namespace=~"$namespace",pod=~"$pod",instance=~"$instance"}
+              legendFormat: __auto
+              range: true
+              refId: A
+            - datasource:
+                type: prometheus
+                uid: grafanacloud-prom
+              editorMode: code
+              expr: process_working_set_bytes{cluster="eks_dev_stakewise",namespace="$namespace",pod=~"$pod",instance=~"$instance"}
+              hide: false
+              legendFormat: __auto
+              range: true
+              refId: B
+          title: Utilization
+          type: timeseries
+        - datasource:
+            type: prometheus
+            uid: grafanacloud-prom
+          fieldConfig:
+            defaults:
+                color:
+                    mode: palette-classic
+                custom:
+                    axisCenteredZero: false
+                    axisColorMode: text
+                    axisLabel: ""
+                    axisPlacement: auto
+                    barAlignment: 0
+                    drawStyle: line
+                    fillOpacity: 0
+                    gradientMode: none
+                    hideFrom:
+                        legend: false
+                        tooltip: false
+                        viz: false
+                    lineInterpolation: linear
+                    lineWidth: 1
+                    pointSize: 5
+                    scaleDistribution:
+                        type: linear
+                    showPoints: auto
+                    spanNulls: false
+                    stacking:
+                        group: A
+                        mode: none
+                    thresholdsStyle:
+                        mode: "off"
+                mappings: []
+                thresholds:
+                    mode: absolute
+                    steps:
+                        - color: green
+                          value: null
+                        - color: red
+                          value: 80
+            overrides: []
+          gridPos:
+            h: 13
+            w: 8
+            x: 8
+            "y": 9
+          id: 23
+          options:
+            legend:
+                calcs: []
+                displayMode: list
+                placement: bottom
+                showLegend: true
+            tooltip:
+                mode: single
+                sort: none
+          title: Saturation
+          type: timeseries
+        - datasource:
+            type: prometheus
+            uid: grafanacloud-prom
+          fieldConfig:
+            defaults:
+                color:
+                    mode: palette-classic
+                custom:
+                    axisCenteredZero: false
+                    axisColorMode: text
+                    axisLabel: ""
+                    axisPlacement: auto
+                    barAlignment: 0
+                    drawStyle: line
+                    fillOpacity: 0
+                    gradientMode: none
+                    hideFrom:
+                        legend: false
+                        tooltip: false
+                        viz: false
+                    lineInterpolation: linear
+                    lineWidth: 1
+                    pointSize: 5
+                    scaleDistribution:
+                        type: linear
+                    showPoints: auto
+                    spanNulls: false
+                    stacking:
+                        group: A
+                        mode: none
+                    thresholdsStyle:
+                        mode: "off"
+                mappings: []
+                thresholds:
+                    mode: absolute
+                    steps:
+                        - color: green
+                          value: null
+                        - color: red
+                          value: 80
+            overrides: []
+          gridPos:
+            h: 13
+            w: 8
+            x: 16
+            "y": 9
+          id: 26
+          options:
+            legend:
+                calcs: []
+                displayMode: list
+                placement: bottom
+                showLegend: true
+            tooltip:
+                mode: single
+                sort: none
+          targets:
+            - datasource:
+                type: prometheus
+                uid: grafanacloud-prom
+              editorMode: code
+              expr: nethermind_error
+              legendFormat: __auto
+              range: true
+              refId: A
+          title: Errors
+          type: timeseries
+        - collapsed: false
+          gridPos:
+            h: 1
+            w: 24
+            x: 0
+            "y": 22
+          id: 20
+          panels: []
+          title: Storage
+          type: row
+        - fieldConfig:
+            defaults:
+                color:
+                    mode: palette-classic
+                custom:
+                    axisCenteredZero: false
+                    axisColorMode: text
+                    axisLabel: ""
+                    axisPlacement: auto
+                    barAlignment: 0
+                    drawStyle: line
+                    fillOpacity: 0
+                    gradientMode: none
+                    hideFrom:
+                        legend: false
+                        tooltip: false
+                        viz: false
+                    lineInterpolation: linear
+                    lineWidth: 1
+                    pointSize: 5
+                    scaleDistribution:
+                        type: linear
+                    showPoints: auto
+                    spanNulls: false
+                    stacking:
+                        group: A
+                        mode: none
+                    thresholdsStyle:
+                        mode: "off"
+                mappings: []
+                thresholds:
+                    mode: absolute
+                    steps:
+                        - color: green
+                          value: null
+                        - color: red
+                          value: 80
+            overrides: []
+          gridPos:
+            h: 8
+            w: 8
+            x: 0
+            "y": 23
+          id: 36
+          options:
+            legend:
+                calcs: []
+                displayMode: list
+                placement: bottom
+                showLegend: true
+            tooltip:
+                mode: single
+                sort: none
+          title: Panel Title
+          type: timeseries
+        - fieldConfig:
+            defaults:
+                color:
+                    mode: palette-classic
+                custom:
+                    axisCenteredZero: false
+                    axisColorMode: text
+                    axisLabel: ""
+                    axisPlacement: auto
+                    barAlignment: 0
+                    drawStyle: line
+                    fillOpacity: 0
+                    gradientMode: none
+                    hideFrom:
+                        legend: false
+                        tooltip: false
+                        viz: false
+                    lineInterpolation: linear
+                    lineWidth: 1
+                    pointSize: 5
+                    scaleDistribution:
+                        type: linear
+                    showPoints: auto
+                    spanNulls: false
+                    stacking:
+                        group: A
+                        mode: none
+                    thresholdsStyle:
+                        mode: "off"
+                mappings: []
+                thresholds:
+                    mode: absolute
+                    steps:
+                        - color: green
+                          value: null
+                        - color: red
+                          value: 80
+            overrides: []
+          gridPos:
+            h: 8
+            w: 8
+            x: 8
+            "y": 23
+          id: 34
+          options:
+            legend:
+                calcs: []
+                displayMode: list
+                placement: bottom
+                showLegend: true
+            tooltip:
+                mode: single
+                sort: none
+          title: Panel Title
+          type: timeseries
+        - fieldConfig:
+            defaults:
+                color:
+                    mode: palette-classic
+                custom:
+                    axisCenteredZero: false
+                    axisColorMode: text
+                    axisLabel: ""
+                    axisPlacement: auto
+                    barAlignment: 0
+                    drawStyle: line
+                    fillOpacity: 0
+                    gradientMode: none
+                    hideFrom:
+                        legend: false
+                        tooltip: false
+                        viz: false
+                    lineInterpolation: linear
+                    lineWidth: 1
+                    pointSize: 5
+                    scaleDistribution:
+                        type: linear
+                    showPoints: auto
+                    spanNulls: false
+                    stacking:
+                        group: A
+                        mode: none
+                    thresholdsStyle:
+                        mode: "off"
+                mappings: []
+                thresholds:
+                    mode: absolute
+                    steps:
+                        - color: green
+                          value: null
+                        - color: red
+                          value: 80
+            overrides: []
+          gridPos:
+            h: 8
+            w: 8
+            x: 16
+            "y": 23
+          id: 32
+          options:
+            legend:
+                calcs: []
+                displayMode: list
+                placement: bottom
+                showLegend: true
+            tooltip:
+                mode: single
+                sort: none
+          title: Panel Title
+          type: timeseries
+        - collapsed: false
+          gridPos:
+            h: 1
+            w: 24
+            x: 0
+            "y": 31
+          id: 16
+          panels: []
+          title: Networking
+          type: row
+        - fieldConfig:
+            defaults:
+                color:
+                    mode: palette-classic
+                custom:
+                    axisCenteredZero: false
+                    axisColorMode: text
+                    axisLabel: ""
+                    axisPlacement: auto
+                    barAlignment: 0
+                    drawStyle: line
+                    fillOpacity: 0
+                    gradientMode: none
+                    hideFrom:
+                        legend: false
+                        tooltip: false
+                        viz: false
+                    lineInterpolation: linear
+                    lineWidth: 1
+                    pointSize: 5
+                    scaleDistribution:
+                        type: linear
+                    showPoints: auto
+                    spanNulls: false
+                    stacking:
+                        group: A
+                        mode: none
+                    thresholdsStyle:
+                        mode: "off"
+                mappings: []
+                thresholds:
+                    mode: absolute
+                    steps:
+                        - color: green
+                          value: null
+                        - color: red
+                          value: 80
+            overrides: []
+          gridPos:
+            h: 7
+            w: 8
+            x: 0
+            "y": 32
+          id: 28
+          options:
+            legend:
+                calcs: []
+                displayMode: list
+                placement: bottom
+                showLegend: true
+            tooltip:
+                mode: single
+                sort: none
+          title: Panel Title
+          type: timeseries
+        - fieldConfig:
+            defaults:
+                color:
+                    mode: palette-classic
+                custom:
+                    axisCenteredZero: false
+                    axisColorMode: text
+                    axisLabel: ""
+                    axisPlacement: auto
+                    barAlignment: 0
+                    drawStyle: line
+                    fillOpacity: 0
+                    gradientMode: none
+                    hideFrom:
+                        legend: false
+                        tooltip: false
+                        viz: false
+                    lineInterpolation: linear
+                    lineWidth: 1
+                    pointSize: 5
+                    scaleDistribution:
+                        type: linear
+                    showPoints: auto
+                    spanNulls: false
+                    stacking:
+                        group: A
+                        mode: none
+                    thresholdsStyle:
+                        mode: "off"
+                mappings: []
+                thresholds:
+                    mode: absolute
+                    steps:
+                        - color: green
+                          value: null
+                        - color: red
+                          value: 80
+            overrides: []
+          gridPos:
+            h: 7
+            w: 8
+            x: 8
+            "y": 32
+          id: 30
+          options:
+            legend:
+                calcs: []
+                displayMode: list
+                placement: bottom
+                showLegend: true
+            tooltip:
+                mode: single
+                sort: none
+          title: Panel Title
+          type: timeseries
+        - datasource:
+            type: prometheus
+            uid: grafanacloud-prom
+          fieldConfig:
+            defaults:
+                color:
+                    mode: palette-classic
+                custom:
+                    axisCenteredZero: false
+                    axisColorMode: text
+                    axisLabel: ""
+                    axisPlacement: auto
+                    barAlignment: 0
+                    drawStyle: line
+                    fillOpacity: 0
+                    gradientMode: none
+                    hideFrom:
+                        legend: false
+                        tooltip: false
+                        viz: false
+                    lineInterpolation: linear
+                    lineWidth: 1
+                    pointSize: 5
+                    scaleDistribution:
+                        type: linear
+                    showPoints: auto
+                    spanNulls: false
+                    stacking:
+                        group: A
+                        mode: none
+                    thresholdsStyle:
+                        mode: "off"
+                mappings: []
+                thresholds:
+                    mode: absolute
+                    steps:
+                        - color: green
+                          value: null
+                        - color: red
+                          value: 80
+            overrides: []
+          gridPos:
+            h: 7
+            w: 8
+            x: 16
+            "y": 32
+          id: 38
+          options:
+            legend:
+                calcs: []
+                displayMode: list
+                placement: bottom
+                showLegend: true
+            tooltip:
+                mode: single
+                sort: none
+          targets:
+            - datasource:
+                type: prometheus
+                uid: grafanacloud-prom
+              editorMode: code
+              expr: nethermind_json_rpc_errors{cluster=~"$cluster", namespace=~"$namespace", pod=~"$pod", instance=~"$instance"}
+              legendFormat: __auto
+              range: true
+              refId: A
+          title: Errors
+          type: timeseries
+    refresh: ""
+    revision: 1
+    schemaVersion: 38
+    style: dark
+    tags: []
+    templating:
+        list:
+            - current:
+                selected: true
+                text:
+                    - eks_dev_stakewise
+                value:
+                    - eks_dev_stakewise
+              definition: label_values(nethermind_version{}, cluster)
+              hide: 0
+              includeAll: true
+              multi: true
+              name: cluster
+              options: []
+              query:
+                query: label_values(nethermind_version{}, cluster)
+                refId: StandardVariableQuery
+              refresh: 1
+              regex: ""
+              skipUrlSync: false
+              sort: 0
+              type: query
+            - current:
+                selected: true
+                text:
+                    - chain
+                value:
+                    - chain
+              definition: label_values(nethermind_version{}, namespace)
+              hide: 0
+              includeAll: true
+              multi: true
+              name: namespace
+              options: []
+              query:
+                query: label_values(nethermind_version{}, namespace)
+                refId: StandardVariableQuery
+              refresh: 1
+              regex: ""
+              skipUrlSync: false
+              sort: 0
+              type: query
+            - current:
+                isNone: true
+                selected: true
+                text: None
+                value: ""
+              datasource:
+                type: prometheus
+                uid: grafanacloud-prom
+              definition: label_values(nethermind_version{}, pod)
+              hide: 0
+              includeAll: true
+              multi: true
+              name: pod
+              options: []
+              query:
+                query: label_values(nethermind_version{}, pod)
+                refId: StandardVariableQuery
+              refresh: 1
+              regex: ""
+              skipUrlSync: false
+              sort: 0
+              type: query
+            - current:
+                selected: true
+                text:
+                    - All
+                value:
+                    - $__all
+              definition: label_values(nethermind_version{}, instance)
+              hide: 0
+              includeAll: true
+              multi: true
+              name: instance
+              options: []
+              query:
+                query: label_values(nethermind_version{}, instance)
+                refId: StandardVariableQuery
+              refresh: 1
+              regex: ""
+              skipUrlSync: false
+              sort: 0
+              type: query
+    time:
+        from: now-6h
+        to: now
+    timepicker: {}
+    timezone: ""
+    title: Nethermind USE dashboard (wip)
+    uid: NfhXMwa4k
+    weekStart: ""

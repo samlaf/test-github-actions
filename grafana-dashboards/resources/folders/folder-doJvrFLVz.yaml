@@ -1,0 +1,19 @@
+apiVersion: grizzly.grafana.com/v1alpha1
+kind: DashboardFolder
+metadata:
+    name: doJvrFLVz
+spec:
+    canAdmin: true
+    canDelete: true
+    canEdit: true
+    canSave: true
+    created: "2023-04-05T16:29:40Z"
+    createdBy: bxue
+    hasAcl: false
+    id: 151
+    title: yyy_alerts-pos-devnet
+    uid: doJvrFLVz
+    updated: "2023-04-27T22:15:01Z"
+    updatedBy: Anonymous
+    url: /dashboards/f/doJvrFLVz/yyy-alerts-pos-devnet
+    version: 3

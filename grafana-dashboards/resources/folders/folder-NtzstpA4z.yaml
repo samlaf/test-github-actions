@@ -1,0 +1,19 @@
+apiVersion: grizzly.grafana.com/v1alpha1
+kind: DashboardFolder
+metadata:
+    name: NtzstpA4z
+spec:
+    canAdmin: true
+    canDelete: true
+    canEdit: true
+    canSave: true
+    created: "2023-02-03T03:34:53Z"
+    createdBy: bxue
+    hasAcl: false
+    id: 87
+    title: zzz_archive
+    uid: NtzstpA4z
+    updated: "2023-04-27T22:14:58Z"
+    updatedBy: Anonymous
+    url: /dashboards/f/NtzstpA4z/zzz-archive
+    version: 6

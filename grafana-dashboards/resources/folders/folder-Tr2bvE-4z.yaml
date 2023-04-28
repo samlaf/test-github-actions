@@ -1,0 +1,19 @@
+apiVersion: grizzly.grafana.com/v1alpha1
+kind: DashboardFolder
+metadata:
+    name: Tr2bvE-4z
+spec:
+    canAdmin: true
+    canDelete: true
+    canEdit: true
+    canSave: true
+    created: "2023-03-15T21:02:44Z"
+    createdBy: samlaf
+    hasAcl: false
+    id: 117
+    title: Ethereum Clients
+    uid: Tr2bvE-4z
+    updated: "2023-04-27T22:14:59Z"
+    updatedBy: Anonymous
+    url: /dashboards/f/Tr2bvE-4z/ethereum-clients
+    version: 2

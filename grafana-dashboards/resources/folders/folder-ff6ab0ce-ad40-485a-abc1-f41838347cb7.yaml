@@ -1,0 +1,19 @@
+apiVersion: grizzly.grafana.com/v1alpha1
+kind: DashboardFolder
+metadata:
+    name: ff6ab0ce-ad40-485a-abc1-f41838347cb7
+spec:
+    canAdmin: true
+    canDelete: true
+    canEdit: true
+    canSave: true
+    created: "2023-04-24T20:16:56Z"
+    createdBy: bxue
+    hasAcl: false
+    id: 160
+    title: yyy_alerts-smart-contract
+    uid: ff6ab0ce-ad40-485a-abc1-f41838347cb7
+    updated: "2023-04-27T22:15:01Z"
+    updatedBy: Anonymous
+    url: /dashboards/f/ff6ab0ce-ad40-485a-abc1-f41838347cb7/yyy-alerts-smart-contract
+    version: 3

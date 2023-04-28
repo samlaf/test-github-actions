@@ -1,0 +1,395 @@
+apiVersion: grizzly.grafana.com/v1alpha1
+kind: Dashboard
+metadata:
+    folder: Tr2bvE-4z
+    name: HEqQUDqnz
+spec:
+    annotations:
+        list:
+            - builtIn: 1
+              datasource:
+                type: grafana
+                uid: -- Grafana --
+              enable: true
+              hide: true
+              iconColor: rgba(0, 211, 255, 1)
+              name: Annotations & Alerts
+              target:
+                limit: 100
+                matchAny: false
+                tags: []
+                type: dashboard
+              type: dashboard
+    editable: true
+    fiscalYearStartMonth: 0
+    graphTooltip: 0
+    links: []
+    liveNow: false
+    panels:
+        - datasource:
+            type: prometheus
+            uid: grafanacloud-prom
+          description: ""
+          fieldConfig:
+            defaults:
+                color:
+                    mode: palette-classic
+                custom:
+                    axisCenteredZero: false
+                    axisColorMode: text
+                    axisLabel: ""
+                    axisPlacement: auto
+                    barAlignment: 0
+                    drawStyle: line
+                    fillOpacity: 0
+                    gradientMode: none
+                    hideFrom:
+                        legend: false
+                        tooltip: false
+                        viz: false
+                    lineInterpolation: linear
+                    lineWidth: 1
+                    pointSize: 5
+                    scaleDistribution:
+                        type: linear
+                    showPoints: auto
+                    spanNulls: false
+                    stacking:
+                        group: A
+                        mode: none
+                    thresholdsStyle:
+                        mode: "off"
+                mappings: []
+                thresholds:
+                    mode: absolute
+                    steps:
+                        - color: green
+                          value: null
+                        - color: red
+                          value: 80
+                unit: s
+            overrides: []
+          gridPos:
+            h: 17
+            w: 12
+            x: 0
+            "y": 0
+          id: 2
+          options:
+            legend:
+                calcs: []
+                displayMode: list
+                placement: bottom
+                showLegend: true
+            tooltip:
+                mode: single
+                sort: none
+          targets:
+            - datasource:
+                type: prometheus
+                uid: grafanacloud-prom
+              editorMode: code
+              exemplar: true
+              expr: histogram_quantile(0.95, sum by (path, le) (rate(http_api_paths_times_bucket{cluster=~"$cluster", environment=~"$environment", pod=~"$pod"}[1h])))
+              interval: ""
+              legendFormat: '{{path}}'
+              range: true
+              refId: A
+          title: 95th percentile response time by path
+          type: timeseries
+        - datasource:
+            type: prometheus
+            uid: grafanacloud-prom
+          description: ""
+          fieldConfig:
+            defaults:
+                color:
+                    mode: palette-classic
+                custom:
+                    axisCenteredZero: false
+                    axisColorMode: text
+                    axisLabel: ""
+                    axisPlacement: auto
+                    barAlignment: 0
+                    drawStyle: line
+                    fillOpacity: 0
+                    gradientMode: none
+                    hideFrom:
+                        legend: false
+                        tooltip: false
+                        viz: false
+                    lineInterpolation: linear
+                    lineWidth: 1
+                    pointSize: 5
+                    scaleDistribution:
+                        type: linear
+                    showPoints: auto
+                    spanNulls: false
+                    stacking:
+                        group: A
+                        mode: none
+                    thresholdsStyle:
+                        mode: "off"
+                mappings: []
+                thresholds:
+                    mode: absolute
+                    steps:
+                        - color: green
+                          value: null
+                        - color: red
+                          value: 80
+                unit: s
+            overrides: []
+          gridPos:
+            h: 17
+            w: 12
+            x: 12
+            "y": 0
+          id: 3
+          options:
+            legend:
+                calcs: []
+                displayMode: list
+                placement: bottom
+                showLegend: true
+            tooltip:
+                mode: single
+                sort: none
+          targets:
+            - datasource:
+                type: prometheus
+                uid: grafanacloud-prom
+              editorMode: code
+              exemplar: true
+              expr: sum by (path) (rate(http_api_paths_times_sum{cluster=~"$cluster", environment=~"$environment", pod=~"$pod"}[1h])) / sum by (path) (rate(http_api_paths_times_count{cluster=~"$cluster", environment=~"$environment", pod=~"$pod"}[1h]))
+              interval: ""
+              legendFormat: '{{path}}'
+              range: true
+              refId: A
+          title: Average response time by path
+          type: timeseries
+        - datasource:
+            type: prometheus
+            uid: grafanacloud-prom
+          description: ""
+          fieldConfig:
+            defaults:
+                color:
+                    mode: palette-classic
+                custom:
+                    axisCenteredZero: false
+                    axisColorMode: text
+                    axisLabel: ""
+                    axisPlacement: auto
+                    barAlignment: 0
+                    drawStyle: line
+                    fillOpacity: 0
+                    gradientMode: none
+                    hideFrom:
+                        legend: false
+                        tooltip: false
+                        viz: false
+                    lineInterpolation: linear
+                    lineWidth: 1
+                    pointSize: 5
+                    scaleDistribution:
+                        type: linear
+                    showPoints: auto
+                    spanNulls: false
+                    stacking:
+                        group: A
+                        mode: none
+                    thresholdsStyle:
+                        mode: "off"
+                mappings: []
+                thresholds:
+                    mode: absolute
+                    steps:
+                        - color: green
+                          value: null
+                        - color: red
+                          value: 80
+                unit: s
+            overrides: []
+          gridPos:
+            h: 17
+            w: 12
+            x: 0
+            "y": 17
+          id: 4
+          options:
+            legend:
+                calcs: []
+                displayMode: list
+                placement: bottom
+                showLegend: true
+            tooltip:
+                mode: single
+                sort: none
+          targets:
+            - datasource:
+                type: prometheus
+                uid: grafanacloud-prom
+              editorMode: code
+              exemplar: true
+              expr: histogram_quantile(0.95, sum by (instance, le) (rate(http_api_paths_times_bucket{cluster=~"$cluster", environment=~"$environment", pod=~"$pod"}[1h])))
+              interval: ""
+              legendFormat: '{{instance}}'
+              range: true
+              refId: A
+          title: 95th percentile response time by instance
+          type: timeseries
+        - datasource:
+            type: prometheus
+            uid: grafanacloud-prom
+          description: ""
+          fieldConfig:
+            defaults:
+                color:
+                    mode: palette-classic
+                custom:
+                    axisCenteredZero: false
+                    axisColorMode: text
+                    axisLabel: ""
+                    axisPlacement: auto
+                    barAlignment: 0
+                    drawStyle: line
+                    fillOpacity: 0
+                    gradientMode: none
+                    hideFrom:
+                        legend: false
+                        tooltip: false
+                        viz: false
+                    lineInterpolation: linear
+                    lineWidth: 1
+                    pointSize: 5
+                    scaleDistribution:
+                        type: linear
+                    showPoints: auto
+                    spanNulls: false
+                    stacking:
+                        group: A
+                        mode: none
+                    thresholdsStyle:
+                        mode: "off"
+                mappings: []
+                thresholds:
+                    mode: absolute
+                    steps:
+                        - color: green
+                          value: null
+                        - color: red
+                          value: 80
+                unit: s
+            overrides: []
+          gridPos:
+            h: 17
+            w: 12
+            x: 12
+            "y": 17
+          id: 5
+          options:
+            legend:
+                calcs: []
+                displayMode: list
+                placement: bottom
+                showLegend: true
+            tooltip:
+                mode: single
+                sort: none
+          targets:
+            - datasource:
+                type: prometheus
+                uid: grafanacloud-prom
+              editorMode: code
+              exemplar: true
+              expr: sum by (instance) (rate(http_api_paths_times_sum{cluster=~"$cluster", environment=~"$environment", pod=~"$pod"}[1h])) / sum by (instance) (rate(http_api_paths_times_count{cluster=~"$cluster", environment=~"$environment", pod=~"$pod"}[1h]))
+              interval: ""
+              legendFormat: '{{instance}}'
+              range: true
+              refId: A
+          title: Average response time by instance
+          type: timeseries
+    refresh: ""
+    revision: 1
+    schemaVersion: 38
+    style: dark
+    tags: []
+    templating:
+        list:
+            - current:
+                selected: false
+                text: eigenlayer-pp-usea2-goerli
+                value: eigenlayer-pp-usea2-goerli
+              datasource:
+                type: prometheus
+                uid: grafanacloud-prom
+              definition: label_values(http_api_paths_times_bucket, cluster)
+              hide: 0
+              includeAll: false
+              label: cluster
+              multi: false
+              name: cluster
+              options: []
+              query:
+                query: label_values(http_api_paths_times_bucket, cluster)
+                refId: StandardVariableQuery
+              refresh: 1
+              regex: ""
+              skipUrlSync: false
+              sort: 0
+              type: query
+            - current:
+                selected: false
+                text: goerli
+                value: goerli
+              datasource:
+                type: prometheus
+                uid: grafanacloud-prom
+              definition: label_values(http_api_paths_times_bucket, environment)
+              hide: 0
+              includeAll: false
+              label: environment
+              multi: false
+              name: environment
+              options: []
+              query:
+                query: label_values(http_api_paths_times_bucket, environment)
+                refId: StandardVariableQuery
+              refresh: 1
+              regex: ""
+              skipUrlSync: false
+              sort: 0
+              type: query
+            - current:
+                selected: true
+                text:
+                    - lighthouse-0
+                value:
+                    - lighthouse-0
+              datasource:
+                type: prometheus
+                uid: grafanacloud-prom
+              definition: label_values(http_api_paths_times_bucket, pod)
+              hide: 0
+              includeAll: true
+              label: pod
+              multi: true
+              name: pod
+              options: []
+              query:
+                query: label_values(http_api_paths_times_bucket, pod)
+                refId: StandardVariableQuery
+              refresh: 1
+              regex: ""
+              skipUrlSync: false
+              sort: 0
+              type: query
+    time:
+        from: now-30m
+        to: now
+    timepicker: {}
+    timezone: ""
+    title: Lighthouse - HTTP API Response Times
+    uid: HEqQUDqnz
+    weekStart: ""

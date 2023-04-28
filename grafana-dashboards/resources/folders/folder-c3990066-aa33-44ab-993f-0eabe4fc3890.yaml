@@ -1,0 +1,19 @@
+apiVersion: grizzly.grafana.com/v1alpha1
+kind: DashboardFolder
+metadata:
+    name: c3990066-aa33-44ab-993f-0eabe4fc3890
+spec:
+    canAdmin: true
+    canDelete: true
+    canEdit: true
+    canSave: true
+    created: "2023-04-27T18:19:12Z"
+    createdBy: samlaf
+    hasAcl: false
+    id: 166
+    title: AWS
+    uid: c3990066-aa33-44ab-993f-0eabe4fc3890
+    updated: "2023-04-27T22:15:00Z"
+    updatedBy: Anonymous
+    url: /dashboards/f/c3990066-aa33-44ab-993f-0eabe4fc3890/aws
+    version: 2

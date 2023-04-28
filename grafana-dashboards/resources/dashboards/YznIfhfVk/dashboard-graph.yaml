@@ -1,0 +1,1595 @@
+apiVersion: grizzly.grafana.com/v1alpha1
+kind: Dashboard
+metadata:
+    folder: YznIfhfVk
+    name: graph
+spec:
+    annotations:
+        list:
+            - builtIn: 1
+              datasource:
+                type: grafana
+                uid: -- Grafana --
+              enable: true
+              hide: false
+              iconColor: rgba(0, 211, 255, 1)
+              name: Annotations & Alerts
+              target:
+                limit: 100
+                matchAny: false
+                tags: []
+                type: dashboard
+              type: dashboard
+            - datasource:
+                type: datasource
+                uid: grafana
+              enable: true
+              iconColor: dark-purple
+              name: Graph
+              target:
+                limit: 100
+                matchAny: false
+                refId: Anno
+                tags:
+                    - graph
+                type: tags
+    editable: true
+    fiscalYearStartMonth: 0
+    graphTooltip: 0
+    links: []
+    liveNow: false
+    panels:
+        - datasource:
+            type: prometheus
+            uid: grafanacloud-prom
+          description: ""
+          fieldConfig:
+            defaults:
+                color:
+                    mode: palette-classic
+                custom:
+                    axisCenteredZero: false
+                    axisColorMode: text
+                    axisLabel: ""
+                    axisPlacement: auto
+                    barAlignment: 0
+                    drawStyle: line
+                    fillOpacity: 0
+                    gradientMode: none
+                    hideFrom:
+                        legend: false
+                        tooltip: false
+                        viz: false
+                    lineInterpolation: linear
+                    lineWidth: 1
+                    pointSize: 5
+                    scaleDistribution:
+                        type: linear
+                    showPoints: auto
+                    spanNulls: false
+                    stacking:
+                        group: A
+                        mode: none
+                    thresholdsStyle:
+                        mode: line+area
+                mappings: []
+                thresholds:
+                    mode: absolute
+                    steps:
+                        - color: green
+                          value: null
+                        - color: red
+                          value: 2
+            overrides: []
+          gridPos:
+            h: 8
+            w: 12
+            x: 0
+            "y": 0
+          id: 42
+          options:
+            legend:
+                calcs: []
+                displayMode: list
+                placement: bottom
+                showLegend: true
+            tooltip:
+                mode: single
+                sort: none
+          targets:
+            - datasource:
+                type: prometheus
+                uid: grafanacloud-prom
+              editorMode: code
+              expr: sum  (node_namespace_pod_container:container_cpu_usage_seconds_total:sum_irate{namespace=~"$namespace", cluster=~"$cluster"}) by (pod)
+              legendFormat: __auto
+              range: true
+              refId: A
+          title: $cluster/$namespace Pod vCPU
+          type: timeseries
+        - datasource:
+            type: prometheus
+            uid: grafanacloud-prom
+          description: ""
+          fieldConfig:
+            defaults:
+                color:
+                    mode: palette-classic
+                custom:
+                    axisCenteredZero: false
+                    axisColorMode: text
+                    axisLabel: ""
+                    axisPlacement: auto
+                    barAlignment: 0
+                    drawStyle: line
+                    fillOpacity: 0
+                    gradientMode: none
+                    hideFrom:
+                        legend: false
+                        tooltip: false
+                        viz: false
+                    lineInterpolation: linear
+                    lineWidth: 1
+                    pointSize: 5
+                    scaleDistribution:
+                        type: linear
+                    showPoints: auto
+                    spanNulls: false
+                    stacking:
+                        group: A
+                        mode: none
+                    thresholdsStyle:
+                        mode: line+area
+                mappings: []
+                thresholds:
+                    mode: absolute
+                    steps:
+                        - color: green
+                          value: null
+                        - color: red
+                          value: 8
+                unit: decgbytes
+            overrides: []
+          gridPos:
+            h: 8
+            w: 12
+            x: 12
+            "y": 0
+          id: 40
+          options:
+            legend:
+                calcs: []
+                displayMode: list
+                placement: bottom
+                showLegend: true
+            tooltip:
+                mode: single
+                sort: none
+          targets:
+            - datasource:
+                type: prometheus
+                uid: grafanacloud-prom
+              editorMode: code
+              expr: sum(container_memory_working_set_bytes{job="integrations/kubernetes/cadvisor", namespace=~"$namespace", image!="", cluster=~"$cluster"}) by (pod) / 1000000000
+              legendFormat: __auto
+              range: true
+              refId: A
+          title: $cluster/$namespace Pod Memory WSS (16G per node)
+          type: timeseries
+        - gridPos:
+            h: 8
+            w: 12
+            x: 0
+            "y": 8
+          id: 44
+          libraryPanel:
+            name: Pod RX bandwidth
+            uid: O9T4dLhVz
+          title: $cluster/$namespace Pod RX bandwidth
+        - gridPos:
+            h: 8
+            w: 12
+            x: 12
+            "y": 8
+          id: 46
+          libraryPanel:
+            name: Pod TX bandwidth
+            uid: uGsVOL24k
+          title: $cluster/$namespace Pod TX bandwidth
+        - gridPos:
+            h: 8
+            w: 12
+            x: 0
+            "y": 16
+          id: 48
+          libraryPanel:
+            name: Persistent Volume %
+            uid: 6xgkOYhVk
+          title: $cluster/$namespace Persistent Volume %
+        - gridPos:
+            h: 8
+            w: 12
+            x: 12
+            "y": 16
+          id: 50
+          libraryPanel:
+            name: Container restarts
+            uid: B8xB6YoVk
+          title: $cluster Container restarts
+        - gridPos:
+            h: 1
+            w: 24
+            x: 0
+            "y": 24
+          id: 18
+          title: Index
+          type: row
+        - datasource:
+            type: prometheus
+            uid: grafanacloud-prom
+          description: The amount of block processed by a subgraph deployment
+          fieldConfig:
+            defaults:
+                color:
+                    mode: palette-classic
+                custom:
+                    axisCenteredZero: false
+                    axisColorMode: text
+                    axisLabel: ""
+                    axisPlacement: auto
+                    barAlignment: 0
+                    drawStyle: line
+                    fillOpacity: 0
+                    gradientMode: none
+                    hideFrom:
+                        legend: false
+                        tooltip: false
+                        viz: false
+                    lineInterpolation: linear
+                    lineWidth: 1
+                    pointSize: 5
+                    scaleDistribution:
+                        type: linear
+                    showPoints: auto
+                    spanNulls: false
+                    stacking:
+                        group: A
+                        mode: none
+                    thresholdsStyle:
+                        mode: "off"
+                mappings: []
+                thresholds:
+                    mode: absolute
+                    steps:
+                        - color: green
+                          value: null
+                        - color: red
+                          value: 80
+                unit: Blocks
+            overrides: []
+          gridPos:
+            h: 8
+            w: 12
+            x: 0
+            "y": 25
+          id: 10
+          options:
+            legend:
+                calcs: []
+                displayMode: list
+                placement: bottom
+                showLegend: true
+            tooltip:
+                mode: single
+                sort: none
+          targets:
+            - datasource:
+                type: prometheus
+                uid: grafanacloud-prom
+              editorMode: code
+              exemplar: false
+              expr: sum(increase(deployment_block_processing_duration_count{deployment=~"$deployment", cluster=~"$cluster", job=~"$job"}[10m])) by (deployment, cluster, job)
+              format: time_series
+              instant: false
+              legendFormat: '{{pod}}/{{deployment}}'
+              range: true
+              refId: A
+          title: Number of processed blocks (per 10 mins)
+          type: timeseries
+        - datasource:
+            type: prometheus
+            uid: grafanacloud-prom
+          description: The average block processing time for a subgraph deployment
+          fieldConfig:
+            defaults:
+                color:
+                    mode: palette-classic
+                custom:
+                    axisCenteredZero: false
+                    axisColorMode: text
+                    axisLabel: ""
+                    axisPlacement: auto
+                    barAlignment: 0
+                    drawStyle: line
+                    fillOpacity: 0
+                    gradientMode: none
+                    hideFrom:
+                        legend: false
+                        tooltip: false
+                        viz: false
+                    lineInterpolation: linear
+                    lineWidth: 1
+                    pointSize: 5
+                    scaleDistribution:
+                        type: linear
+                    showPoints: auto
+                    spanNulls: false
+                    stacking:
+                        group: A
+                        mode: none
+                    thresholdsStyle:
+                        mode: "off"
+                mappings: []
+                thresholds:
+                    mode: absolute
+                    steps:
+                        - color: green
+                          value: null
+                        - color: red
+                          value: 80
+                unit: s
+            overrides: []
+          gridPos:
+            h: 8
+            w: 12
+            x: 12
+            "y": 25
+          id: 8
+          options:
+            legend:
+                calcs: []
+                displayMode: list
+                placement: bottom
+                showLegend: true
+            tooltip:
+                mode: single
+                sort: none
+          targets:
+            - datasource:
+                type: prometheus
+                uid: grafanacloud-prom
+              editorMode: code
+              expr: |
+                avg(rate(deployment_block_processing_duration_sum{cluster=~"$cluster", job=~"$job"}[$__rate_interval])) by (deployment, pod) / avg(rate(deployment_block_processing_duration_count{cluster=~"$cluster", job=~"$job"}[$__rate_interval])) by (deployment, pod)
+              legendFormat: __auto
+              range: true
+              refId: A
+          title: Average block processing time ($__interval)
+          type: timeseries
+        - datasource:
+            type: prometheus
+            uid: grafanacloud-prom
+          description: ""
+          fieldConfig:
+            defaults:
+                color:
+                    mode: palette-classic
+                custom:
+                    axisCenteredZero: false
+                    axisColorMode: text
+                    axisLabel: ""
+                    axisPlacement: auto
+                    barAlignment: 0
+                    drawStyle: line
+                    fillOpacity: 0
+                    gradientMode: none
+                    hideFrom:
+                        legend: false
+                        tooltip: false
+                        viz: false
+                    lineInterpolation: linear
+                    lineWidth: 1
+                    pointSize: 5
+                    scaleDistribution:
+                        type: linear
+                    showPoints: auto
+                    spanNulls: false
+                    stacking:
+                        group: A
+                        mode: none
+                    thresholdsStyle:
+                        mode: "off"
+                mappings: []
+                thresholds:
+                    mode: absolute
+                    steps:
+                        - color: green
+                        - color: red
+                          value: 80
+            overrides: []
+          gridPos:
+            h: 8
+            w: 12
+            x: 0
+            "y": 33
+          id: 16
+          options:
+            legend:
+                calcs: []
+                displayMode: list
+                placement: bottom
+                showLegend: true
+            tooltip:
+                mode: single
+                sort: none
+          pluginVersion: 9.4.7
+          targets:
+            - datasource:
+                type: prometheus
+                uid: grafanacloud-prom
+              editorMode: code
+              expr: deployment_block_trigger_count_sum{cluster=~"$cluster", job=~"$job"}
+              hide: false
+              legendFormat: '{{pod}}/{{deployment}}'
+              range: true
+              refId: A
+          title: Total triggers
+          type: timeseries
+        - datasource:
+            type: prometheus
+            uid: grafanacloud-prom
+          description: |
+            Rate of triggers in each block over a 5 minute period for the subgraph deployment.
+          fieldConfig:
+            defaults:
+                color:
+                    mode: palette-classic
+                custom:
+                    axisCenteredZero: false
+                    axisColorMode: text
+                    axisLabel: ""
+                    axisPlacement: auto
+                    barAlignment: 0
+                    drawStyle: line
+                    fillOpacity: 0
+                    gradientMode: none
+                    hideFrom:
+                        legend: false
+                        tooltip: false
+                        viz: false
+                    lineInterpolation: linear
+                    lineWidth: 1
+                    pointSize: 5
+                    scaleDistribution:
+                        type: linear
+                    showPoints: auto
+                    spanNulls: false
+                    stacking:
+                        group: A
+                        mode: none
+                    thresholdsStyle:
+                        mode: "off"
+                mappings: []
+                thresholds:
+                    mode: absolute
+                    steps:
+                        - color: green
+                        - color: red
+                          value: 80
+            overrides: []
+          gridPos:
+            h: 8
+            w: 12
+            x: 12
+            "y": 33
+          id: 6
+          options:
+            legend:
+                calcs: []
+                displayMode: list
+                placement: bottom
+                showLegend: true
+            tooltip:
+                mode: single
+                sort: none
+          pluginVersion: 9.4.7
+          targets:
+            - datasource:
+                type: prometheus
+                uid: grafanacloud-prom
+              editorMode: code
+              expr: avg(rate(deployment_block_trigger_count_sum{cluster=~"$cluster", job=~"$job"}[$__rate_interval])) by (deployment, pod)
+              legendFormat: '{{pod}}/{{deployment}}'
+              range: true
+              refId: A
+          title: Rate of triggers ($__interval)
+          type: timeseries
+        - datasource:
+            type: prometheus
+            uid: grafanacloud-prom
+          fieldConfig:
+            defaults:
+                color:
+                    mode: palette-classic
+                custom:
+                    axisCenteredZero: false
+                    axisColorMode: text
+                    axisLabel: ""
+                    axisPlacement: auto
+                    barAlignment: 0
+                    drawStyle: line
+                    fillOpacity: 0
+                    gradientMode: none
+                    hideFrom:
+                        legend: false
+                        tooltip: false
+                        viz: false
+                    lineInterpolation: linear
+                    lineWidth: 1
+                    pointSize: 5
+                    scaleDistribution:
+                        type: linear
+                    showPoints: auto
+                    spanNulls: false
+                    stacking:
+                        group: A
+                        mode: none
+                    thresholdsStyle:
+                        mode: "off"
+                mappings: []
+                thresholds:
+                    mode: absolute
+                    steps:
+                        - color: green
+                        - color: red
+                          value: 80
+            overrides: []
+          gridPos:
+            h: 8
+            w: 12
+            x: 0
+            "y": 41
+          id: 58
+          options:
+            legend:
+                calcs: []
+                displayMode: list
+                placement: bottom
+                showLegend: true
+            tooltip:
+                mode: single
+                sort: none
+          pluginVersion: 9.4.7
+          targets:
+            - datasource:
+                type: prometheus
+                uid: grafanacloud-prom
+              editorMode: code
+              expr: histogram_quantile(0.95, sum by(le) (deployment_block_trigger_count_bucket{cluster=~"$cluster", deployment=~"$deployment", job=~"$job"}))
+              legendFormat: __auto
+              range: true
+              refId: A
+            - datasource:
+                type: prometheus
+                uid: grafanacloud-prom
+              editorMode: code
+              expr: histogram_quantile(0.99, sum by(le) (deployment_block_trigger_count_bucket{cluster=~"$cluster", deployment=~"$deployment"}))
+              hide: false
+              legendFormat: __auto
+              range: true
+              refId: B
+          title: 95th and 99th Percentile Triggers per Block
+          type: timeseries
+        - datasource:
+            type: prometheus
+            uid: grafanacloud-prom
+          fieldConfig:
+            defaults:
+                color:
+                    mode: palette-classic
+                custom:
+                    axisCenteredZero: false
+                    axisColorMode: text
+                    axisLabel: ""
+                    axisPlacement: auto
+                    barAlignment: 0
+                    drawStyle: line
+                    fillOpacity: 0
+                    gradientMode: none
+                    hideFrom:
+                        legend: false
+                        tooltip: false
+                        viz: false
+                    lineInterpolation: linear
+                    lineWidth: 1
+                    pointSize: 5
+                    scaleDistribution:
+                        type: linear
+                    showPoints: auto
+                    spanNulls: false
+                    stacking:
+                        group: A
+                        mode: none
+                    thresholdsStyle:
+                        mode: "off"
+                mappings: []
+                thresholds:
+                    mode: absolute
+                    steps:
+                        - color: green
+                        - color: red
+                          value: 80
+            overrides: []
+          gridPos:
+            h: 8
+            w: 12
+            x: 12
+            "y": 41
+          id: 56
+          options:
+            legend:
+                calcs: []
+                displayMode: list
+                placement: bottom
+                showLegend: true
+            tooltip:
+                mode: single
+                sort: none
+          targets:
+            - datasource:
+                type: prometheus
+                uid: grafanacloud-prom
+              editorMode: code
+              expr: sum(deployment_block_trigger_count_sum{cluster=~"$cluster", deployment=~"$deployment", job=~"$job"}) by (deployment, pod) / sum(deployment_block_trigger_count_count{cluster=~"$cluster", deployment=~"$deployment", job=~"$job"}) by (deployment, pod)
+              legendFormat: '{{le}}'
+              range: true
+              refId: A
+          title: Average Triggers per Block
+          type: timeseries
+        - datasource:
+            type: prometheus
+            uid: grafanacloud-prom
+          description: Average execution time of each handler over a 5 minute period.
+          fieldConfig:
+            defaults:
+                color:
+                    mode: palette-classic
+                custom:
+                    axisCenteredZero: false
+                    axisColorMode: text
+                    axisLabel: ""
+                    axisPlacement: auto
+                    barAlignment: 0
+                    drawStyle: line
+                    fillOpacity: 25
+                    gradientMode: none
+                    hideFrom:
+                        legend: false
+                        tooltip: false
+                        viz: false
+                    lineInterpolation: linear
+                    lineWidth: 1
+                    pointSize: 5
+                    scaleDistribution:
+                        type: linear
+                    showPoints: auto
+                    spanNulls: false
+                    stacking:
+                        group: A
+                        mode: normal
+                    thresholdsStyle:
+                        mode: "off"
+                mappings: []
+                thresholds:
+                    mode: absolute
+                    steps:
+                        - color: green
+                        - color: red
+                          value: 80
+                unit: s
+            overrides: []
+          gridPos:
+            h: 8
+            w: 12
+            x: 0
+            "y": 49
+          id: 20
+          options:
+            legend:
+                calcs: []
+                displayMode: list
+                placement: bottom
+                showLegend: true
+            tooltip:
+                mode: single
+                sort: none
+          pluginVersion: 9.4.7
+          targets:
+            - datasource:
+                type: prometheus
+                uid: grafanacloud-prom
+              editorMode: code
+              expr: |
+                avg(rate(deployment_handler_execution_time_sum{cluster=~"$cluster", job=~"$job"}[5m])) by (handler) / avg(rate(deployment_handler_execution_time_count{cluster=~"$cluster", job=~"$job"}[5m])) by (handler)
+              format: time_series
+              legendFormat: __auto
+              range: true
+              refId: A
+          title: Average handler execution time
+          type: timeseries
+        - datasource:
+            type: prometheus
+            uid: grafanacloud-prom
+          fieldConfig:
+            defaults:
+                custom:
+                    hideFrom:
+                        legend: false
+                        tooltip: false
+                        viz: false
+                    scaleDistribution:
+                        type: linear
+            overrides: []
+          gridPos:
+            h: 8
+            w: 12
+            x: 12
+            "y": 49
+          id: 60
+          maxDataPoints: 25
+          options:
+            calculate: false
+            calculation:
+                xBuckets:
+                    mode: size
+                yBuckets:
+                    mode: size
+            cellGap: 1
+            cellValues: {}
+            color:
+                exponent: 0.5
+                fill: dark-orange
+                mode: scheme
+                reverse: false
+                scale: exponential
+                scheme: RdBu
+                steps: 64
+            exemplars:
+                color: rgba(255,0,255,0.7)
+            filterValues:
+                le: 1e-09
+            legend:
+                show: true
+            rowsFrame:
+                layout: auto
+            tooltip:
+                show: true
+                yHistogram: false
+            yAxis:
+                axisPlacement: left
+                decimals: 0
+                reverse: false
+          pluginVersion: 9.5.0-cloud.5.a016665c
+          targets:
+            - datasource:
+                type: prometheus
+                uid: grafanacloud-prom
+              editorMode: code
+              exemplar: false
+              expr: |
+                sum(increase(deployment_block_trigger_count_bucket{cluster=~"$cluster", deployment=~"$deployment", job=~"$job"}[$__interval])) by (le)
+              format: heatmap
+              instant: false
+              legendFormat: __auto
+              range: true
+              refId: A
+          title: Deployment Block Trigger Count Increase by Bucket ($__interval)
+          type: heatmap
+        - collapsed: false
+          gridPos:
+            h: 1
+            w: 24
+            x: 0
+            "y": 57
+          id: 14
+          panels: []
+          title: Query
+          type: row
+        - datasource:
+            type: prometheus
+            uid: grafanacloud-prom
+          fieldConfig:
+            defaults:
+                color:
+                    mode: palette-classic
+                custom:
+                    axisCenteredZero: false
+                    axisColorMode: text
+                    axisLabel: ""
+                    axisPlacement: auto
+                    barAlignment: 0
+                    drawStyle: line
+                    fillOpacity: 0
+                    gradientMode: none
+                    hideFrom:
+                        legend: false
+                        tooltip: false
+                        viz: false
+                    lineInterpolation: linear
+                    lineWidth: 1
+                    pointSize: 5
+                    scaleDistribution:
+                        type: linear
+                    showPoints: auto
+                    spanNulls: false
+                    stacking:
+                        group: A
+                        mode: none
+                    thresholdsStyle:
+                        mode: "off"
+                mappings: []
+                thresholds:
+                    mode: absolute
+                    steps:
+                        - color: green
+                        - color: red
+                          value: 80
+            overrides: []
+          gridPos:
+            h: 8
+            w: 12
+            x: 0
+            "y": 58
+          id: 2
+          options:
+            legend:
+                calcs: []
+                displayMode: list
+                placement: bottom
+                showLegend: true
+            tooltip:
+                mode: single
+                sort: none
+          targets:
+            - datasource:
+                type: prometheus
+                uid: grafanacloud-prom
+              editorMode: code
+              expr: count(kube_pod_info{cluster=~"$cluster", namespace="graph", pod=~"graph-query-.*"}) by (namespace)
+              legendFormat: __auto
+              range: true
+              refId: A
+          title: Graph Query pods
+          type: timeseries
+        - datasource:
+            type: prometheus
+            uid: grafanacloud-prom
+          description: |
+            Size of the result of successful GraphQL queries (in CacheWeight)
+          fieldConfig:
+            defaults:
+                color:
+                    mode: palette-classic
+                custom:
+                    axisCenteredZero: false
+                    axisColorMode: text
+                    axisLabel: ""
+                    axisPlacement: auto
+                    barAlignment: 0
+                    drawStyle: line
+                    fillOpacity: 25
+                    gradientMode: none
+                    hideFrom:
+                        legend: false
+                        tooltip: false
+                        viz: false
+                    lineInterpolation: linear
+                    lineWidth: 1
+                    pointSize: 5
+                    scaleDistribution:
+                        type: linear
+                    showPoints: auto
+                    spanNulls: false
+                    stacking:
+                        group: A
+                        mode: normal
+                    thresholdsStyle:
+                        mode: "off"
+                mappings: []
+                thresholds:
+                    mode: absolute
+                    steps:
+                        - color: green
+                        - color: red
+                          value: 80
+            overrides: []
+          gridPos:
+            h: 8
+            w: 12
+            x: 12
+            "y": 58
+          id: 32
+          options:
+            legend:
+                calcs: []
+                displayMode: list
+                placement: bottom
+                showLegend: true
+            tooltip:
+                mode: single
+                sort: none
+          targets:
+            - datasource:
+                type: prometheus
+                uid: grafanacloud-prom
+              editorMode: code
+              expr: sum(query_result_size_bucket{le="+Inf", container="graph-query", cluster=~"$cluster"}) by (pod)
+              legendFormat: __auto
+              range: true
+              refId: A
+          title: Queries processed
+          type: timeseries
+        - datasource:
+            type: prometheus
+            uid: grafanacloud-prom
+          description: ""
+          fieldConfig:
+            defaults:
+                color:
+                    mode: palette-classic
+                custom:
+                    axisCenteredZero: false
+                    axisColorMode: text
+                    axisLabel: ""
+                    axisPlacement: auto
+                    barAlignment: 0
+                    drawStyle: line
+                    fillOpacity: 0
+                    gradientMode: none
+                    hideFrom:
+                        legend: false
+                        tooltip: false
+                        viz: false
+                    lineInterpolation: linear
+                    lineWidth: 1
+                    pointSize: 5
+                    scaleDistribution:
+                        type: linear
+                    showPoints: auto
+                    spanNulls: false
+                    stacking:
+                        group: A
+                        mode: none
+                    thresholdsStyle:
+                        mode: "off"
+                mappings: []
+                thresholds:
+                    mode: absolute
+                    steps:
+                        - color: green
+                        - color: red
+                          value: 80
+                unit: decbytes
+            overrides: []
+          gridPos:
+            h: 8
+            w: 12
+            x: 0
+            "y": 66
+          id: 34
+          options:
+            legend:
+                calcs: []
+                displayMode: list
+                placement: bottom
+                showLegend: true
+            tooltip:
+                mode: single
+                sort: none
+          targets:
+            - datasource:
+                type: prometheus
+                uid: grafanacloud-prom
+              editorMode: code
+              expr: sum(query_result_size_sum{cluster=~"$cluster"}) by (pod) / sum(query_result_size_count{cluster=~"$cluster"}) by (pod)
+              legendFormat: __auto
+              range: true
+              refId: A
+          title: Average Query Result Size per Pod
+          type: timeseries
+        - datasource:
+            type: prometheus
+            uid: grafanacloud-prom
+          description: ""
+          fieldConfig:
+            defaults:
+                color:
+                    mode: palette-classic
+                custom:
+                    axisCenteredZero: false
+                    axisColorMode: text
+                    axisLabel: ""
+                    axisPlacement: auto
+                    barAlignment: 0
+                    drawStyle: line
+                    fillOpacity: 0
+                    gradientMode: none
+                    hideFrom:
+                        legend: false
+                        tooltip: false
+                        viz: false
+                    lineInterpolation: linear
+                    lineWidth: 1
+                    pointSize: 5
+                    scaleDistribution:
+                        type: linear
+                    showPoints: auto
+                    spanNulls: false
+                    stacking:
+                        group: A
+                        mode: none
+                    thresholdsStyle:
+                        mode: "off"
+                mappings: []
+                thresholds:
+                    mode: absolute
+                    steps:
+                        - color: green
+                        - color: red
+                          value: 80
+                unit: Bps
+            overrides: []
+          gridPos:
+            h: 8
+            w: 12
+            x: 12
+            "y": 66
+          id: 36
+          options:
+            legend:
+                calcs: []
+                displayMode: list
+                placement: bottom
+                showLegend: true
+            tooltip:
+                mode: single
+                sort: none
+          targets:
+            - datasource:
+                type: prometheus
+                uid: grafanacloud-prom
+              editorMode: code
+              expr: avg(rate(query_result_size_sum{cluster=~"$cluster", container="graph-query"}[5m])) by (pod)
+              legendFormat: __auto
+              range: true
+              refId: A
+          title: Query Result Size Rate per Pod
+          type: timeseries
+        - datasource:
+            type: prometheus
+            uid: grafanacloud-prom
+          description: Measures percentage of hits to the cache.
+          fieldConfig:
+            defaults:
+                color:
+                    mode: continuous-RdYlGr
+                custom:
+                    axisCenteredZero: false
+                    axisColorMode: text
+                    axisLabel: ""
+                    axisPlacement: auto
+                    barAlignment: 0
+                    drawStyle: line
+                    fillOpacity: 20
+                    gradientMode: scheme
+                    hideFrom:
+                        legend: false
+                        tooltip: false
+                        viz: false
+                    lineInterpolation: smooth
+                    lineStyle:
+                        fill: solid
+                    lineWidth: 3
+                    pointSize: 5
+                    scaleDistribution:
+                        type: linear
+                    showPoints: auto
+                    spanNulls: false
+                    stacking:
+                        group: A
+                        mode: none
+                    thresholdsStyle:
+                        mode: "off"
+                mappings: []
+                thresholds:
+                    mode: absolute
+                    steps:
+                        - color: green
+                unit: percent
+            overrides: []
+          gridPos:
+            h: 8
+            w: 12
+            x: 0
+            "y": 74
+          id: 38
+          options:
+            legend:
+                calcs: []
+                displayMode: list
+                placement: bottom
+                showLegend: true
+            tooltip:
+                mode: single
+                sort: none
+          targets:
+            - datasource:
+                type: prometheus
+                uid: grafanacloud-prom
+              editorMode: code
+              expr: "100 * (sum(rate(query_cache_status_count{cache_status=\"hit\", cluster=~\"$cluster\"}[5m])) \n/ \nsum(rate(query_cache_status_count{cluster=~\"$cluster\"}[5m])))\n"
+              hide: false
+              legendFormat: __auto
+              range: true
+              refId: A
+          title: Cache performance
+          type: timeseries
+        - datasource:
+            type: prometheus
+            uid: grafanacloud-prom
+          description: Shows the average number of cache hits, misses, inserts, and shared status.
+          fieldConfig:
+            defaults:
+                color:
+                    mode: palette-classic
+                custom:
+                    axisCenteredZero: false
+                    axisColorMode: text
+                    axisLabel: ""
+                    axisPlacement: auto
+                    barAlignment: 0
+                    drawStyle: line
+                    fillOpacity: 0
+                    gradientMode: none
+                    hideFrom:
+                        legend: false
+                        tooltip: false
+                        viz: false
+                    lineInterpolation: linear
+                    lineWidth: 1
+                    pointSize: 5
+                    scaleDistribution:
+                        type: linear
+                    showPoints: auto
+                    spanNulls: false
+                    stacking:
+                        group: A
+                        mode: none
+                    thresholdsStyle:
+                        mode: "off"
+                mappings: []
+                thresholds:
+                    mode: absolute
+                    steps:
+                        - color: green
+                        - color: red
+                          value: 80
+            overrides: []
+          gridPos:
+            h: 8
+            w: 12
+            x: 12
+            "y": 74
+          id: 52
+          options:
+            legend:
+                calcs: []
+                displayMode: list
+                placement: bottom
+                showLegend: true
+            tooltip:
+                mode: single
+                sort: none
+          targets:
+            - datasource:
+                type: prometheus
+                uid: grafanacloud-prom
+              editorMode: code
+              expr: |
+                avg(rate(query_cache_status_count{cluster=~"$cluster", cache_status=~"hit|miss|insert|shared"}[5m])) by (cache_status)
+              legendFormat: __auto
+              range: true
+              refId: A
+          title: Cache Status Breakdown
+          type: timeseries
+        - collapsed: false
+          gridPos:
+            h: 1
+            w: 24
+            x: 0
+            "y": 82
+          id: 24
+          panels: []
+          title: Store
+          type: row
+        - datasource:
+            type: prometheus
+            uid: grafanacloud-prom
+          description: Sum of checked-out connections per pool and shard
+          fieldConfig:
+            defaults:
+                color:
+                    mode: palette-classic
+                custom:
+                    axisCenteredZero: false
+                    axisColorMode: text
+                    axisLabel: ""
+                    axisPlacement: auto
+                    barAlignment: 0
+                    drawStyle: line
+                    fillOpacity: 0
+                    gradientMode: none
+                    hideFrom:
+                        legend: false
+                        tooltip: false
+                        viz: false
+                    lineInterpolation: linear
+                    lineWidth: 1
+                    pointSize: 5
+                    scaleDistribution:
+                        type: linear
+                    showPoints: auto
+                    spanNulls: false
+                    stacking:
+                        group: A
+                        mode: none
+                    thresholdsStyle:
+                        mode: "off"
+                mappings: []
+                thresholds:
+                    mode: absolute
+                    steps:
+                        - color: green
+                unit: none
+            overrides: []
+          gridPos:
+            h: 8
+            w: 12
+            x: 0
+            "y": 83
+          id: 22
+          options:
+            legend:
+                calcs: []
+                displayMode: list
+                placement: bottom
+                showLegend: true
+            tooltip:
+                mode: single
+                sort: none
+          pluginVersion: 9.4.7
+          targets:
+            - datasource:
+                type: prometheus
+                uid: grafanacloud-prom
+              editorMode: code
+              expr: sum(store_connection_checkout_count{pool=~"main|replica1",shard="primary", cluster=~"$cluster"}) by (pool, shard, job)
+              legendFormat: __auto
+              range: true
+              refId: A
+          title: Checked-out connections
+          type: timeseries
+        - datasource:
+            type: prometheus
+            uid: grafanacloud-prom
+          description: Rate of connection errors per pool and shard over 5 minutes
+          fieldConfig:
+            defaults:
+                color:
+                    mode: palette-classic
+                custom:
+                    axisCenteredZero: false
+                    axisColorMode: text
+                    axisLabel: ""
+                    axisPlacement: auto
+                    barAlignment: 0
+                    drawStyle: line
+                    fillOpacity: 0
+                    gradientMode: none
+                    hideFrom:
+                        legend: false
+                        tooltip: false
+                        viz: false
+                    lineInterpolation: linear
+                    lineWidth: 1
+                    pointSize: 5
+                    scaleDistribution:
+                        type: linear
+                    showPoints: auto
+                    spanNulls: false
+                    stacking:
+                        group: A
+                        mode: none
+                    thresholdsStyle:
+                        mode: "off"
+                mappings: []
+                thresholds:
+                    mode: absolute
+                    steps:
+                        - color: green
+                        - color: red
+                          value: 80
+            overrides: []
+          gridPos:
+            h: 8
+            w: 12
+            x: 12
+            "y": 83
+          id: 26
+          options:
+            legend:
+                calcs: []
+                displayMode: list
+                placement: bottom
+                showLegend: true
+            tooltip:
+                mode: single
+                sort: none
+          targets:
+            - datasource:
+                type: prometheus
+                uid: grafanacloud-prom
+              editorMode: code
+              expr: sum(rate(store_connection_error_count{pool=~"main|replica1",shard="primary", cluster=~"$cluster"}[5m])) by (pool, shard, job)
+              legendFormat: __auto
+              range: true
+              refId: A
+          title: Connection errors
+          type: timeseries
+        - datasource:
+            type: prometheus
+            uid: grafanacloud-prom
+          description: Sum of connection pool sizes per pool and shard.
+          fieldConfig:
+            defaults:
+                color:
+                    mode: palette-classic
+                custom:
+                    axisCenteredZero: false
+                    axisColorMode: text
+                    axisLabel: ""
+                    axisPlacement: auto
+                    barAlignment: 0
+                    drawStyle: line
+                    fillOpacity: 0
+                    gradientMode: none
+                    hideFrom:
+                        legend: false
+                        tooltip: false
+                        viz: false
+                    lineInterpolation: linear
+                    lineWidth: 1
+                    pointSize: 5
+                    scaleDistribution:
+                        type: linear
+                    showPoints: auto
+                    spanNulls: false
+                    stacking:
+                        group: A
+                        mode: none
+                    thresholdsStyle:
+                        mode: "off"
+                mappings: []
+                thresholds:
+                    mode: absolute
+                    steps:
+                        - color: green
+                        - color: red
+                          value: 80
+            overrides: []
+          gridPos:
+            h: 8
+            w: 12
+            x: 0
+            "y": 91
+          id: 28
+          options:
+            legend:
+                calcs: []
+                displayMode: list
+                placement: bottom
+                showLegend: true
+            tooltip:
+                mode: single
+                sort: none
+          targets:
+            - datasource:
+                type: prometheus
+                uid: grafanacloud-prom
+              editorMode: code
+              expr: sum(store_connection_pool_size_count{pool=~"main|replica1",shard="primary", cluster=~"$cluster"}) by (pool, shard, job)
+              legendFormat: __auto
+              range: true
+              refId: A
+          title: Connection pool size
+          type: timeseries
+        - datasource:
+            type: prometheus
+            uid: grafanacloud-prom
+          description: Average of wait times per pool and shard
+          fieldConfig:
+            defaults:
+                color:
+                    mode: palette-classic
+                custom:
+                    axisCenteredZero: false
+                    axisColorMode: text
+                    axisLabel: ""
+                    axisPlacement: auto
+                    barAlignment: 0
+                    drawStyle: line
+                    fillOpacity: 0
+                    gradientMode: none
+                    hideFrom:
+                        legend: false
+                        tooltip: false
+                        viz: false
+                    lineInterpolation: linear
+                    lineWidth: 1
+                    pointSize: 5
+                    scaleDistribution:
+                        type: linear
+                    showPoints: auto
+                    spanNulls: false
+                    stacking:
+                        group: A
+                        mode: none
+                    thresholdsStyle:
+                        mode: "off"
+                mappings: []
+                thresholds:
+                    mode: absolute
+                    steps:
+                        - color: green
+                        - color: red
+                          value: 80
+                unit: ms
+            overrides: []
+          gridPos:
+            h: 8
+            w: 12
+            x: 12
+            "y": 91
+          id: 30
+          options:
+            legend:
+                calcs: []
+                displayMode: list
+                placement: bottom
+                showLegend: true
+            tooltip:
+                mode: single
+                sort: none
+          targets:
+            - datasource:
+                type: prometheus
+                uid: grafanacloud-prom
+              editorMode: code
+              expr: avg(store_connection_wait_time_ms{pool=~"main|replica1",shard="primary", cluster=~"$cluster"}) by (pool, shard, job)
+              legendFormat: __auto
+              range: true
+              refId: A
+          title: Average connection wait time
+          type: timeseries
+    refresh: 10s
+    revision: 1
+    schemaVersion: 38
+    style: dark
+    tags: []
+    templating:
+        list:
+            - current:
+                selected: true
+                text: goerli
+                value: goerli
+              hide: 0
+              includeAll: false
+              label: chain
+              multi: false
+              name: Chain
+              options:
+                - selected: false
+                  text: devnet
+                  value: devnet
+                - selected: true
+                  text: goerli
+                  value: goerli
+                - selected: false
+                  text: mainnet
+                  value: mainnet
+              query: devnet, goerli, mainnet
+              queryValue: ""
+              skipUrlSync: false
+              type: custom
+            - current:
+                selected: false
+                text: eigenlayer-pp-usea2-goerli
+                value: eigenlayer-pp-usea2-goerli
+              datasource:
+                type: prometheus
+                uid: grafanacloud-prom
+              definition: label_values(kube_namespace_status_phase{job="integrations/kubernetes/kube-state-metrics"},cluster)
+              hide: 2
+              includeAll: false
+              label: cluster
+              multi: false
+              name: cluster
+              options: []
+              query:
+                query: label_values(kube_namespace_status_phase{job="integrations/kubernetes/kube-state-metrics"},cluster)
+                refId: PrometheusVariableQueryEditor-VariableQuery
+              refresh: 1
+              regex: eigenlayer-.*-$Chain
+              skipUrlSync: false
+              sort: 0
+              type: query
+            - hide: 2
+              label: namespace
+              name: namespace
+              query: graph
+              skipUrlSync: false
+              type: constant
+            - current:
+                selected: false
+                text: All
+                value: $__all
+              datasource:
+                type: prometheus
+                uid: grafanacloud-prom
+              definition: label_values(deployment_block_processing_duration_bucket{cluster="$cluster"}, deployment)
+              description: ""
+              hide: 0
+              includeAll: true
+              label: deployment
+              multi: true
+              name: deployment
+              options: []
+              query:
+                query: label_values(deployment_block_processing_duration_bucket{cluster="$cluster"}, deployment)
+                refId: StandardVariableQuery
+              refresh: 1
+              regex: ""
+              skipUrlSync: false
+              sort: 0
+              type: query
+            - current:
+                selected: true
+                text:
+                    - graph-node-v1
+                value:
+                    - graph-node-v1
+              datasource:
+                type: prometheus
+                uid: grafanacloud-prom
+              definition: label_values(job)
+              hide: 0
+              includeAll: true
+              multi: true
+              name: job
+              options: []
+              query:
+                query: label_values(job)
+                refId: PrometheusVariableQueryEditor-VariableQuery
+              refresh: 1
+              regex: graph.*
+              skipUrlSync: false
+              sort: 0
+              type: query
+    time:
+        from: now-1h
+        to: now
+    timepicker: {}
+    timezone: ""
+    title: Graph
+    uid: graph
+    weekStart: ""

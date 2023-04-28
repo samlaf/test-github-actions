@@ -1,0 +1,1876 @@
+apiVersion: grizzly.grafana.com/v1alpha1
+kind: Dashboard
+metadata:
+    folder: Tr2bvE-4z
+    name: tQbhcDOGWk
+spec:
+    annotations:
+        list:
+            - $$hashKey: object:4294
+              builtIn: 1
+              datasource:
+                type: datasource
+                uid: grafana
+              enable: true
+              hide: true
+              iconColor: rgba(0, 211, 255, 1)
+              name: Annotations & Alerts
+              target:
+                limit: 100
+                matchAny: false
+                tags: []
+                type: dashboard
+              type: dashboard
+    editable: true
+    fiscalYearStartMonth: 0
+    graphTooltip: 0
+    links: []
+    liveNow: false
+    panels:
+        - datasource:
+            type: prometheus
+            uid: grafanacloud-prom
+          gridPos:
+            h: 6
+            w: 9
+            x: 0
+            "y": 0
+          id: 11
+          links: []
+          options:
+            code:
+                language: plaintext
+                showLineNumbers: false
+                showMiniMap: false
+            content: |4+
+                # Attestation Processing Metrics
+
+                Metrics regarding `BeaconChain::process_attestation`, which processes `Attestation` from the network (but not in blocks).
+
+                Collected from the [`beacon_chain`](https://github.com/sigp/lighthouse/tree/master/beacon_node/beacon_chain) crate.
+
+
+
+            mode: markdown
+          pluginVersion: 9.4.7
+          targets:
+            - datasource:
+                type: prometheus
+                uid: grafanacloud-prom
+              refId: A
+          transparent: true
+          type: text
+        - aliasColors: {}
+          bars: false
+          dashLength: 10
+          dashes: false
+          datasource:
+            type: prometheus
+            uid: grafanacloud-prom
+          fill: 1
+          fillGradient: 0
+          gridPos:
+            h: 6
+            w: 14
+            x: 10
+            "y": 0
+          hiddenSeries: false
+          id: 41
+          legend:
+            avg: false
+            current: false
+            max: false
+            min: false
+            show: false
+            total: false
+            values: false
+          lines: true
+          linewidth: 1
+          links: []
+          nullPointMode: "null"
+          options:
+            alertThreshold: true
+          percentage: false
+          pluginVersion: 9.4.7
+          pointradius: 2
+          points: false
+          renderer: flot
+          seriesOverrides: []
+          spaceLength: 10
+          stack: false
+          steppedLine: false
+          targets:
+            - datasource:
+                type: prometheus
+                uid: grafanacloud-prom
+              expr: beacon_participation_prev_epoch_attester
+              format: time_series
+              interval: ""
+              intervalFactor: 1
+              legendFormat: ""
+              refId: A
+          thresholds: []
+          timeRegions: []
+          title: Previous Epoch Attesting Balance
+          tooltip:
+            shared: true
+            sort: 0
+            value_type: individual
+          type: graph
+          xaxis:
+            mode: time
+            show: true
+            values: []
+          yaxes:
+            - $$hashKey: object:230
+              decimals: 0
+              format: percentunit
+              label: Percentage of Balance
+              logBase: 1
+              show: true
+            - $$hashKey: object:231
+              format: short
+              logBase: 1
+              show: true
+          yaxis:
+            align: false
+        - datasource:
+            type: prometheus
+            uid: grafanacloud-prom
+          gridPos:
+            h: 2
+            w: 24
+            x: 0
+            "y": 6
+          id: 12
+          links: []
+          options:
+            code:
+                language: plaintext
+                showLineNumbers: false
+                showMiniMap: false
+            content: |4
+                ### Gossip Verification Times
+
+
+                Times to verify the attestation before re-gossiping
+            mode: markdown
+          pluginVersion: 9.4.7
+          targets:
+            - datasource:
+                type: prometheus
+                uid: grafanacloud-prom
+              refId: A
+          transparent: true
+          type: text
+        - aliasColors: {}
+          bars: false
+          dashLength: 10
+          dashes: false
+          datasource:
+            type: prometheus
+            uid: grafanacloud-prom
+          description: ""
+          fill: 1
+          fillGradient: 0
+          gridPos:
+            h: 6
+            w: 12
+            x: 0
+            "y": 8
+          hiddenSeries: false
+          id: 36
+          legend:
+            avg: false
+            current: false
+            max: false
+            min: false
+            show: false
+            total: false
+            values: false
+          lines: true
+          linewidth: 1
+          links: []
+          nullPointMode: "null"
+          options:
+            alertThreshold: true
+          percentage: false
+          pluginVersion: 9.4.7
+          pointradius: 2
+          points: false
+          renderer: flot
+          seriesOverrides: []
+          spaceLength: 10
+          stack: false
+          steppedLine: false
+          targets:
+            - datasource:
+                type: prometheus
+                uid: grafanacloud-prom
+              expr: |-
+                rate(beacon_aggregated_attestation_gossip_verification_seconds_sum[5m])
+                /
+                rate(beacon_aggregated_attestation_gossip_verification_seconds_count[5m])
+              format: time_series
+              interval: ""
+              intervalFactor: 1
+              legendFormat: ""
+              refId: A
+          thresholds: []
+          timeRegions: []
+          title: Aggregated Attn Gossip Verification Times
+          tooltip:
+            shared: true
+            sort: 0
+            value_type: individual
+          type: graph
+          xaxis:
+            mode: time
+            show: true
+            values: []
+          yaxes:
+            - $$hashKey: object:4442
+              format: s
+              logBase: 1
+              show: true
+            - $$hashKey: object:4443
+              format: short
+              logBase: 1
+              show: true
+          yaxis:
+            align: false
+        - aliasColors: {}
+          bars: false
+          dashLength: 10
+          dashes: false
+          datasource:
+            type: prometheus
+            uid: grafanacloud-prom
+          description: ""
+          fill: 1
+          fillGradient: 0
+          gridPos:
+            h: 6
+            w: 12
+            x: 12
+            "y": 8
+          hiddenSeries: false
+          id: 24
+          legend:
+            avg: false
+            current: false
+            max: false
+            min: false
+            show: false
+            total: false
+            values: false
+          lines: true
+          linewidth: 1
+          links: []
+          nullPointMode: "null"
+          options:
+            alertThreshold: true
+          percentage: false
+          pluginVersion: 9.4.7
+          pointradius: 2
+          points: false
+          renderer: flot
+          seriesOverrides: []
+          spaceLength: 10
+          stack: false
+          steppedLine: false
+          targets:
+            - datasource:
+                type: prometheus
+                uid: grafanacloud-prom
+              expr: |-
+                rate(beacon_unaggregated_attestation_gossip_verification_seconds_sum[5m])
+                /
+                rate(beacon_unaggregated_attestation_gossip_verification_seconds_count[5m])
+              format: time_series
+              interval: ""
+              intervalFactor: 1
+              legendFormat: ""
+              refId: A
+          thresholds: []
+          timeRegions: []
+          title: Unaggregated Attn Gossip Verification Times
+          tooltip:
+            shared: true
+            sort: 0
+            value_type: individual
+          type: graph
+          xaxis:
+            mode: time
+            show: true
+            values: []
+          yaxes:
+            - format: s
+              logBase: 1
+              show: true
+            - format: short
+              logBase: 1
+              show: true
+          yaxis:
+            align: false
+        - cards: {}
+          color:
+            cardColor: '#b4ff00'
+            colorScale: sqrt
+            colorScheme: interpolateOranges
+            exponent: 0.5
+            mode: spectrum
+          dataFormat: timeseries
+          datasource:
+            type: prometheus
+            uid: grafanacloud-prom
+          description: ""
+          fieldConfig:
+            defaults:
+                custom:
+                    hideFrom:
+                        legend: false
+                        tooltip: false
+                        viz: false
+                    scaleDistribution:
+                        type: linear
+            overrides: []
+          gridPos:
+            h: 6
+            w: 12
+            x: 0
+            "y": 14
+          heatmap: {}
+          hideZeroBuckets: false
+          highlightCards: true
+          id: 47
+          legend:
+            show: false
+          links: []
+          options:
+            calculate: true
+            calculation: {}
+            cellGap: 2
+            cellValues: {}
+            color:
+                exponent: 0.5
+                fill: '#b4ff00'
+                mode: scheme
+                reverse: false
+                scale: exponential
+                scheme: Oranges
+                steps: 128
+            exemplars:
+                color: rgba(255,0,255,0.7)
+            filterValues:
+                le: 1e-09
+            legend:
+                show: false
+            rowsFrame:
+                layout: auto
+            showValue: never
+            tooltip:
+                show: true
+                yHistogram: false
+            yAxis:
+                axisPlacement: left
+                reverse: false
+                unit: s
+          pluginVersion: 9.4.7
+          reverseYBuckets: false
+          targets:
+            - datasource:
+                type: prometheus
+                uid: grafanacloud-prom
+              expr: |-
+                rate(beacon_aggregated_attestation_gossip_verification_seconds_sum[5m])
+                /
+                rate(beacon_aggregated_attestation_gossip_verification_seconds_count[5m])
+              format: time_series
+              interval: ""
+              intervalFactor: 1
+              legendFormat: ""
+              refId: A
+          title: Aggregated Attn Gossip Verification Times
+          tooltip:
+            show: true
+            showHistogram: false
+          type: heatmap
+          xAxis:
+            show: true
+          yAxis:
+            format: s
+            logBase: 1
+            show: true
+          yBucketBound: auto
+        - cards: {}
+          color:
+            cardColor: '#b4ff00'
+            colorScale: sqrt
+            colorScheme: interpolateOranges
+            exponent: 0.5
+            mode: spectrum
+          dataFormat: timeseries
+          datasource:
+            type: prometheus
+            uid: grafanacloud-prom
+          description: ""
+          fieldConfig:
+            defaults:
+                custom:
+                    hideFrom:
+                        legend: false
+                        tooltip: false
+                        viz: false
+                    scaleDistribution:
+                        type: linear
+            overrides: []
+          gridPos:
+            h: 6
+            w: 12
+            x: 12
+            "y": 14
+          heatmap: {}
+          hideZeroBuckets: false
+          highlightCards: true
+          id: 48
+          legend:
+            show: false
+          links: []
+          options:
+            calculate: true
+            calculation: {}
+            cellGap: 2
+            cellValues: {}
+            color:
+                exponent: 0.5
+                fill: '#b4ff00'
+                mode: scheme
+                reverse: false
+                scale: exponential
+                scheme: Oranges
+                steps: 128
+            exemplars:
+                color: rgba(255,0,255,0.7)
+            filterValues:
+                le: 1e-09
+            legend:
+                show: false
+            rowsFrame:
+                layout: auto
+            showValue: never
+            tooltip:
+                show: true
+                yHistogram: false
+            yAxis:
+                axisPlacement: left
+                reverse: false
+                unit: s
+          pluginVersion: 9.4.7
+          reverseYBuckets: false
+          targets:
+            - datasource:
+                type: prometheus
+                uid: grafanacloud-prom
+              expr: |-
+                rate(beacon_unaggregated_attestation_gossip_verification_seconds_sum[5m])
+                /
+                rate(beacon_unaggregated_attestation_gossip_verification_seconds_count[5m])
+              format: time_series
+              interval: ""
+              intervalFactor: 1
+              legendFormat: ""
+              refId: A
+          title: Unaggregated Attn Gossip Verification Times
+          tooltip:
+            show: true
+            showHistogram: false
+          type: heatmap
+          xAxis:
+            show: true
+          yAxis:
+            format: s
+            logBase: 1
+            show: true
+          yBucketBound: auto
+        - datasource:
+            type: prometheus
+            uid: grafanacloud-prom
+          gridPos:
+            h: 2
+            w: 24
+            x: 0
+            "y": 20
+          id: 43
+          links: []
+          options:
+            code:
+                language: plaintext
+                showLineNumbers: false
+                showMiniMap: false
+            content: |4
+                ### Storing Attestation
+
+                Times to store the attestation in fork choice or pools.
+            mode: markdown
+          pluginVersion: 9.4.7
+          targets:
+            - datasource:
+                type: prometheus
+                uid: grafanacloud-prom
+              refId: A
+          transparent: true
+          type: text
+        - aliasColors: {}
+          bars: false
+          dashLength: 10
+          dashes: false
+          datasource:
+            type: prometheus
+            uid: grafanacloud-prom
+          description: ""
+          fill: 1
+          fillGradient: 0
+          gridPos:
+            h: 6
+            w: 8
+            x: 0
+            "y": 22
+          hiddenSeries: false
+          id: 42
+          legend:
+            avg: false
+            current: false
+            max: false
+            min: false
+            show: false
+            total: false
+            values: false
+          lines: true
+          linewidth: 1
+          links: []
+          nullPointMode: "null"
+          options:
+            alertThreshold: true
+          percentage: false
+          pluginVersion: 9.4.7
+          pointradius: 2
+          points: false
+          renderer: flot
+          seriesOverrides: []
+          spaceLength: 10
+          stack: false
+          steppedLine: false
+          targets:
+            - datasource:
+                type: prometheus
+                uid: grafanacloud-prom
+              expr: |-
+                rate(beacon_attestation_processing_apply_to_fork_choice_sum[5m])
+                /
+                rate(beacon_attestation_processing_apply_to_fork_choice_count[5m])
+              format: time_series
+              interval: ""
+              intervalFactor: 1
+              legendFormat: ""
+              refId: A
+          thresholds: []
+          timeRegions: []
+          title: Apply Attestation to Fork Choice
+          tooltip:
+            shared: true
+            sort: 0
+            value_type: individual
+          type: graph
+          xaxis:
+            mode: time
+            show: true
+            values: []
+          yaxes:
+            - format: s
+              logBase: 1
+              show: true
+            - format: short
+              logBase: 1
+              show: true
+          yaxis:
+            align: false
+        - aliasColors: {}
+          bars: false
+          dashLength: 10
+          dashes: false
+          datasource:
+            type: prometheus
+            uid: grafanacloud-prom
+          description: ""
+          fill: 1
+          fillGradient: 0
+          gridPos:
+            h: 6
+            w: 8
+            x: 8
+            "y": 22
+          hiddenSeries: false
+          id: 44
+          legend:
+            avg: false
+            current: false
+            max: false
+            min: false
+            show: false
+            total: false
+            values: false
+          lines: true
+          linewidth: 1
+          links: []
+          nullPointMode: "null"
+          options:
+            alertThreshold: true
+          percentage: false
+          pluginVersion: 9.4.7
+          pointradius: 2
+          points: false
+          renderer: flot
+          seriesOverrides: []
+          spaceLength: 10
+          stack: false
+          steppedLine: false
+          targets:
+            - datasource:
+                type: prometheus
+                uid: grafanacloud-prom
+              expr: |-
+                rate(beacon_attestation_processing_apply_to_agg_pool_sum[5m])
+                /
+                rate(beacon_attestation_processing_apply_to_agg_pool_count[5m])
+              format: time_series
+              interval: ""
+              intervalFactor: 1
+              legendFormat: ""
+              refId: A
+          thresholds: []
+          timeRegions: []
+          title: Apply Aggregate to Aggregation Pool
+          tooltip:
+            shared: true
+            sort: 0
+            value_type: individual
+          type: graph
+          xaxis:
+            mode: time
+            show: true
+            values: []
+          yaxes:
+            - $$hashKey: object:6569
+              format: s
+              logBase: 1
+              show: true
+            - $$hashKey: object:6570
+              format: short
+              logBase: 1
+              show: true
+          yaxis:
+            align: false
+        - aliasColors: {}
+          bars: false
+          dashLength: 10
+          dashes: false
+          datasource:
+            type: prometheus
+            uid: grafanacloud-prom
+          description: ""
+          fill: 1
+          fillGradient: 0
+          gridPos:
+            h: 6
+            w: 8
+            x: 16
+            "y": 22
+          hiddenSeries: false
+          id: 45
+          legend:
+            avg: false
+            current: false
+            max: false
+            min: false
+            show: false
+            total: false
+            values: false
+          lines: true
+          linewidth: 1
+          links: []
+          nullPointMode: "null"
+          options:
+            alertThreshold: true
+          percentage: false
+          pluginVersion: 9.4.7
+          pointradius: 2
+          points: false
+          renderer: flot
+          seriesOverrides: []
+          spaceLength: 10
+          stack: false
+          steppedLine: false
+          targets:
+            - datasource:
+                type: prometheus
+                uid: grafanacloud-prom
+              expr: |-
+                rate(beacon_attestation_processing_apply_to_op_pool_sum[5m])
+                /
+                rate(beacon_attestation_processing_apply_to_op_pool_count[5m])
+              format: time_series
+              interval: ""
+              intervalFactor: 1
+              legendFormat: ""
+              refId: A
+          thresholds: []
+          timeRegions: []
+          title: Apply Aggregate to Op Pool
+          tooltip:
+            shared: true
+            sort: 0
+            value_type: individual
+          type: graph
+          xaxis:
+            mode: time
+            show: true
+            values: []
+          yaxes:
+            - $$hashKey: object:6569
+              format: s
+              logBase: 1
+              show: true
+            - $$hashKey: object:6570
+              format: short
+              logBase: 1
+              show: true
+          yaxis:
+            align: false
+        - content: |4
+            ### Component Verification Times
+
+
+            Times to verify specific components of attestations
+          datasource:
+            type: prometheus
+            uid: grafanacloud-prom
+          fieldConfig:
+            defaults:
+                custom: {}
+            overrides: []
+          gridPos:
+            h: 2
+            w: 24
+            x: 0
+            "y": 28
+          id: 35
+          links: []
+          mode: markdown
+          options:
+            content: |4
+                ### Component Verification Times
+
+
+                Times to verify specific components of attestations
+            mode: markdown
+          pluginVersion: 7.1.0
+          targets:
+            - datasource:
+                type: prometheus
+                uid: grafanacloud-prom
+              refId: A
+          transparent: true
+          type: text
+        - aliasColors: {}
+          bars: false
+          dashLength: 10
+          dashes: false
+          datasource:
+            type: prometheus
+            uid: grafanacloud-prom
+          description: ""
+          fieldConfig:
+            defaults:
+                custom: {}
+            overrides: []
+          fill: 1
+          fillGradient: 0
+          gridPos:
+            h: 6
+            w: 6
+            x: 0
+            "y": 30
+          hiddenSeries: false
+          id: 22
+          legend:
+            avg: false
+            current: false
+            max: false
+            min: false
+            show: false
+            total: false
+            values: false
+          lines: true
+          linewidth: 1
+          links: []
+          nullPointMode: "null"
+          percentage: false
+          pluginVersion: 7.1.1
+          pointradius: 2
+          points: false
+          renderer: flot
+          seriesOverrides: []
+          spaceLength: 10
+          stack: false
+          steppedLine: false
+          targets:
+            - datasource:
+                type: prometheus
+                uid: grafanacloud-prom
+              expr: |-
+                rate(beacon_attestation_processing_signature_setup_seconds_sum[5m])
+                /
+                rate(beacon_attestation_processing_signature_setup_seconds_count[5m])
+              format: time_series
+              intervalFactor: 1
+              refId: A
+          thresholds: []
+          timeRegions: []
+          title: Attestation Signature Verification Setup Time
+          tooltip:
+            shared: true
+            sort: 0
+            value_type: individual
+          type: graph
+          xaxis:
+            mode: time
+            show: true
+            values: []
+          yaxes:
+            - format: s
+              logBase: 1
+              show: true
+            - format: short
+              logBase: 1
+              show: true
+          yaxis:
+            align: false
+        - aliasColors: {}
+          bars: false
+          dashLength: 10
+          dashes: false
+          datasource:
+            type: prometheus
+            uid: grafanacloud-prom
+          description: ""
+          fieldConfig:
+            defaults:
+                custom: {}
+            overrides: []
+          fill: 1
+          fillGradient: 0
+          gridPos:
+            h: 6
+            w: 6
+            x: 6
+            "y": 30
+          hiddenSeries: false
+          id: 34
+          legend:
+            avg: false
+            current: false
+            max: false
+            min: false
+            show: false
+            total: false
+            values: false
+          lines: true
+          linewidth: 1
+          links: []
+          nullPointMode: "null"
+          percentage: false
+          pluginVersion: 7.1.1
+          pointradius: 2
+          points: false
+          renderer: flot
+          seriesOverrides: []
+          spaceLength: 10
+          stack: false
+          steppedLine: false
+          targets:
+            - datasource:
+                type: prometheus
+                uid: grafanacloud-prom
+              expr: |-
+                rate(beacon_attestation_processing_signature_setup_seconds_sum[5m])
+                /
+                rate(beacon_attestation_processing_signature_setup_seconds_count[5m])
+              format: time_series
+              intervalFactor: 1
+              refId: A
+          thresholds: []
+          timeRegions: []
+          title: Attestation Signature Verification Setup Time
+          tooltip:
+            shared: true
+            sort: 0
+            value_type: individual
+          type: graph
+          xaxis:
+            mode: time
+            show: true
+            values: []
+          yaxes:
+            - format: s
+              logBase: 1
+              show: true
+            - format: short
+              logBase: 1
+              show: true
+          yaxis:
+            align: false
+        - aliasColors: {}
+          bars: false
+          dashLength: 10
+          dashes: false
+          datasource:
+            type: prometheus
+            uid: grafanacloud-prom
+          description: This is the time it takes to do just the BLS verification function (e.g., adding public keys, doing pairings, etc)
+          fieldConfig:
+            defaults:
+                custom: {}
+            overrides: []
+          fill: 1
+          fillGradient: 0
+          gridPos:
+            h: 6
+            w: 6
+            x: 12
+            "y": 30
+          hiddenSeries: false
+          id: 25
+          legend:
+            avg: false
+            current: false
+            max: false
+            min: false
+            show: false
+            total: false
+            values: false
+          lines: true
+          linewidth: 1
+          links: []
+          nullPointMode: "null"
+          percentage: false
+          pluginVersion: 7.1.1
+          pointradius: 2
+          points: false
+          renderer: flot
+          seriesOverrides: []
+          spaceLength: 10
+          stack: false
+          steppedLine: false
+          targets:
+            - datasource:
+                type: prometheus
+                uid: grafanacloud-prom
+              expr: |-
+                rate(beacon_attestation_processing_signature_seconds_sum[5m])
+                /
+                rate(beacon_attestation_processing_signature_seconds_count[5m])
+              format: time_series
+              intervalFactor: 1
+              refId: A
+          thresholds: []
+          timeRegions: []
+          title: Attestation Signature Verification Time
+          tooltip:
+            shared: true
+            sort: 0
+            value_type: individual
+          type: graph
+          xaxis:
+            mode: time
+            show: true
+            values: []
+          yaxes:
+            - format: s
+              logBase: 1
+              show: true
+            - format: short
+              logBase: 1
+              show: true
+          yaxis:
+            align: false
+        - aliasColors: {}
+          bars: false
+          dashLength: 10
+          dashes: false
+          datasource:
+            type: prometheus
+            uid: grafanacloud-prom
+          description: ""
+          fieldConfig:
+            defaults:
+                custom: {}
+            overrides: []
+          fill: 1
+          fillGradient: 0
+          gridPos:
+            h: 11
+            w: 6
+            x: 18
+            "y": 30
+          hiddenSeries: false
+          id: 46
+          legend:
+            avg: false
+            current: false
+            max: false
+            min: false
+            show: false
+            total: false
+            values: false
+          lines: true
+          linewidth: 1
+          links: []
+          nullPointMode: "null"
+          percentage: false
+          pluginVersion: 7.1.1
+          pointradius: 2
+          points: false
+          renderer: flot
+          seriesOverrides: []
+          spaceLength: 10
+          stack: false
+          steppedLine: false
+          targets:
+            - datasource:
+                type: prometheus
+                uid: grafanacloud-prom
+              expr: |-
+                rate(beacon_attestation_processing_agg_pool_aggregation_sum[5m])
+                /
+                rate(beacon_attestation_processing_agg_pool_aggregation_count[5m])
+              format: time_series
+              interval: ""
+              intervalFactor: 1
+              legendFormat: ""
+              refId: A
+          thresholds: []
+          timeRegions: []
+          title: Agg. Pool Signature Aggregation Time
+          tooltip:
+            shared: true
+            sort: 0
+            value_type: individual
+          type: graph
+          xaxis:
+            mode: time
+            show: true
+            values: []
+          yaxes:
+            - $$hashKey: object:6817
+              format: s
+              logBase: 1
+              show: true
+            - $$hashKey: object:6818
+              format: short
+              logBase: 1
+              show: true
+          yaxis:
+            align: false
+        - aliasColors: {}
+          bars: false
+          dashLength: 10
+          dashes: false
+          datasource:
+            type: prometheus
+            uid: grafanacloud-prom
+          description: ""
+          fieldConfig:
+            defaults:
+                custom: {}
+            overrides: []
+          fill: 1
+          fillGradient: 0
+          gridPos:
+            h: 5
+            w: 6
+            x: 0
+            "y": 36
+          hiddenSeries: false
+          id: 30
+          legend:
+            avg: false
+            current: false
+            max: false
+            min: false
+            show: false
+            total: false
+            values: false
+          lines: true
+          linewidth: 1
+          links: []
+          nullPointMode: "null"
+          percentage: false
+          pluginVersion: 7.1.1
+          pointradius: 2
+          points: false
+          renderer: flot
+          seriesOverrides: []
+          spaceLength: 10
+          stack: false
+          steppedLine: false
+          targets:
+            - datasource:
+                type: prometheus
+                uid: grafanacloud-prom
+              expr: |-
+                rate(beacon_attestation_processing_state_skip_seconds_sum[5m])
+                /
+                rate(beacon_attestation_processing_state_skip_seconds_count[5m])
+              format: time_series
+              intervalFactor: 1
+              refId: A
+          thresholds: []
+          timeRegions: []
+          title: Attestation State Skip Time
+          tooltip:
+            shared: true
+            sort: 0
+            value_type: individual
+          type: graph
+          xaxis:
+            mode: time
+            show: true
+            values: []
+          yaxes:
+            - format: s
+              logBase: 1
+              show: true
+            - format: short
+              logBase: 1
+              show: true
+          yaxis:
+            align: false
+        - aliasColors: {}
+          bars: false
+          dashLength: 10
+          dashes: false
+          datasource:
+            type: prometheus
+            uid: grafanacloud-prom
+          description: ""
+          fieldConfig:
+            defaults:
+                custom: {}
+            overrides: []
+          fill: 1
+          fillGradient: 0
+          gridPos:
+            h: 5
+            w: 6
+            x: 6
+            "y": 36
+          hiddenSeries: false
+          id: 23
+          legend:
+            avg: false
+            current: false
+            max: false
+            min: false
+            show: false
+            total: false
+            values: false
+          lines: true
+          linewidth: 1
+          links: []
+          nullPointMode: "null"
+          percentage: false
+          pluginVersion: 7.1.1
+          pointradius: 2
+          points: false
+          renderer: flot
+          seriesOverrides: []
+          spaceLength: 10
+          stack: false
+          steppedLine: false
+          targets:
+            - datasource:
+                type: prometheus
+                uid: grafanacloud-prom
+              expr: |-
+                rate(beacon_attestation_processing_state_read_seconds_sum[5m])
+                /
+                rate(beacon_attestation_processing_state_read_seconds_count[5m])
+              format: time_series
+              intervalFactor: 1
+              refId: A
+          thresholds: []
+          timeRegions: []
+          title: Attestation State Read Time
+          tooltip:
+            shared: true
+            sort: 0
+            value_type: individual
+          type: graph
+          xaxis:
+            mode: time
+            show: true
+            values: []
+          yaxes:
+            - format: s
+              logBase: 1
+              show: true
+            - format: short
+              logBase: 1
+              show: true
+          yaxis:
+            align: false
+        - aliasColors: {}
+          bars: false
+          dashLength: 10
+          dashes: false
+          datasource:
+            type: prometheus
+            uid: grafanacloud-prom
+          description: ""
+          fieldConfig:
+            defaults:
+                custom: {}
+            overrides: []
+          fill: 1
+          fillGradient: 0
+          gridPos:
+            h: 5
+            w: 6
+            x: 12
+            "y": 36
+          hiddenSeries: false
+          id: 29
+          legend:
+            avg: false
+            current: false
+            max: false
+            min: false
+            show: false
+            total: false
+            values: false
+          lines: true
+          linewidth: 1
+          links: []
+          nullPointMode: "null"
+          percentage: false
+          pluginVersion: 7.1.1
+          pointradius: 2
+          points: false
+          renderer: flot
+          seriesOverrides: []
+          spaceLength: 10
+          stack: false
+          steppedLine: false
+          targets:
+            - datasource:
+                type: prometheus
+                uid: grafanacloud-prom
+              expr: |-
+                rate(beacon_attestation_processing_committee_building_seconds_sum[5m])
+                /
+                rate(beacon_attestation_processing_committee_building_seconds_count[5m])
+              format: time_series
+              intervalFactor: 1
+              refId: A
+          thresholds: []
+          timeRegions: []
+          title: Attestation Committee Building Time
+          tooltip:
+            shared: true
+            sort: 0
+            value_type: individual
+          type: graph
+          xaxis:
+            mode: time
+            show: true
+            values: []
+          yaxes:
+            - format: s
+              logBase: 1
+              show: true
+            - format: short
+              logBase: 1
+              show: true
+          yaxis:
+            align: false
+        - content: |4
+            ### Cache Hits/Misses
+
+
+            Rates of success/failure when trying the shuffling cache.
+          datasource:
+            type: prometheus
+            uid: grafanacloud-prom
+          fieldConfig:
+            defaults:
+                custom: {}
+            overrides: []
+          gridPos:
+            h: 2
+            w: 24
+            x: 0
+            "y": 41
+          id: 33
+          links: []
+          mode: markdown
+          options:
+            content: |4
+                ### Cache Hits/Misses
+
+
+                Rates of success/failure when trying the shuffling cache.
+            mode: markdown
+          pluginVersion: 7.1.0
+          targets:
+            - datasource:
+                type: prometheus
+                uid: grafanacloud-prom
+              refId: A
+          transparent: true
+          type: text
+        - aliasColors: {}
+          bars: false
+          dashLength: 10
+          dashes: false
+          datasource:
+            type: prometheus
+            uid: grafanacloud-prom
+          description: ""
+          fieldConfig:
+            defaults:
+                custom: {}
+            overrides: []
+          fill: 1
+          fillGradient: 0
+          gridPos:
+            h: 6
+            w: 12
+            x: 0
+            "y": 43
+          hiddenSeries: false
+          id: 26
+          legend:
+            avg: false
+            current: false
+            max: false
+            min: false
+            show: false
+            total: false
+            values: false
+          lines: true
+          linewidth: 1
+          links: []
+          nullPointMode: "null"
+          percentage: false
+          pluginVersion: 7.1.1
+          pointradius: 2
+          points: false
+          renderer: flot
+          seriesOverrides: []
+          spaceLength: 10
+          stack: false
+          steppedLine: false
+          targets:
+            - datasource:
+                type: prometheus
+                uid: grafanacloud-prom
+              expr: increase(beacon_shuffling_cache_hits_total[1m])
+              format: time_series
+              interval: ""
+              intervalFactor: 1
+              legendFormat: ""
+              refId: A
+          thresholds: []
+          timeRegions: []
+          title: Shuffling Cache Hits per Minute
+          tooltip:
+            shared: true
+            sort: 0
+            value_type: individual
+          type: graph
+          xaxis:
+            mode: time
+            show: true
+            values: []
+          yaxes:
+            - $$hashKey: object:320
+              format: none
+              logBase: 1
+              show: true
+            - $$hashKey: object:321
+              format: short
+              logBase: 1
+              show: true
+          yaxis:
+            align: false
+        - aliasColors: {}
+          bars: false
+          dashLength: 10
+          dashes: false
+          datasource:
+            type: prometheus
+            uid: grafanacloud-prom
+          description: ""
+          fieldConfig:
+            defaults:
+                custom: {}
+            overrides: []
+          fill: 1
+          fillGradient: 0
+          gridPos:
+            h: 6
+            w: 12
+            x: 12
+            "y": 43
+          hiddenSeries: false
+          id: 27
+          legend:
+            avg: false
+            current: false
+            max: false
+            min: false
+            show: false
+            total: false
+            values: false
+          lines: true
+          linewidth: 1
+          links: []
+          nullPointMode: "null"
+          percentage: false
+          pluginVersion: 7.1.1
+          pointradius: 2
+          points: false
+          renderer: flot
+          seriesOverrides: []
+          spaceLength: 10
+          stack: false
+          steppedLine: false
+          targets:
+            - datasource:
+                type: prometheus
+                uid: grafanacloud-prom
+              expr: increase(beacon_shuffling_cache_misses_total[1m])
+              format: time_series
+              interval: ""
+              intervalFactor: 1
+              legendFormat: ""
+              refId: A
+          thresholds: []
+          timeRegions: []
+          title: Shuffling Cache Misses per Minute
+          tooltip:
+            shared: true
+            sort: 0
+            value_type: individual
+          type: graph
+          xaxis:
+            mode: time
+            show: true
+            values: []
+          yaxes:
+            - $$hashKey: object:268
+              format: none
+              logBase: 1
+              show: true
+            - $$hashKey: object:269
+              format: short
+              logBase: 1
+              show: true
+          yaxis:
+            align: false
+        - content: |4
+            ### Requests and Successes
+
+
+            Tracks the number of attestation processing requests and successes
+          datasource:
+            type: prometheus
+            uid: grafanacloud-prom
+          fieldConfig:
+            defaults:
+                custom: {}
+            overrides: []
+          gridPos:
+            h: 2
+            w: 24
+            x: 0
+            "y": 49
+          id: 18
+          links: []
+          mode: markdown
+          options:
+            content: |4
+                ### Requests and Successes
+
+
+                Tracks the number of attestation processing requests and successes
+            mode: markdown
+          pluginVersion: 7.1.0
+          targets:
+            - datasource:
+                type: prometheus
+                uid: grafanacloud-prom
+              refId: A
+          transparent: true
+          type: text
+        - aliasColors: {}
+          bars: false
+          dashLength: 10
+          dashes: false
+          datasource:
+            type: prometheus
+            uid: grafanacloud-prom
+          fieldConfig:
+            defaults:
+                custom: {}
+            overrides: []
+          fill: 1
+          fillGradient: 0
+          gridPos:
+            h: 5
+            w: 12
+            x: 0
+            "y": 51
+          hiddenSeries: false
+          id: 38
+          legend:
+            avg: false
+            current: false
+            max: false
+            min: false
+            show: false
+            total: false
+            values: false
+          lines: true
+          linewidth: 1
+          links: []
+          nullPointMode: "null"
+          percentage: false
+          pluginVersion: 7.1.1
+          pointradius: 2
+          points: false
+          renderer: flot
+          seriesOverrides: []
+          spaceLength: 10
+          stack: false
+          steppedLine: false
+          targets:
+            - datasource:
+                type: prometheus
+                uid: grafanacloud-prom
+              expr: increase(beacon_aggregated_attestation_processing_requests_total[1m])
+              format: time_series
+              interval: ""
+              intervalFactor: 1
+              legendFormat: ""
+              refId: A
+          thresholds: []
+          timeRegions: []
+          title: Aggregated Attn. Processed per Minute
+          tooltip:
+            shared: true
+            sort: 0
+            value_type: individual
+          type: graph
+          xaxis:
+            mode: time
+            show: true
+            values: []
+          yaxes:
+            - format: none
+              label: Attestations
+              logBase: 1
+              show: true
+            - format: short
+              logBase: 1
+              show: true
+          yaxis:
+            align: false
+        - aliasColors: {}
+          bars: false
+          dashLength: 10
+          dashes: false
+          datasource:
+            type: prometheus
+            uid: grafanacloud-prom
+          fieldConfig:
+            defaults:
+                custom: {}
+            overrides: []
+          fill: 1
+          fillGradient: 0
+          gridPos:
+            h: 5
+            w: 12
+            x: 12
+            "y": 51
+          hiddenSeries: false
+          id: 17
+          legend:
+            avg: false
+            current: false
+            max: false
+            min: false
+            show: false
+            total: false
+            values: false
+          lines: true
+          linewidth: 1
+          links: []
+          nullPointMode: "null"
+          percentage: false
+          pluginVersion: 7.1.1
+          pointradius: 2
+          points: false
+          renderer: flot
+          seriesOverrides: []
+          spaceLength: 10
+          stack: false
+          steppedLine: false
+          targets:
+            - datasource:
+                type: prometheus
+                uid: grafanacloud-prom
+              expr: increase(beacon_unaggregated_attestation_processing_requests_total[1m])
+              format: time_series
+              interval: ""
+              intervalFactor: 1
+              legendFormat: ""
+              refId: A
+          thresholds: []
+          timeRegions: []
+          title: Unaggregated Attn. Processed per Minute
+          tooltip:
+            shared: true
+            sort: 0
+            value_type: individual
+          type: graph
+          xaxis:
+            mode: time
+            show: true
+            values: []
+          yaxes:
+            - format: none
+              label: Attestations
+              logBase: 1
+              show: true
+            - format: short
+              logBase: 1
+              show: true
+          yaxis:
+            align: false
+        - aliasColors: {}
+          bars: false
+          dashLength: 10
+          dashes: false
+          datasource:
+            type: prometheus
+            uid: grafanacloud-prom
+          fieldConfig:
+            defaults:
+                custom: {}
+            overrides: []
+          fill: 1
+          fillGradient: 0
+          gridPos:
+            h: 5
+            w: 12
+            x: 0
+            "y": 56
+          hiddenSeries: false
+          id: 39
+          legend:
+            avg: false
+            current: false
+            max: false
+            min: false
+            show: false
+            total: false
+            values: false
+          lines: true
+          linewidth: 1
+          links: []
+          nullPointMode: "null"
+          percentage: false
+          pluginVersion: 7.1.1
+          pointradius: 2
+          points: false
+          renderer: flot
+          seriesOverrides: []
+          spaceLength: 10
+          stack: false
+          steppedLine: false
+          targets:
+            - datasource:
+                type: prometheus
+                uid: grafanacloud-prom
+              expr: beacon_aggregated_attestation_processing_successes_total / beacon_aggregated_attestation_processing_requests_total
+              format: time_series
+              interval: ""
+              intervalFactor: 1
+              legendFormat: ""
+              refId: A
+          thresholds: []
+          timeRegions: []
+          title: Aggregated Attn. Success Rate
+          tooltip:
+            shared: true
+            sort: 0
+            value_type: individual
+          type: graph
+          xaxis:
+            mode: time
+            show: true
+            values: []
+          yaxes:
+            - $$hashKey: object:4533
+              format: percentunit
+              label: Attestations
+              logBase: 1
+              show: true
+            - $$hashKey: object:4534
+              format: short
+              logBase: 1
+              show: true
+          yaxis:
+            align: false
+        - aliasColors: {}
+          bars: false
+          dashLength: 10
+          dashes: false
+          datasource:
+            type: prometheus
+            uid: grafanacloud-prom
+          fieldConfig:
+            defaults:
+                custom: {}
+            overrides: []
+          fill: 1
+          fillGradient: 0
+          gridPos:
+            h: 5
+            w: 12
+            x: 12
+            "y": 56
+          hiddenSeries: false
+          id: 37
+          legend:
+            avg: false
+            current: false
+            max: false
+            min: false
+            show: false
+            total: false
+            values: false
+          lines: true
+          linewidth: 1
+          links: []
+          nullPointMode: "null"
+          percentage: false
+          pluginVersion: 7.1.1
+          pointradius: 2
+          points: false
+          renderer: flot
+          seriesOverrides: []
+          spaceLength: 10
+          stack: false
+          steppedLine: false
+          targets:
+            - datasource:
+                type: prometheus
+                uid: grafanacloud-prom
+              expr: beacon_unaggregated_attestation_processing_successes_total / beacon_unaggregated_attestation_processing_requests_total
+              format: time_series
+              interval: ""
+              intervalFactor: 1
+              legendFormat: ""
+              refId: A
+          thresholds: []
+          timeRegions: []
+          title: Unaggregated Attn. Success Rate
+          tooltip:
+            shared: true
+            sort: 0
+            value_type: individual
+          type: graph
+          xaxis:
+            mode: time
+            show: true
+            values: []
+          yaxes:
+            - $$hashKey: object:4533
+              format: percentunit
+              label: Attestations
+              logBase: 1
+              show: true
+            - $$hashKey: object:4534
+              format: short
+              logBase: 1
+              show: true
+          yaxis:
+            align: false
+    refresh: 5s
+    revision: 1
+    schemaVersion: 38
+    style: dark
+    tags: []
+    templating:
+        list:
+            - current:
+                selected: false
+                text: eigenlayer-eks
+                value: eigenlayer-eks
+              definition: label_values(sync_peers_per_status, cluster)
+              hide: 0
+              includeAll: false
+              multi: false
+              name: cluster
+              options: []
+              query:
+                query: label_values(sync_peers_per_status, cluster)
+                refId: StandardVariableQuery
+              refresh: 1
+              regex: ""
+              skipUrlSync: false
+              sort: 0
+              type: query
+    time:
+        from: now-1h
+        to: now
+    timepicker:
+        refresh_intervals:
+            - 5s
+            - 10s
+            - 30s
+            - 1m
+            - 5m
+            - 15m
+            - 30m
+            - 1h
+            - 2h
+            - 1d
+        time_options:
+            - 5m
+            - 15m
+            - 1h
+            - 6h
+            - 12h
+            - 24h
+            - 2d
+            - 7d
+            - 30d
+    timezone: ""
+    title: Lighthouse Attestation Processing
+    uid: tQbhcDOGWk
+    weekStart: ""

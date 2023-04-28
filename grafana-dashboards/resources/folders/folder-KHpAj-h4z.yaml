@@ -1,0 +1,19 @@
+apiVersion: grizzly.grafana.com/v1alpha1
+kind: DashboardFolder
+metadata:
+    name: KHpAj-h4z
+spec:
+    canAdmin: true
+    canDelete: true
+    canEdit: true
+    canSave: true
+    created: "2023-01-11T19:34:56Z"
+    createdBy: Anonymous
+    hasAcl: false
+    id: 1
+    title: GrafanaCloud
+    uid: KHpAj-h4z
+    updated: "2023-04-27T22:14:58Z"
+    updatedBy: Anonymous
+    url: /dashboards/f/KHpAj-h4z/grafanacloud
+    version: 2

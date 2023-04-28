@@ -1,0 +1,19 @@
+apiVersion: grizzly.grafana.com/v1alpha1
+kind: DashboardFolder
+metadata:
+    name: YznIfhfVk
+spec:
+    canAdmin: true
+    canDelete: true
+    canEdit: true
+    canSave: true
+    created: "2023-03-25T07:50:34Z"
+    createdBy: dmanc
+    hasAcl: false
+    id: 133
+    title: _Eigenlayer
+    uid: YznIfhfVk
+    updated: "2023-04-27T22:15:00Z"
+    updatedBy: Anonymous
+    url: /dashboards/f/YznIfhfVk/eigenlayer
+    version: 4

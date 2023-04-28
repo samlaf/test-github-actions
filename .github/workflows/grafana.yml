@@ -48,6 +48,7 @@ jobs:
   pull-changes:
     needs: diff
     runs-on: ubuntu-latest
+    environment: grafana
     steps:
 
       - uses: actions/checkout@v3

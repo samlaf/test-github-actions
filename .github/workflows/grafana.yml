@@ -62,7 +62,9 @@ jobs:
         env:
           # GITHUB_TOKEN is automatically populated: https://docs.github.com/en/actions/security-guides/automatic-token-authentication
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: gh pr checkout ${{ github.event.pull_request.number }}
+        run: |
+          git branch
+          gh pr checkout ${{ github.event.pull_request.number }}
       
       - name: Install Grafana Grizzly CLI
         run: |
@@ -75,21 +77,21 @@ jobs:
           GRAFANA_TOKEN: ${{ secrets.GRAFANA_TOKEN }}
         run: grr pull -d grafana-dashboards/resources -t "Dashboard/*" -t "DashboardFolder/*"
 
-      # - name: Push changes
-      #   env:
-      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      #   # this doesn't seem to work
-      #   # TODO: switch to https://github.com/marketplace/actions/create-or-update-pull-request
-      #   run: |
-      #     git config --global user.email "github-actions[bot]@users.noreply.github.com"
-      #     git config --global user.name "github-actions[bot]"
-      #     git add grafana-dashboards/resources/*
-      #     git commit -m "GITHUB ACTION: committing grafana state"
-      #     git push
-
-      - uses: gr2m/create-or-update-pull-request-action@v1
+      - name: Push changes
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          branch: ${{ github.event.pull_request.number }}
-          author: "github-action <github@action.com>"
+        # this doesn't seem to work
+        # TODO: switch to https://github.com/marketplace/actions/create-or-update-pull-request
+        run: |
+          git config --global user.email "samlaf92@gmail.com"
+          git config --global user.name "Samuel Laferriere"
+          git add grafana-dashboards/resources/*
+          git commit -m "GITHUB ACTION: committing grafana state"
+          git push
+
+      # - uses: gr2m/create-or-update-pull-request-action@v1
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      #   with:
+      #     branch: ${{ github.event.pull_request.number }}
+      #     author: "github-action <github@action.com>"

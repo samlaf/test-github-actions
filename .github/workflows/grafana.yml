@@ -72,4 +72,10 @@ jobs:
           git add grafana-dashboards/resources/*
           git commit -m "GITHUB ACTION: committing grafana state"
           git push
+      
+      - uses: mshick/add-pr-comment@v2
+        with:
+          message: |
+            "🐐🐐🐐 **Pulled and committed current Grafana Dashboards' state.** 🐐🐐🐐"
+            "Look at the committed diff as a safety measure and feel free to merge when ready."
 

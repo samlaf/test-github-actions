@@ -13,7 +13,8 @@ on:
 
 
 jobs:
-  build:
+
+  diff:
     runs-on: ubuntu-latest
     steps:
     
@@ -31,6 +32,9 @@ jobs:
           chmod a+x "/usr/local/bin/grr"
 
       - name: Show diff between current PR and grafana state
+        env:
+          GRAFANA_URL: https://eigenlayer.grafana.net
+          GRAFANA_TOKEN: ${{ secrets.GRAFANA_TOKEN }}
         run: grr diff -d grafana-dashboards/resources
 
           

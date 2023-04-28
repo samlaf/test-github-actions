@@ -90,3 +90,6 @@ jobs:
       - uses: gr2m/create-or-update-pull-request-action@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          branch: ${{ github.event.pull_request.number }}
+          author: "github-action <github@action.com>"

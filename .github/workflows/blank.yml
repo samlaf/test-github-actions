@@ -23,4 +23,4 @@ jobs:
           git commit -m "Merged main branch on $(date +%F)"
       - name: Push the updated branch X
         run: |
-          git push origin main
+          git push

@@ -2,6 +2,9 @@ name: github-action random auto-commit
 on:
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   update:
     runs-on: ubuntu-20.04

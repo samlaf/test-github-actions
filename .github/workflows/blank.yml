@@ -17,7 +17,8 @@ jobs:
           git config user.name "Update branch"
           git config user.email github-actions@github.com
           echo $RANDOM > random.txt
-          git merge main --no-edit -m "Merged main branch on $(date +%F)"
+          git add random.txt
+          git commit -m "Merged main branch on $(date +%F)"
       - name: Push the updated branch X
         run: |
           git push origin main
